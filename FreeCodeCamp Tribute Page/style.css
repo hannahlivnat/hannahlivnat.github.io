@@ -1,0 +1,175 @@
+@import url(https://fonts.googleapis.com/css?family=PT+Sans|Ubuntu:300,400,700);
+* {
+  box-sizing: border-box;
+}
+body {
+  background-color: #708090;
+  font-family: 'Cairo', Helvetica, sans-serif;
+  font-size: 2vw;
+}
+h1 {
+  text-align: center;
+  font-size: 10vw;
+  font-family: 'Vibes', cursive;
+  line-height: 15px;
+  letter-spacing: 5px;
+  padding: 20px;
+  border-bottom: 1px solid white;
+}
+h2 {
+  text-align: center;
+  font-size: 5vw;
+  font-family: 'Vibes', cursive;
+  line-height: 20px;
+  letter-spacing: 3px;
+}
+img {
+  max-width: 100%;
+  display: block;
+  position: relative;
+  height: auto;
+  margin-right: auto;
+  margin-left: auto;
+}
+#img-caption {
+  margin-bottom: 30px;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+  max-width: 96%;
+}
+ul {
+  list-style: none;
+}
+/* The actual timeline (the vertical ruler) */
+.timeline {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.timeline::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  background-color: white;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -3px;
+}
+/* Container around content */
+.container {
+  padding: 10px 40px;
+  position: relative;
+  background-color: inherit;
+  width: 50%;
+}
+/* Place container to the left */
+.left {
+  left: -10px;
+}
+/* Place container to the right */
+.right {
+  left: 50%;
+}
+/* Add arrows to left container (pointing right) */
+.left::before {
+  content: " ";
+  height: 0;
+  position: absolute;
+  top: 22px;
+  width: 0;
+  z-index: 1;
+  right: 30px;
+  border: medium solid white;
+  border-width: 10px 0 10px 10px;
+  border-color: transparent transparent transparent white;
+}
+/* Add arrows to the right container (pointing left) */
+.right::before {
+  content: " ";
+  height: 0;
+  position: absolute;
+  top: 22px;
+  width: 0;
+  z-index: 1;
+  left: 30px;
+  border: medium solid white;
+  border-width: 10px 10px 10px 0;
+  border-color: transparent white transparent transparent;
+}
+/* Fix the circle for containers on the right side */
+.right::after {
+  left: -16px;
+}
+/* Content in Timeline */
+.content {
+  padding: 20px 30px;
+  background-color: white;
+  position: relative;
+  border-radius: 6px;
+}
+blockquote {
+  display: block;
+  border-width: 2px 0;
+  border-style: solid;
+  border-color: #eee;
+  padding: 1.5em 0 0.5em;
+  margin: 1.5em 0;
+  position: absolute;
+}
+blockquote:before {
+  content: '\201C';
+  position: absolute;
+  top: 0em;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #708090;
+  width: 3rem;
+  height: 2rem;
+  font: 6em/1.08em 'PT Sans', sans-serif;
+  color: #666;
+  text-align: center;
+}
+blockquote:after {
+  content: "\2013 \2003" attr(cite);
+  display: block;
+  text-align: right;
+  font-size: 0.875em;
+  color: black;
+}
+footer {
+  display: block;
+  position: relative;
+  top: 40vh;
+}
+@media only screen and (max-width: 700px) {
+  h1 {
+   line-height: 30px;
+   padding: 30px;
+   margin-top: 20px;
+   margin-bottom: 20px;
+  }
+  p {
+    font-size: 14px;
+  }
+  /* Place the timeline to the left */
+  .timeline::after {
+    left: 31px;
+  } 
+  /*Full-width containers */
+  .container {
+    width: 100%;
+    padding-left: 70px;
+    padding-right: 25px;
+  }
+  /* Make all right containers behave like left ones */
+  .right {
+    left: -2%;
+  }
+  .right::before {
+    border: transparent;
+  }
+}
+
+
