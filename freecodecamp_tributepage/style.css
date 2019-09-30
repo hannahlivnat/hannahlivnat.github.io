@@ -9,13 +9,15 @@ body {
 }
 h1 {
   text-align: center;
+  height: auto;
   font-size: 10vw;
   font-family: 'Vibes', cursive;
   line-height: 15px;
   letter-spacing: 5px;
   padding: 20px;
   border-bottom: 1px solid white;
-  margin-top: 20px;
+  margin: 0 auto;
+  margin-top: 60px;
 }
 h2 {
   text-align: center;
