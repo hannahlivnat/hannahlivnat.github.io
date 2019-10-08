@@ -1,0 +1,44 @@
+body,html {
+	height: 100%;
+}
+a {
+	float: right;
+	color: white;
+	text-decoration: none;
+	padding: 5px;
+}
+#logo {
+	float: left;
+}
+#abovethefold {
+	background-image: url("backgroundimage.jpg");
+	height: 100%;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	color: #FFFFFF;
+	}
+h1 {
+	text-align: center;
+	font-weight: 800;
+	font-size: 9.375em;
+	font-family: 'Acme', sans-serif;
+	}
+h2 {
+	text-align: center;
+	font-weight: 400;
+	font-size: 2.5em;
+	font-family: 'Acme', sans-serif;
+}
+
+@media only screen and (max-width: 700px) {
+	h1 {
+		font-size: 6.00em;
+		text-weight: 700;
+	}
+	h2 {
+		font-size: 1.5em;
+		font-weight: 200;
+	}
+
+}
