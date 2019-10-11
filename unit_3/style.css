@@ -1,34 +1,95 @@
 body,html {
-	height: 100%;
+	background: rgba(0,0,0,.6);
+	color: #F7F5FE;
+	margin: 0;
 }
-a {
-	float: right;
-	color: white;
-	text-decoration: none;
-	padding: 5px;
-}
-#logo {
-	float: left;
-}
+
 #abovethefold {
-	background-image: url("backgroundimage.jpg");
+	background-image: linear-gradient(
+		rgba(0, 0, 0, 0.5),
+		rgba(0, 0, 0, 0.5)
+		),
+		url("backgroundimage.jpg");
 	height: 100%;
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
-	color: #FFFFFF;
 	}
+
+nav {
+	height: 100%;
+	max-width: 100%;
+	margin: 0 auto;
+	padding: 0;
+	background: rgba(0,0,0,.6);
+	display: flex;
+}
+
+#logo {
+	max-width: 2em;
+	max-height: 2em;
+	border-radius: 50%;
+	padding: 5px;
+	display: inline-flex;
+	justify-content: flex-start;
+}
+
+#logo:hover {
+	background-color: #111;
+}
+
+ul {
+	list-style-type: none;
+	display: flex;
+	justify-content: flex-end;
+	align-content: center;
+	width: 50%;
+	padding: 20px;
+	justify-content: space-between;
+	flex-direction: row;
+	margin: 20px 10px 0 auto;
+	padding: 0;
+	overflow: hidden;
+}
+li {
+	display: inline-flex;
+	justify-content: space-between;
+}
+li a {
+	display: block;
+	text-decoration: none;
+	font-size: 1em;
+}
+li a:hover {
+	background-color: #111;
+}
+
+a {
+	font-size: 2em;
+	color: #F7F5FE;
+	text-decoration: none;
+	margin-top: 0;
+	padding: 0;
+	display: block;
+	font-family: 'Libre Baskerville', serif;
+}
+
 h1 {
 	text-align: center;
-	font-weight: 800;
+	font-weight: 700;
 	font-size: 9.375em;
-	font-family: 'Acme', sans-serif;
+	font-family: 'Libre Baskerville', serif;
+	margin-top: 0;
+	padding-top:100px;
+	color: #F7F5FE;
 	}
+
 h2 {
 	text-align: center;
-	font-weight: 400;
-	font-size: 2.5em;
-	font-family: 'Acme', sans-serif;
+	font-size: 2em;
+	color: #F7F5FE;
+	font-family: 'Libre Baskerville', serif;
+	padding: 25px;
 }
 
 @media only screen and (max-width: 700px) {
@@ -36,9 +97,15 @@ h2 {
 		font-size: 6.00em;
 		text-weight: 700;
 	}
+
 	h2 {
-		font-size: 1.5em;
+		font-size: 1.2em;
 		font-weight: 200;
 	}
-
+	
+	a {
+		font-size: 1.2em;
+		font-weight: 200;
+	}
 }
+
