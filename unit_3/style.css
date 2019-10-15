@@ -2,6 +2,7 @@ body,html {
 	background: rgba(0,0,0,.6);
 	color: #F7F5FE;
 	margin: 0;
+	box-sizing: border-box;
 }
 
 #abovethefold {
@@ -109,3 +110,40 @@ h2 {
 	}
 }
 
+.belowthefold {
+	padding: 50px 20px 20px 20px;
+	align-content: center;
+	display: inline-flex;
+	flex-flow: row wrap;
+	align-items: flex-start;
+	justify-content: center;
+	width: 95%;
+	margin: 0 auto;
+
+}
+.column1 {
+	flex: 1;
+	padding: 10px;
+	align-items: center;
+
+}
+
+.column2 {
+	flex: 1;
+	padding: 10px;
+	align-items: center;
+
+}
+
+.column3 {
+	flex: 1;
+	padding: 10px;
+	align-items: center;
+
+}
+.description {
+	max-width: 300px;
+	overflow-wrap: break-word;
+	text-align: center;
+	font-size: 1.2em;
+}
