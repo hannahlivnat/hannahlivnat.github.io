@@ -3,10 +3,9 @@ body,html {
 	margin: 0;
 	box-sizing: border-box;
 	height: 100%;
+	width: 100%;
 }
-body {
-	height: 100%;
-}
+
 .header {
 	background: rgba(0,0,0,.5);
 }
@@ -28,7 +27,7 @@ nav {
 }
 
 #logo:hover {
-	background-color: #111;
+	background-color: #008080;
 }
 
 ul {
@@ -51,24 +50,24 @@ li {
 li a {
 	display: block;
 	text-decoration: none;
-	font-size: 1em;
+	font-size: 2vw;
 }
 li a:hover {
-	background-color: #111;
+	color: #008080;
 }
 a {
-	font-size: 2em;
+	font-size: 2vw;
 	color: #F7F5FE;
 	text-decoration: none;
 	margin-top: 0;
 	padding: 0;
 	display: block;
-	font-family: 'Libre Baskerville', serif;
+	font-family: 'Work Sans', sans-serif;
 }
 #abovethefold {
 	background-image: linear-gradient(
-		rgba(0, 0, 0, 0.5),
-		rgba(0, 0, 0, 0.5)
+		rgba(0, 0, 0, 0.6),
+		rgba(0, 0, 0, 0.6)
 		),
 		url("lightbackgroundimage.jpg");
 	height: 100%;
@@ -80,36 +79,36 @@ a {
 	justify-content: center;
 	align-content: flex-end;
 	}
+#header {
+	max-height: 200vh;
+}
 h1 {
 	text-align: center;
 	font-weight: 700;
-	font-size: 5em;
-	font-family: 'Libre Baskerville', serif;
+	font-size: 13vw;
+	font-family: 'Josefin Slab', serif;
 	margin: 0 auto;
 	color: #FFFFFF;
 	flex: 1;
-	margin-top: 30%;
-
+	margin-top: 15%;
 	}
 
 h2 {
 	text-align: center;
-	font-size: 1em;
+	font-size: 3vw;
 	color: #FFFFFF;
-	font-family: 'Libre Baskerville', serif;
-	margin-top: 0;
+	font-family: 'Work Sans', sans-serif;
+	margin: 0 auto;
 	flex: 1;
 }
 
 @media only screen and (max-width: 700px) {
 	h1 {
-		font-size: 4.00em;
 		text-weight: 700;
 		margin-top: 60%;
 	}
 
 	h2 {
-		font-size: 1em;
 		font-weight: 200;
 	}
 	
@@ -119,71 +118,39 @@ h2 {
 	}
 }
 
-.belowthefold {
-	padding-top: 50px;
-	align-content: center;
+.aboutme {
+	background-image: linear-gradient( rgba(0,0,0,.5), rgba(0,0,0,.3)), url("prettybackground.jpg");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
 	display: flex;
-	flex-flow: row wrap;
-	align-items: flex-start;
-	justify-content: space-around;
+	flex-flow: column;
+	height: 100%;
+}
+.aboutme nav {
 	width: 100%;
+}
+.aboutme ul {
+	align-items: flex-end;
+	margin: auto;
+	padding-left: 80vw;
+}
+.aboutme h1 {
+	font-family: 'Josefin Slab', serif;
+	font-size: 10vw;
+	padding-top: 10vh;
 	margin: 0 auto;
-
+	color: #008080;
+	text-shadow: 2px 2px 4px #000000;
 }
-.column1 {
-	flex: 1;
-	padding: 2px;
-	padding-bottom:10px; 
+.aboutme p {
+	background: #008080;
+	opacity: .8;
+	max-width: 90%;
 	align-items: center;
-	max-width: 100%;
-	max-width: 400px;
-	height: auto;
-
-}
-
-.column2 {
-	flex: 1;
-	padding: 2px;
-	padding-bottom: 10px;
-	align-items: center;
-	max-width: 100%;
-	max-width: 400px;
-	height: auto;
-}
-
-.column3 {
-	flex: 1;
-	padding: 2px;
-	padding-bottom: 10px;
-	align-items: center;
-	max-width: 100%;
-	max-width: 400px;
-	height: auto;
-}
-p {
-	color: #000000;
-	background: black;
-	max-height: 500px;
-	max-height: 100px;
-}
-@media only screen and (max-width: 930px) {
-
-#belowthefold {
-	display: flex;
-	justify-content: space-between;
-}
-.column1 {
-	max-width: 100%;
-	max-width: 300px;
-	height: auto;
-}
-.column2 {
-	max-width: 100%;
-	max-width: 300px;
-	height: auto;
-}
-.column3 {
-	max-width: 100%;
-	max-width: 300px;
-	height: auto;
+	margin-left: 5vw;
+	margin-top: 5vw;
+	text-shadow: 2px 2px 4px #000000;
+	font-size: 2vw;
+	font-family: 'Josefin Slab', serif;
 }
