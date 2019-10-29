@@ -139,6 +139,8 @@ h2 {
 	z-index: 2;
 	position: fixed;
 	background: #E8C66A;
+	border: 1px black solid;
+    padding: 20px;
 }
 .wrapper ul {
 	align-items: flex-end;
@@ -163,6 +165,8 @@ header {
 	flex-direction: row;
 	justify-content: center;
 	align-content: center;
+	border: 1px black solid;
+    padding: 20px;
 }
 article {
 	background: #E89C6C;
@@ -172,6 +176,8 @@ article {
 	flex-direction: column;
 	justify-content: center;
 	align-content: center;
+	border: 1px black solid;
+    padding: 20px;
 }
 
 .wrapper h1 {
@@ -201,6 +207,8 @@ footer {
 	background: #FF957E;
 	height: 7vh;
 	width: 100%;
+	border: 1px black solid;
+    padding: 20px;
 }
 ol {
 	list-style: none;
