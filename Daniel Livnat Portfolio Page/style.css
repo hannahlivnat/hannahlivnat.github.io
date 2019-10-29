@@ -1,0 +1,88 @@
+body, html {
+	height: 100%
+	max-width: 100%;
+	margin: 0;
+	background: #f1f1f1;
+	font-size: 2vw;
+}
+nav {
+	padding: 0;
+	margin: 0 auto;
+	width: 100%;
+	background: rgba(117, 19, 93, .8)
+}
+nav ul {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0;
+	margin: 0 auto;
+	list-style: none;
+}
+img {
+	max-height: auto;
+	max-width: 6vw;
+	padding: 0;
+	border-radius: 50%;	
+	border: rgb(255,255,255) solid .5vw;
+}
+nav li a {
+	display: block;
+	text-decoration: none;
+	padding: 0 2vw;
+	color: rgb(255,255,255);
+}
+nav li a:hover {
+	cursor: pointer;
+	color: rgb(50,173,173);
+}
+.tabs {
+	display: flex;
+	color: rgb(0,0,0);
+	font-family: 'Karla', sans-serif;
+	font-size: 1vw;
+}
+header {
+	background: linear-gradient(rgba(245, 246, 252, 0.6), rgba(117, 19, 93, 0.6)), url('filmbackground.jpg');
+	background-position: center;
+	background-repeat: no-repeat;
+	height: 600px;
+	background-size: cover;
+	max-width: 100%;
+	margin: 0;
+	padding: 0;
+}
+.container {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	overflow: hidden;
+	text-align: center;
+	color: rgb(255,255,255);
+	font-weight: 700;
+	text-transform: uppercase;
+}
+
+h1 {
+	font-size: 4vw;
+	letter-spacing: 0.2vw;
+	text-shadow: rgb(F,F,F) 2vw;
+	font-family: 'Crete Round', serif;
+}
+
+.container h2 {
+	font-size: 2.5vw;
+	letter-spacing: 0.2vw;
+	font-family: 'Karla', sans-serif;
+}
+
+#clientlist {
+
+
+}
+
+
+.sectiontwo li {
+
+}
