@@ -137,7 +137,6 @@ h2 {
 	margin: 0 auto;
 	height: 7vh;
 	z-index: 2;
-	position: fixed;
 	background: #E8C66A;
 	border: 1px black solid;
     padding: 20px;
@@ -159,19 +158,8 @@ h2 {
 
 header {
 	background: #FFED74;
-	height: 100vh;
+	min-height: 100vh;
 	position: relative;
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	align-content: center;
-	border: 1px black solid;
-    padding: 20px;
-}
-article {
-	background: #E89C6C;
-	flex: 2;
-	padding: 5vh 2vw;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -179,18 +167,45 @@ article {
 	border: 1px black solid;
     padding: 20px;
 }
+article {
+	background: #E89C6C;
+	padding: 5vh 2vw;
+	display: flex;
+	flex-direction: row-reverse;
+	justify-content: center;
+	align-content: center;
+	border: 1px black solid;
+    padding: 20px;
+    overflow: none;
+}
+
+.image {
+	flex: 1;
+	overflow: none;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+	border-radius: 5%;
+	padding: 0;
+	margin: 0 auto;
+	object-fit: scale-down;
+}
 
 .wrapper h1 {
 	font-family: 'Josefin Slab', serif;
 	font-size: 10vw;
 	max-height: 20vh;
+	max-width: 100%;
 	margin: 0 auto;
-	padding: 1vw 1vh;
+	padding: 3vw;
 	color: #F8F8FF;
 	text-shadow: 2px 2px 4px #888888;
 	letter-spacing: .3vw;
 }
 .wrapper p {
+	flex: 1;
 	color: #F8F8FF;
 	margin: 0 auto;
 	padding: 2vw;
@@ -201,6 +216,16 @@ article {
 	letter-spacing: .1vw;
 	font-family: 'Work Sans', sans-serif;
 
+}
+
+.resume {
+	max-width: 100%;
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	background-color: #FFE2B8;
+    border: 1px black solid;
+    padding: 20px;
 }
 
 footer {
