@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>About Me</title>
+	<link href="https://fonts.googleapis.com/css?family=Mansalva" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Libre+Baskerville" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Josefin+Slab:700" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="reset.css">
+	<link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet">
+</head>
+<body>
+	<div class="aboutcontainer">
+	<header class="aboutpage">
+		<nav class="aboutnavigation">
+		<a href="index.html"><img src="hannahlivnat_logo.png" alt="logo" title="logo" id="logo" class="left"></a>
+		<ul>
+			<li><a href="#">Portfolio</a></li>
+			<li><a href="https://github.com/hannahlivnat/hannahlivnat.github.io">GitHub</a></li>
+			<li><a href="mailto:hannahlivnat@gmail.com">Email Me</a></li>
+		</ul>
+		</nav>
+		<h1>Hi, I'm Hannah.</h1>
+		
+		<article class="two_column">
+		<div class="image" class="right">	
+		<img src="hannahlivnat.png">
+		</div>
+		<div class="aboutmeparagraph" class="left">
+		<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.</p>
+		</div>
+		</article>
+	</header>
+
+	<section class="resume">
+		<h2>Take a Look at My Resume:</h2>
+		<iframe id="iframe" src="exampleresume.pdf" width="700" height="700"></iframe>
+		<button onclick="openFullscreen();"> Open Resume </button>
+	</section>
+
+	<footer> 
+		<ol>
+			<li><a href="#">HTML & CSS</a></li>
+			<li><a href="#">Javascript</a></li>
+			<li><a href="#">Python</a></li>
+		</ol>
+	 </footer>
+	<script>
+		/* Get the element you want displayed in fullscreen */
+		var elem = document.getElementbyId("iframe");
+		/* Function to open fullscreen mode */
+		function openFullscreen() {
+			if (elem.requestFullscreen) {
+				elem.requestFullscreen();
+			} else if 
+			(elem.mozRequestFullscreen) { 
+				/*Firefox */ 
+				elem.mozRequestFullscreen();
+			} else if 
+			(elem.webkitRequestFullscreen) { 
+				/* Chrome, Safari and Opera */
+    		elem.webkitRequestFullscreen();
+  			} else if (elem.msRequestFullscreen) { /* IE/Edge */
+    		elem.msRequestFullscreen();
+  			}
+		}
+	</script>
+
+	</div>
+</body>
