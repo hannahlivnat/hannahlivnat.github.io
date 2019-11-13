@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Word Of The Day</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link href="https://fonts.googleapis.com/css?family=Jomolhari" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+</head>
+<body>
+<nav>
+	<ul>
+		<li>What is Word of the Day?</li>
+		<li>Grab My Words</li>
+		<li>Word Look Up</li>
+	</ul>
+</nav>
+<header>
+	<h1>Customized Word of the Day</h1>
+	<h2>Want to choose your own word of the day? Enter your words below to receive customized word of the day emails or type in a word to learn about a single definition!</h2>
+</header>
+
+
+<form>
+	<h2>Sign Up for Weekly Word of the Day</h2>
+	<label>Your Email: </label><input type="text" name="email" required></input>
+	<br>
+	<label>Your Name: </label><input type="text" name="fullname" required>
+	<br>
+	<label>First Words to Learn (Choose 5 - 7 words, separate by commas): 
+	</label><input type="text" name="words" class="longinput" required>
+	<br>
+	<button class="weekbutton">Submit</button>
+</form>
+
+<div class="wordofday">
+<label>What word would you like to learn about today?:</label><br><input type="text" name="enterwords"><span>
+<button class="wordofdaybutton">Submit</button></span>
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>
