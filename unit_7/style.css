@@ -5,12 +5,17 @@
 	text-rendering: optimizeLegibility;
 }
 
+html {
+	font-size: 18px; 
+}
+
 body {
 	background: rgba(0,0,0,.6);	
-	font-size: 18px;
+	font-size: 1rem;
 	line-height: 1.5;
 	height: 100%;
 }
+
 
 nav {
 	background: rgba(0,0,0,.6);
@@ -81,7 +86,7 @@ li a:hover {
 	transform: translate(-50%, -50%);
 }
 
-h1 {
+.pagewrapper h1{	
 	font-weight: 500;
 	font-size: 12vw;
 	margin: 0 .5em;
@@ -89,13 +94,13 @@ h1 {
 	color: #FFFFFF;
 	}
 
-h2 {
+.pagewrapper h2 {
 	font-size: 3.5vw;
 	color: #FFFFFF;
 	font-family: 'Work Sans', sans-serif;
 }
 
-main {
+.pagewrapper main {
 	
 	background-color: #FFFFFF;
 	display: flex;
@@ -119,7 +124,7 @@ main {
 	align-content: center;
 }
 
-main h2 {
+.herotext h2, .Hi_image h2 {
 	font-family: 'Josefin Slab', serif;
 	font-size: 3.8vw;
 	color: #8a8f93;
@@ -136,7 +141,7 @@ main h2 {
 	height: auto;
 }
 
-p, li {
+.pagewrapper p, li {
 	font-size: 1.8vw;
 	color: #8a8f93;
 	text-shadow: .3px #8a8f93;
@@ -253,13 +258,13 @@ img {
 /* Resume Page */
 
 .resumepage {
-	background-color: rgb(F,F,F);
+	background: rgba(255, 255, 255, 1);
 	margin: 0;
 	padding: 0;
 	height: 100%
 }
 .resumepage nav {
-	height: 14vh;	
+	max-height: 12vh;	
 }
 
 .resumepage header {
@@ -272,8 +277,25 @@ img {
 }
 
 .resumepage main {
-	display: flex;
-	flex-direction: column;
-
+	display: block;
 }
+
+.resumepage h1 {
+	font-size: 5vw;
+	text-align: left;
+}
+
+.resumepage h2, p {
+	font-size: 2.5vw;
+	text-align: left;
+}
+
+iframe {
+	width: 80vw;
+	height: 100vh;
+	border: none;
+}
+
+
+
 
