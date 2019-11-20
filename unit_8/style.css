@@ -246,6 +246,12 @@ img {
 	#logo {
 		width: 7em;
 	}
+	.hero-image {
+	background-image: linear-gradient(
+		rgba(0, 0, 0, 0.7),
+		rgba(0, 0, 0, 0.5)),
+		url("plantimage.jpg");
+	}
 	.image {
 		width: 0%;
 	}
@@ -287,12 +293,7 @@ img {
 }
 
 @media only screen and (max-width: 430px) {
-	.hero-image {
-	background-image: linear-gradient(
-		rgba(0, 0, 0, 0.7),
-		rgba(0, 0, 0, 0.5)),
-		url("plantimage.jpg");
-	}
+
 	h1 {
 		font-size: 9em;
 	}
