@@ -278,8 +278,7 @@ img {
 	.hero-image {
 	background-image: linear-gradient(
 		rgba(0, 0, 0, 0.75),
-		rgba(0, 0, 0, 0.5)),
-		url("lightbackgroundimage.jpg");
+		rgba(0, 0, 0, 0.5)),;
 	}
 	li a {
 		font-size: 1em;
