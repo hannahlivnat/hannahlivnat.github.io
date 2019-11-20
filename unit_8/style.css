@@ -68,10 +68,10 @@ li a:hover {
 		rgba(0, 0, 0, 0.6)),
 		url("lightbackgroundimage.jpg");
 	height: 88vh;
-	background-position: center;
+	background-position: center center;
 	background-repeat: no-repeat;
 	background-size: cover;
-	position: relative;
+	background-attachment: fixed;
 	clear: both;
 	}
 
@@ -287,6 +287,12 @@ img {
 }
 
 @media only screen and (max-width: 430px) {
+	.hero-image {
+	background-image: linear-gradient(
+		rgba(0, 0, 0, 0.7),
+		rgba(0, 0, 0, 0.5)),
+		url("plantimage.jpg");
+	}
 	h1 {
 		font-size: 9em;
 	}
