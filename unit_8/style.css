@@ -251,6 +251,11 @@ img {
 		rgba(0, 0, 0, 0.7),
 		rgba(0, 0, 0, 0.5)),
 		url("plantimage.jpg");
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+	clear: both;
 	}
 	.image {
 		width: 0%;
@@ -363,7 +368,7 @@ img {
 .resumepage p {
 	color: #fff;
 	padding: 1%;
-	letter-spacing: .15em;
+	letter-spacing: .2em;
 }
 
 .resumepage main {
