@@ -247,14 +247,11 @@ img {
 		width: 7em;
 	}
 	.hero-image {
-	background-image: linear-gradient(
-		rgba(0, 0, 0, 0.7),
+	background: linear-gradient(
+		rgba(0, 0, 0, 0.75),
 		rgba(0, 0, 0, 0.5)),
-		url("plantimage.jpg");
-	background-position: center center;
-	background-repeat: no-repeat;
+		url("plantimage.jpg") no-repeat center center;
 	background-size: cover;
-	background-attachment: fixed;
 	clear: both;
 	}
 	.image {
@@ -283,7 +280,7 @@ img {
 	.hero-image {
 	background-image: linear-gradient(
 		rgba(0, 0, 0, 0.75),
-		rgba(0, 0, 0, 0.5)),;
+		rgba(0, 0, 0, 0.5));
 	}
 	li a {
 		font-size: 1em;
