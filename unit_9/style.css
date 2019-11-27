@@ -15,7 +15,6 @@ body {
 }
 
 header {
-	position: relative;
 	height: 88vh;
 }
 
@@ -382,10 +381,6 @@ img {
 		rgb(255, 255, 255),
 		rgb(255, 255, 255));
 	filter: brightness(100%);
-	height: auto;
-}
-
-header {
 	height: auto;
 }
 
