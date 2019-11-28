@@ -15,7 +15,7 @@ body {
 }
 
 header {
-	height: 88vh;
+	height: 100vh;
 }
 
 header::before {
@@ -24,7 +24,7 @@ header::before {
 	top: 0;
 	left: 0;
 	width: 100%;
-	height: 100%;
+	height: 100vh;
 	background: linear-gradient(
 		rgba(0, 0, 0, 0.6),
 		rgba(0, 0, 0, 0.6)),
@@ -36,22 +36,21 @@ header::before {
 	}
 
 nav {
-	background: rgb(0,0,0);
-	opacity: .9;
+	position: relative;
 	display: flex;
-	max-height: 10vh;
 	flex-direction: row;
 	align-items: center;
 	justify-content: space-between;
 }
 
 #logo {
-	width: 3.5em;
+	width: 3.6em;
 	height: auto;
 	border-radius: 50%;
 	padding: .3em;
 	margin-left: 1em;
 	float: left;
+	z-index: 1;
 }
 
 #logo:hover {
@@ -71,9 +70,9 @@ li {
 
 li a {
 	display: block;
-	font-family: 'Work Sans', sans-serif;
+	font-family: 'Dosis', sans-serif;
 	color: #F7F5FE;
-	font-size: 1em;
+	font-size: 1.1em;
 	padding: 0;
 	margin: 1em;
 	list-style: none;
@@ -83,28 +82,28 @@ li a:hover {
 	color: #008080;
 }
 
-
 .hero-text {
 	text-align: center;
 	position: relative;
 	width: 100%;
-	top: 60%;
+	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 }
 
 h1 {	
 	font-weight: 500;
-	font-size: 12vw;
+	font-size: 10vw;
 	margin: 0 .5em;
-	font-family: 'Josefin Slab', serif;
+	font-family: 'Cinzel', serif;
 	color: #FFFFFF;
 	}
 
 h2 {
 	font-size: 3vw;
+	font-weight: 300;
 	color: #FFFFFF;
-	font-family: 'Work Sans', sans-serif;
+	font-family: 'Dosis', sans-serif;
 }
 
 main {
@@ -129,7 +128,7 @@ main {
 }
 
 .Hi_image h2 {
-	font-family: 'Josefin Slab', serif;
+	font-family: 'Cinzel', serif;
 	font-size: 3em;
 	color: #8a8f93;
 	text-shadow: .3em #8a8f93;
@@ -149,7 +148,8 @@ p, li {
 	font-size: 1.2em;
 	color: #8a8f93;
 	text-shadow: .3em #8a8f93;
-	font-family: 'Work Sans', sans-serif;
+	font-family:'Dosis', sans-serif;
+	font-weight: 300;
 	margin: 1em 0;
 }
 
@@ -170,8 +170,16 @@ img {
 	max-width: 100%;
 }
 
+hr {
+	display: block;
+	margin: .5em 2em;
+	overflow: hidden;
+	border-style: inset;
+	border-width: .1em;
+}
+
 .SkillSection {
-	background: rgb(0,0,0);
+	background: rgb(255,255,255);
 }
 
 .skills {
@@ -179,12 +187,14 @@ img {
 	text-align: center;
 	width: 98%;
 	padding: 1%;
+	margin-bottom: 3%
 }
 
 .skills h2 {
 	text-align: center;
 	font-size: 5em;
-	font-family: 'Josefin Slab', serif;
+	font-family: 'Cinzel', serif;
+	color: #8a8f93;
 	text-shadow: .3em #fff;
 	padding-top: 10vh;
 }
@@ -197,14 +207,14 @@ img {
 }
 
 .skills li {
-	font-size: 1em;
+	font-size: 1.1em;
 	padding: 0 1em;
-	color: #fff;
+	color: #8a8f93;
 }
 
-@media only screen and (max-width: 1007px) {
+@media only screen and (max-width: 1040px) {
 	.hero-text {
-		top: 40%
+		top: 30%;
 	}
 	.intro {
 		width: 50%;
@@ -216,7 +226,7 @@ img {
 		margin-right: 1%;
 	}
 	.Hi_image h2 {
-		font-size: 2.8em;
+		font-size: 2.3em;
 	}
 	#birdpic {
 		width: 4.5em;
@@ -224,15 +234,10 @@ img {
 }
 
 @media only screen and (max-width: 850px) {
-	nav {
-		height: 10vh;
-	}
 	html {
 		font-size: 12px;
 	}
-	header::before {
-		height: 90vh;
-	}
+
 
 }
 
@@ -245,25 +250,6 @@ img {
 	}
 	.hero-text {
 		top: 30%;
-	}
-	.Hi_image h2 {
-		font-size: 2.5em;
-	}
-	#birdpic {
-		width: 4em;
-	}
-}
-
-@media only screen and (max-width: 600px) {
-	header::before {
-	background: linear-gradient(
-		rgba(0, 0, 0, 0.75),
-		rgba(0, 0, 0, 0.5)),
-		url(plantimage.jpg) no-repeat center center;
-	background-size: cover;
-	}
-	.hero-text {
-		top: 27%
 	}
 	.image {
 		width: 0%;
@@ -285,6 +271,19 @@ img {
 	#birdpic {
 	float: right;
 	width: 5em;
+	}
+}
+
+@media only screen and (max-width: 600px) {
+	header::before {
+	background: linear-gradient(
+		rgba(0, 0, 0, 0.75),
+		rgba(0, 0, 0, 0.5)),
+		url(plantimage.jpg) no-repeat center center;
+	background-size: cover;
+	}
+	.hero-text {
+		top: 27%
 	}
 	.skills h2 {
 		font-size: 4em;
@@ -321,45 +320,43 @@ img {
 /* Specific to Resume Page */
 
 .resumepage nav {
-	background: rgb(0,0,0);
-	opacity: 90%;
+	top: .5%;
 }
 
 .resumepage header::before {
 	background-image: linear-gradient(
 		rgba(0, 0, 0, 0.5),
-		rgba(0, 0, 0, 0.7)), url('backgroundimage.jpg');
+		rgba(0, 0, 0, 0.5)), url('backgroundimage.jpg');
 	height: 100vh;
 }
 
 .resumepage .hero-text {
-	top: 50%;
+	top: 40%;
 }
 
 .resumepage h1 {
 	font-size: 10vw;
 }
 
-.hero-text p {
-	font-size: 1.5em;
+.resumepage .hero-text p {
+	color: #FFF;
+	font-size: 1.3em;
 	padding: 2%;
 }
 
 .resumepage h2 {
-	color: #FFF;
+	color: 	#8a8f93;
 	letter-spacing: .2em;
 }
 
 .resumepage p {
-	color: #fff;
+	color: #8a8f93;
 	padding: 1%;
 	letter-spacing: .2em;
 }
 
 .resumepage main {
-	background-image: linear-gradient(
-		rgba(0, 0, 0, .9),
-		rgba(0, 0, 0, .9));
+	background: rgb(255,255,255);
 }
 
 .resumepage .Hi_image {
@@ -374,73 +371,87 @@ img {
 	padding: 5%;
 }
 
-/* Blog Page */
+/* Contact Page */
 
-.blogpage header::before {
+.contactpage header::before {
 	background-image: linear-gradient(
-		rgb(255, 255, 255),
+		rgba(0, 0, 0, .5),
 		rgb(255, 255, 255));
-	filter: brightness(100%);
+	filter: brightness(80%);
+	height: auto;
+}
+.contactpage nav {
+	background: linear-gradient( rgba(255, 255, 255, .8), rgba(255, 255, 255, .8))
+}
+
+.contactpage header {
 	height: auto;
 }
 
-.bloghero-text {
+.contactpage li a {
+	color: #000;
+}
+
+.contactpage li a:hover {
+	color: #008080;
+}
+
+.contacthero-text {
 	height: auto;
-	margin: auto 0;
+	margin: 0 auto;
 	padding: 0;
 	display: flex;
 	justify-content: center;
 }
 
-.blogpage h1 {	
-	font-size: 10vw;
-	color: rgb(0,0,0);
-	top: 10%;
-	margin: 0;
+.contactimage {
+	background-image: url("prettybackground.jpg");
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 125vh;
+}
+
+.contactpage main {
+	background: rgba(255, 255, 255, 1);
+	border: 1px solid #ccc;
+	margin: auto;
+	margin-top: 10%;
+	height: 50vh;
+	width: 70%;
+	z-index: 1;
 	padding: 0;
-	float: center;
 }
 
-.blogpage nav {
-	background: rgb(255,255,255);
-	outline: solid rgb(0,0,0) 1px;
-	display: flex;
-	justify-content: center;
-	align-content: center;
-	padding-bottom: 0;
-	margin-bottom: 0;
-}
-
-.blogpage #logo {
-	margin-top: 40%;
-	padding: .2em;
-}
-
-.blogpage li a {
-	color: rgb(0,0,0);
-	margin-left: 4em;
-	margin-right: 4em;
-}
-
-.blogpage main {
-	width: 78%;
-	height: 100vh;
-	margin: 0 1% 0 1%;
-	padding: 0;
-	border: solid 3px #000;
-	float: left;
+form {
+	width: 90%;
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
+	align-content: center;
 }
 
-.blogpage h2 {
-	color: rgb(0,0,0);
+input {
+	height: 2em;
+	margin: 1em;
+	text-align: center;
 }
-.blogpage aside {
-	width: 18%;
-	height: 100vh;
-	margin: 0 1% 0 1%;
-	border: solid 3px #000;
-	float: right;
+
+#message {
+	height: 5em;
 }
+
+input:focus {
+	border-color: #008080;
+}
+
+input[type=submit] {
+	background-color: #008080;
+	color: white;
+	border-radius: 20%;
+	width: 4.5em;
+	height: 2.5em;
+	margin: 0 auto;
+}
+
+
+
