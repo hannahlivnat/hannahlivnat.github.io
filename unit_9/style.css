@@ -107,7 +107,7 @@ h2 {
 }
 
 main {
-	background-color: #FFFFFF;
+	background-color: #fffafa;
 	display: flex;
 	justify-content: center;
 	align-content: center;
@@ -179,7 +179,7 @@ hr {
 }
 
 .SkillSection {
-	background: rgb(255,255,255);
+	background: #fffafa;
 }
 
 .skills {
@@ -207,7 +207,7 @@ hr {
 }
 
 .skills li {
-	font-size: 1.1em;
+	font-size: 1.5em;
 	padding: 0 1em;
 	color: #8a8f93;
 }
@@ -288,6 +288,10 @@ hr {
 	.skills h2 {
 		font-size: 4em;
 	}
+
+	.skills li {
+		font-size: 1.2em;
+	}
 }
 
 @media only screen and (max-width: 400px) {
@@ -305,6 +309,7 @@ hr {
 	}
 	.skills li {
 		padding: 0;
+		font-size: 1em;
 	}
 }
 
