@@ -1,0 +1,393 @@
+@import url("https://fonts.googleapis.com/css?family=Cinzel:400,700|Raleway:400,500");
+@import url("https://fonts.googleapis.com/css?family=Merriweather:400,900");
+html, body {
+  height: 100%;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+header {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  overflow: hidden;
+}
+
+header .header-image {
+  -o-object-fit: fill;
+     object-fit: fill;
+  width: 100%;
+  height: 100%;
+  display: block;
+  z-index: 0;
+  -webkit-filter: opacity(80%) brightness(30%);
+          filter: opacity(80%) brightness(30%);
+}
+
+header nav {
+  position: absolute;
+  background-color: #1a1a1a;
+  width: 100%;
+  top: 0;
+  left: 0;
+  padding: 1em 0;
+  line-height: 2.5em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+header nav #logo {
+  width: 6vw;
+  height: auto;
+  border-radius: 50%;
+  z-index: 1;
+  border: 3px solid #57805c;
+  margin: 0 0 0 1em;
+}
+
+header nav #logo:hover {
+  cursor: auto;
+}
+
+header nav a {
+  text-decoration: none;
+  color: #ffffff;
+  font-family: Raleway, sans-serif;
+  font-size: 1em;
+  margin: 0 1em 0 1em;
+}
+
+header nav a:hover {
+  border: #57805c solid 2px;
+  padding: .1em;
+  cursor: pointer;
+}
+
+header nav a:active {
+  border: none;
+}
+
+header .hero-text {
+  z-index: 1;
+  position: absolute;
+  top: 20vh;
+  width: 100%;
+  padding: 5em 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+header .hero-text h1 {
+  font-size: 10vw;
+  font-weight: 700;
+  letter-spacing: .1em;
+  font-family: "Merriweather", serif;
+  color: #ffffff;
+  z-index: 1;
+  margin-bottom: 0;
+}
+
+header .hero-text h2 {
+  font-size: 4vw;
+  letter-spacing: .03em;
+  font-family: Raleway, sans-serif;
+  font-weight: 400;
+  color: #ffffff;
+  z-index: 1;
+  text-align: center;
+}
+
+.languagessection {
+  width: 90%;
+  margin: auto;
+  padding: 1em 0 3em 0;
+}
+
+.languagessection .languages-heading {
+  margin: 2em 0 0 0;
+  font-size: 6vw;
+  font-weight: 700;
+  letter-spacing: .05em;
+  font-family: "Merriweather", serif;
+  color: #008080;
+  text-align: center;
+}
+
+.languagessection h3 {
+  font-size: 3.5vw;
+  font-family: Raleway, sans-serif;
+  font-weight: 400;
+  color: #7e7d7d;
+  z-index: 1;
+  text-align: center;
+  word-spacing: .5em;
+  word-wrap: break-word;
+}
+
+hr {
+  width: 90%;
+  margin: auto;
+  background-color: #cdcdc5;
+  height: 2px;
+}
+
+.projects {
+  width: 90%;
+  margin: auto;
+  padding: 2em 0 3em 0;
+}
+
+.projects h2 {
+  margin: 2em 0 0 0;
+  font-size: 6vw;
+  font-weight: 700;
+  letter-spacing: .05em;
+  font-family: "Merriweather", serif;
+  color: #008080;
+  text-align: center;
+}
+
+.projects ul {
+  list-style-type: none;
+  padding: 0 0 2em 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+.projects ul li {
+  margin: 1em 0 0 0;
+  font-size: 3vw;
+  font-weight: 400;
+  letter-spacing: .05em;
+  font-family: Raleway, sans-serif;
+  text-align: center;
+  color: #7e7d7d;
+  -webkit-box-shadow: 0 1px 0 0 #57805c;
+          box-shadow: 0 1px 0 0 #57805c;
+}
+
+.projects ul li:hover {
+  -webkit-box-shadow: 0 3px 0 0 #57805c;
+          box-shadow: 0 3px 0 0 #57805c;
+}
+
+.projects ul li:active {
+  -webkit-box-shadow: 0 1px 0 0 #57805c;
+          box-shadow: 0 1px 0 0 #57805c;
+  margin-bottom: -2px;
+}
+
+.projects .project-boxes {
+  width: 100%;
+  padding: 1%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.projects .project-boxes .card {
+  color: white;
+  background-color: #7e7d7d;
+  padding: .5em;
+  margin: .3em;
+  -ms-flex-preferred-size: 80%;
+      flex-basis: 80%;
+  height: auto;
+  text-align: center;
+  position: relative;
+}
+
+.projects .project-boxes .card:after {
+  content: " ";
+  display: block;
+  padding-bottom: 100%;
+}
+
+.projects .project-boxes .card .content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.background {
+  width: 85%;
+  margin: 4em auto;
+  border: 1em solid #cdcdc5;
+}
+
+.background h2 {
+  width: 80%;
+  margin: 2em auto;
+  font-size: 6vw;
+  font-weight: 700;
+  letter-spacing: .05em;
+  font-family: "Merriweather", serif;
+  color: #008080;
+  text-align: center;
+}
+
+.background img {
+  margin: 0;
+  display: block;
+  width: 100%;
+}
+
+.background p {
+  width: 80%;
+  margin: 1em auto;
+  font-size: 4vw;
+  color: #7e7d7d;
+  text-align: left;
+  line-height: 5vh;
+  font-family: Raleway, sans-serif;
+}
+
+.background .experiencep {
+  font-size: 2vw;
+  text-align: center;
+}
+
+.resume-section {
+  width: 90%;
+  margin: 2em auto;
+}
+
+.resume-section .Hi_image {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+}
+
+.resume-section .Hi_image h2 {
+  margin: 1em 0;
+  padding: 0;
+  font-size: 6vw;
+  font-weight: 700;
+  letter-spacing: .05em;
+  font-family: "Merriweather", serif;
+  color: #008080;
+  text-align: center;
+}
+
+.resume-section .Hi_image .birdpic {
+  width: 5em;
+  display: inline-block;
+}
+
+.resume-section p {
+  width: 80%;
+  margin: .7em auto;
+  font-size: 3vw;
+  line-height: 3vh;
+  color: #7e7d7d;
+  text-align: left;
+  font-family: Raleway, sans-serif;
+}
+
+footer {
+  position: relative;
+  bottom: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  padding: 2em 0 .5em 0;
+  width: 100%;
+  height: auto;
+}
+
+footer a {
+  border-radius: 50%;
+  left: 6vw;
+  position: relative;
+  width: 6vw;
+  margin: 0 2em;
+  text-decoration: none;
+  color: #7e7d7d;
+}
+
+footer a:hover {
+  cursor: pointer;
+}
+
+footer .credit-tag {
+  width: 20%;
+  text-align: right;
+  margin-top: 10px;
+}
+
+footer .social-icons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 60%;
+}
+
+footer img {
+  width: 100%;
+}
+/*# sourceMappingURL=style.css.map */
