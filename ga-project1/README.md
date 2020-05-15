@@ -70,11 +70,12 @@ SCHEDULE
         key/value pairs to use selected
     Day 1: 
         Morning (before 1 pm):
-            Log data and key/value pairs to make sure API works
             Finish reading API documentation
             Create schedule for day 1-5
             HTML - complete all divs, sections, etc.
+            pseudo code out js file for mvp elements needed. 
         Afternoon: (Before 6 pm)
+            Log data and key/value pairs to make sure API works
             CSS - position elements on page for mobile site (no other styling today)
             JS - Be able to collect id, def, and examples and display it on the page.
                - When new word is search for, old values will be replaced with new word's values
