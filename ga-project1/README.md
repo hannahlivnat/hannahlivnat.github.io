@@ -1,5 +1,5 @@
 
-                        BEGINNING OF PROJECT PLAN
+                                                                BEGINNING OF PROJECT PLAN
 
 API USED - MERRIAM WEBSTER COLLEGIATE DICTIONARY API
     Data Features: Definitions, Synonym and Usage paragraphs, possibly illustrations once past mvp. 
@@ -39,20 +39,89 @@ retrieved into DOM
     I will insert a limit that they can only create five flash cards 
     at a time. 
 
-PAST MVP PLANS
+4) Page is responsive. 
 
--   Once I reach the MVP, I will try to add a drag 
-    and drop feature - the user can drag the word over to the 'word
+    I'll be using mobile first design practices and use media queries to adjust
+    page for desktop viewing by day 2 / 3. 
+
+PAST-MVP PLANS
+
+-   Add a drag and drop feature - the user can drag the word over to the 'word
     list' section in order to trigger flash card creation. Limit 
     will be increased to ten flash cards. 
 -   Add pulling of illustrations to the site from API
 -   Try to add local storage for word list and flash cards so that 
     user can keep their previous cards on the site and load 5-10 
     new ones each day. 
+-   super bonus that probably won't happen: user can input their email and 
+    have a flash card email sent to them using the words that they added
+    to their list.
+
+SCHEDULE
+
+    Project is Due - Tuesday Evening. 
+    Project Time Period - 5 Days
+
+    Daily Project Plan: 
+    Already Completed: 
+        Pre-Project Wireframe, user stories, etc.
+        API selected, have key
+        presentation approved
+        key/value pairs to use selected
+    Day 1: 
+        Morning (before 1 pm):
+            Log data and key/value pairs to make sure API works
+            Finish reading API documentation
+            Create schedule for day 1-5
+            HTML - complete all divs, sections, etc.
+        Afternoon: (Before 6 pm)
+            CSS - position elements on page for mobile site (no other styling today)
+            JS - Be able to collect id, def, and examples and display it on the page.
+               - When new word is search for, old values will be replaced with new word's values
+               - Add limits to how many words can be added to list per day (don't overshoot api limit - 1000)
+    Day 2: 
+        Flash card functionality complete
+            -add event listener to word. When word is clicked on, the word will be appended under the word list section and the word and definition will be 
+            appended to a newly created flashcard. A
+            -add event listener to flash card. When clicked, flash card will hide word and show definition. 
+            -If there is more than one flash card, display in row for now
+        CSS - add positioning for responsive desktop site using media queries
+    Day 3: 
+        Carousel Feature : 
+            - Hide all flash cards but one in the flash card section. 
+            - When next button is clicked on flash card sections, event listener checks if there 
+              is more than one flash card. If only one flashcard, nothing happens. If multiple flashcards, 
+              next card will be displayed using carousel. 
+        CSS - style carousel section for mobile and desktop. Finish making layout responsive for desktop.
+        Add drag and drop feature :
+            - when user clicks on word, they are able to drag word and drop it into word list. 
+            When word is dropped into word list, a flash card is made for that word. 
+    Day 4: 
+        Local Storage functionality added
+            - when user adds word to word list, it will save to local storage
+            - previously created flash cards will load automatically for viewer upon opening page.
+        Add illustrations to api pull and display on page
+        Get started on more in-depth styling
+            - Develop color scheme and font
+            - find icons for buttons on carousel
+            - get nit picky with margins/padding/position
+    Day 5: 
+        Finish Styling Page
+        Add flipping feature to flash card 
+            - instead of hiding and showing on same page,
+            make flipping animation using key frames then show definition. 
+        Read Over and Edit Final Code: 
+            - Make code more DRY 
+            - Make repeated font-sizes, colors, etc. into variables in sass
+            - Test functionality of each feature
+        Practice Presentation : 
+            - 5 minute presentations planned and practiced
+            - create bullet point outline to present -- features, tech details, challenges, future improvements. 
 
 
 
-                        FINAL PROJECT README
+
+                                                                    FINAL PROJECT README
 
 EXPLANATION OF TECHNOLOGY USED
 
@@ -60,9 +129,7 @@ EXPLANATION OF TECHNOLOGY USED
 DESCRIPTION OF APPROACH TO PROJECT
 
 
-LINK TO LIVE SITE 
-
-hannahlivnat.github.io/ga-project1
+LINK TO LIVE SITE  : hannahlivnat.github.io/ga-project1
 
 INSTALLATION INSTRUCTIONS
 
