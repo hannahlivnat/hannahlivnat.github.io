@@ -56,6 +56,9 @@ PAST-MVP PLANS
 -   super bonus that probably won't happen: user can input their email and 
     have a flash card email sent to them using the words that they added
     to their list.
+-   Another super bonus : add additional api that pulls in a word of the day and 
+    display that as the default before a user searches for a word. add functionality
+    to let user add the word of the day to their practice list
 
 SCHEDULE
 
@@ -64,16 +67,16 @@ SCHEDULE
 
     Daily Project Plan: 
     Already Completed: 
-        Pre-Project Wireframe, user stories, etc.
-        API selected, have key
-        presentation approved
-        key/value pairs to use selected
+        x Pre-Project Wireframe, user stories, etc. 
+        x API selected, have key
+        x presentation approved
+        x key/value pairs to use selected
     Day 1: 
         Morning (before 1 pm):
-            Finish reading API documentation
-            Create schedule for day 1-5
-            HTML - complete all divs, sections, etc.
-            pseudo code out js file for mvp elements needed. 
+            x Finish reading API documentation
+            x Create schedule for day 1-5
+            x HTML - complete all divs, sections, etc.
+            x pseudo code out js file for mvp elements needed. 
         Afternoon: (Before 6 pm)
             Log data and key/value pairs to make sure API works
             CSS - position elements on page for mobile site (no other styling today)
