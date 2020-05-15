@@ -1,5 +1,5 @@
 
-                                                                BEGINNING OF PROJECT PLAN
+BEGINNING OF PROJECT PLAN
 
 API USED - MERRIAM WEBSTER COLLEGIATE DICTIONARY API
     Data Features: Definitions, Synonym and Usage paragraphs, possibly illustrations once past mvp. 
@@ -121,7 +121,7 @@ SCHEDULE
 
 
 
-                                                                    FINAL PROJECT README
+FINAL PROJECT README
 
 EXPLANATION OF TECHNOLOGY USED
 
