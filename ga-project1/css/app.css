@@ -3,6 +3,10 @@ body {
   margin: 0;
   padding: 0;
   background-color: whitesmoke;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: [first];
+      grid-template-rows: [first];
 }
 
 header {
@@ -139,22 +143,21 @@ header button:active {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  overflow: hidden;
 }
 
-.main .flashcard-section .flashcard {
+.main .flashcard-section .flashcards {
   width: 80%;
   min-width: 200px;
-  height: 50%;
+  height: 100%;
   min-height: 150px;
   margin: auto;
+}
+
+.main .flashcard-section .flashcards .flashcard {
   background-color: #E0E7FF;
   color: #4A5680;
   border: 2px solid #707480;
   padding: 1vh 1vw;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -165,6 +168,16 @@ header button:active {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.main .flashcard-section .flashcards .flashcard {
+  display: none;
+}
+
+.main .flashcard-section .flashcards .flashcard:first-of-type {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 footer {

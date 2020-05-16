@@ -17,6 +17,9 @@ body {
     margin: 0;
     padding: 0; 
     background-color: whitesmoke;
+    display: grid;
+    grid-template-rows: [first]
+
 }
 
 
@@ -116,23 +119,31 @@ header {
         display: flex;
         flex-direction: row;
         align-items: center;
-        overflow: hidden;
 
-
-        .flashcard {
+        .flashcards {
             width: 80%;
             min-width: 200px;
-            height: 50%;
+            height: 100%;
             min-height: 150px;
             margin: auto;
+
+            .flashcard {
             background-color: $lighest-blue;
             color: $darkest-blue;
             border: 2px solid $grey; 
             padding: 1vh 1vw;
-            display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            }
+
+            .flashcard {
+                display: none;
+            }
+            
+            .flashcard:first-of-type {
+                display: flex;
+            }
         }
     }
 }

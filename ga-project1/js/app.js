@@ -16,6 +16,7 @@ $(() => {
 
             //word that user searced for in input
             let wordSearched = $(event.target).val();
+            $(event.target).val(" ");
     
             // =======================================
             // API Request Made to Merriam Webster API
@@ -71,7 +72,7 @@ $(() => {
                 
                 $('#vocabularyWord').on('click', (event) => {
                     const $flashcarddiv = $('<div>').addClass('flashcard');
-                    $('#prev').after($flashcarddiv);
+                    $('.flashcards').append($flashcarddiv);
                     const word =  $(event.target).text();
                     const $definitions = $(event.target).next();
                     const $li = $('<li>').text(word);

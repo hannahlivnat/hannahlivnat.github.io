@@ -84,9 +84,9 @@ SCHEDULE
                - When new word is search for, old values will be replaced with new word's values
     Day 2: 
         Flash card functionality complete
-            -add event listener to word. When word is clicked on, the word will be appended under the word list section and the word and definition will be 
+           x -add event listener to word. When word is clicked on, the word will be appended under the word list section and the word and definition will be 
             appended to a newly created flashcard. A
-            -add event listener to flash card. When clicked, flash card will hide word and show definition. 
+           x -add event listener to flash card. When clicked, flash card will hide word and show definition. 
             -If there is more than one flash card, display in row for now
         CSS - add positioning for responsive desktop site using media queries
     Day 3: 
