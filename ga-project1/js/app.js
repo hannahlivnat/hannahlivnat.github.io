@@ -17,18 +17,23 @@ $(() => {
   let currentFlashcardIndex = 0;
 
   $(".flashcard-button").on("click", (event) => {
-    if ($(".flashcard").length === 0) {
-        return;
+    if ($(".flashcards").children().length === 0) {
+      return;
     } else {
-        $(".flashcards").children().eq(currentFlashcardIndex).css('display', 'none');
-        if (currentFlashcardIndex < $(".flashcard").length) {
-            currentFlashcardIndex ++
-        } else {
-            currentFlashcardIndex = 0;
-        }
-        $(".flashcards").children().eq(currentFlashcardIndex).css('display', 'flex');
+      $(".flashcards")
+        .children()
+        .eq(currentFlashcardIndex)
+        .css("display", "none");
+      if (currentFlashcardIndex < $(".flashcards").children().length - 1) {
+        currentFlashcardIndex++;
+      } else {
+        currentFlashcardIndex = 0;
+      }
+      $(".flashcards")
+        .children()
+        .eq(currentFlashcardIndex)
+        .css("display", "flex");
     }
-
   });
 
   // =======================================
@@ -64,8 +69,6 @@ $(() => {
       })
         .then((dictionary) => {
           wordObject = dictionary[0];
-          console.log(dictionary[0]);
-
           // =====================================================
           // Return Data. Declare Variables
           // to store data and created elements
@@ -73,9 +76,7 @@ $(() => {
           // ======================================================
 
           let searchedWord = wordObject.hwi.hw.replace("*", "").toUpperCase();
-          console.log(searchedWord);
           const definitions = wordObject.shortdef;
-          console.log(definitions);
           // const example = wordObject.def[0].sseq[0][0][1].dt[0][1];
           // console.log(example);
 
@@ -88,7 +89,6 @@ $(() => {
           //loop through definition array to create paragraph for each definition
           for (definition of definitions) {
             const $p = $("<p>").text(definition).attr("class", "definition");
-
             $defdiv.append($p);
           }
 
@@ -115,16 +115,20 @@ $(() => {
             // =============================
 
             $(".flashcard").on("click", (event) => {
-              const $def = $(event.currentTarget).children().eq(1);
-              const $word = $(event.currentTarget).children().eq(0);
+              event.stopImmediatePropagation(); //https://www.sitepoint.com/event-bubbling-javascript/ 
+              const $flashcard = $(event.currentTarget);
+              console.log($flashcard);
+              console.log($flashcard.children().eq(0));
+              const $word = $flashcard.children().eq(0);
+              const $def = $flashcard.children().eq(1);
               $word.toggle();
               $def.toggle();
             });
           });
-        })
+        }) //end of .then
         .catch((err) => {
           console.log(err);
-        });
-    }
+        }); //end of .catch
+    } //end of return if statement
   }); //Event Listener for Input Ends
 }); //BEYOND THE WALL
