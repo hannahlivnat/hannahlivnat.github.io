@@ -126,7 +126,11 @@ header button:active {
   color: #4A5680;
 }
 
-.main .practice-list ul {
+.main .practice-list button:hover {
+  cursor: pointer;
+}
+
+.main .practice-list .list-container ul {
   list-style-type: none;
   padding: 0;
   display: -webkit-box;
@@ -144,8 +148,8 @@ header button:active {
           align-items: center;
 }
 
-.main .practice-list ul li {
-  padding: 0 1vw;
+.main .practice-list .list-container ul li {
+  padding: 0 1.5vw;
 }
 
 .main .flashcard-section {

@@ -1,4 +1,13 @@
 $(() => {
+  // ===================================================================================
+  // Event Listener to Hide and Display Practice List
+  // ===================================================================================
+
+  $("#display-ul").on("click", (event) => {
+    const $listDiv = $(".list-container");
+    $listDiv.toggle();
+  });
+
   // =======================================
   // Event Listener in input Section
   // Begins API request on Enter
@@ -73,7 +82,6 @@ $(() => {
             const $definitions = $(event.target).next();
             const $li = $("<li>").text(word);
             $(".practice-list ul").append($li);
-            $(".practice-list ul").hide();
             const $h2 = $("<h2>").text(word);
             const $div = $definitions.clone().hide();
             $($flashcarddiv).append($h2, $div);
@@ -93,19 +101,6 @@ $(() => {
         .catch((err) => {
           console.log(err);
         });
-
-      // ===================================================================================
-      // Event Listener to Hide and Display Practice List
-      // ===================================================================================
-
-      $("#display-ul").on("click", (event) => {
-        event.preventDefault();
-        if ($(".practice-list ul").css("display") === "none") {
-          $(".practice-list ul").show();
-        } else {
-          $(".practice-list ul").hide();
-        }
-      });
 
       // ===================================================================================
       // Create Carousel Effect in FlashCard Section
