@@ -8,8 +8,31 @@ $(() => {
     $listDiv.toggle();
   });
 
+  // ===================================================================================
+  // Create Carousel Effect in FlashCard Section
+  // Only one flash card displays at a time. When user clicks prev or next button, first
+  // check that there is more than one card. If only one card present, do nothing.
+  // if multiple cards present, display next card.
+  // ===================================================================================
+  let currentFlashcardIndex = 0;
+
+  $(".flashcard-button").on("click", (event) => {
+    if ($(".flashcard").length === 0) {
+        return;
+    } else {
+        $(".flashcards").children().eq(currentFlashcardIndex).css('display', 'none');
+        if (currentFlashcardIndex < $(".flashcard").length) {
+            currentFlashcardIndex ++
+        } else {
+            currentFlashcardIndex = 0;
+        }
+        $(".flashcards").children().eq(currentFlashcardIndex).css('display', 'flex');
+    }
+
+  });
+
   // =======================================
-  // Event Listener in input Section
+  // Event Listener on hitting return in input Section
   // Begins API request on Enter
   // =======================================
 
@@ -87,7 +110,8 @@ $(() => {
             $($flashcarddiv).append($h2, $div);
 
             // =============================
-            //Event Listener on FlashCard
+            // Event Listener on FlashCard
+            // Toggle Between Word and Def.
             // =============================
 
             $(".flashcard").on("click", (event) => {
@@ -101,25 +125,6 @@ $(() => {
         .catch((err) => {
           console.log(err);
         });
-
-      // ===================================================================================
-      // Create Carousel Effect in FlashCard Section
-      // Only one flash card displays at a time. When user clicks prev or next button, first
-      // check that there is more than one card. If only one card present, do nothing.
-      // if multiple cards present, display next card.
-      // ===================================================================================
-
-      //$('.flashcard-button).on('click', (event) => {
-      // if statement - are there one or multiple flash cards?
-      //  if one - do nothing
-      //  if multiple:
-      //      if($(event.currentTarget).attr('id') === 'prev')
-      //          Are there flashcards to the right to display?
-      //          move flashcards to the right to display prev flashcard
-      //      if($even.currentTarget.attr('id') ==='next')
-      //          Are there flashcards to the left to display?
-      //          move flashcards to the left to display next flashcard
-      //})
     }
   }); //Event Listener for Input Ends
 }); //BEYOND THE WALL

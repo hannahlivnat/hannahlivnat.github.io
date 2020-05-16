@@ -3,10 +3,15 @@ body {
   margin: 0;
   padding: 0;
   background-color: whitesmoke;
+  height: 100vh;
+}
+
+.container {
+  height: 100%;
   display: -ms-grid;
   display: grid;
-  -ms-grid-rows: [first];
-      grid-template-rows: [first];
+  -ms-grid-rows: [head] 7% [main] 90% [foot] 3%;
+      grid-template-rows: [head] 7% [main] 90% [foot] 3%;
 }
 
 header {
@@ -26,6 +31,8 @@ header {
   background-color: #4A5680;
   color: whitesmoke;
   padding: 0 2vw;
+  width: 100%;
+  grid-row: head;
 }
 
 header h1 {
@@ -35,7 +42,8 @@ header h1 {
 }
 
 header button {
-  padding: 1vh 3vw;
+  padding: 1vh 4vw;
+  margin-right: 4vw;
   border-radius: 24px;
   background-color: #707480;
   -webkit-box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
@@ -57,6 +65,9 @@ header button:active {
 }
 
 .main {
+  -ms-grid-row: main;
+      grid-row-start: main;
+  grid-row-end: foot;
   width: 90%;
   margin: 3vh auto;
 }
@@ -168,18 +179,25 @@ header button:active {
 }
 
 .main .flashcard-section .flashcards {
-  width: 80%;
+  width: 70%;
   min-width: 200px;
   height: 100%;
   min-height: 150px;
   margin: auto;
+  overflow: hidden;
 }
 
 .main .flashcard-section .flashcards .flashcard {
+  -o-object-fit: fill;
+     object-fit: fill;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   background-color: #E0E7FF;
   color: #4A5680;
   border: 2px solid #707480;
-  padding: 1vh 1vw;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -202,8 +220,14 @@ header button:active {
   display: flex;
 }
 
+.main .flashcard-section .flashcards button {
+  padding: 0;
+  margin: 0 3vw;
+}
+
 footer {
   width: 100%;
+  grid-row: foot;
   margin: 0;
   padding: 1vh 1vw;
   font-size: 2vw;
