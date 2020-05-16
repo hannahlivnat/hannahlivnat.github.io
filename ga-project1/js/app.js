@@ -11,10 +11,9 @@ $(() => {
             //prevent default refresh
             event.preventDefault();
 
-            // =======================================
-            // Declare Variables 
-            // =======================================
-    
+            //remove previous definition
+            $('.dictionary-entrance').html(" ");
+
             //word that user searced for in input
             let wordSearched = $(event.target).val();
     
@@ -42,19 +41,27 @@ $(() => {
                 // append created elements to div - '.dictionary-entrance'
                 // ======================================================
                 
-                const searchedWord = wordObject.meta.id;
+                let searchedWord = (wordObject.hwi.hw).replace('*', '').toUpperCase();
                 console.log(searchedWord);
-                const definition = wordObject.shortdef;
-                console.log(definition);
+                const definitions = wordObject.shortdef;
+                console.log(definitions);
                 // const example = wordObject.def[0].sseq[0][0][1].dt[0][1];
                 // console.log(example);
                 
                 // create elements for dom
                 const $h2 = $('<h2>').text(searchedWord).attr('id', 'vocabularyWord');
-                const $p = $('<p>').text(definition).attr('id', 'definition');
-                // const $p2 = $p.clone().text(example).attr('id', 'vocabularyExample');
-                // append created elements to div '.dictionary-entrance'
-                $('.dictionary-entrance').append($h2, $p);
+                const $defdiv = $('<div>').attr('id', 'definitions');
+
+                $('.dictionary-entrance').append($h2, $defdiv);
+
+                //loop through definition array to create paragraph for each definition
+                for (definition of definitions) {
+                    const $p = $('<p>')
+                    .text(definition)
+                    .attr('class', 'definition');
+                    
+                    $defdiv.append($p);
+                }
     
                 // ========================================================
                 // Event Listener on word paragraph - 
@@ -62,26 +69,30 @@ $(() => {
                 // and word and sibling definition used to create flashcard
                 // =========================================================
                 
-                //on('click', (event) => {
-                //  const word =  $(event.currentTarget).text();
-                //  const definition = $(event.currentTarget).next().text();
-                //  const $li = $('<li>').text(word);
-                //  $('.practice-list ul').append(li);
-                //  const $h2 = $('<h2>').text(word);
-                //  const $p = $('<p>').text(definition).hide()
-                //  $('.flashcard').append($h2, $p);
-    
+                $('#vocabularyWord').on('click', (event) => {
+                    const $flashcarddiv = $('<div>').addClass('flashcard');
+                    $('#prev').after($flashcarddiv);
+                    const word =  $(event.target).text();
+                    const $definitions = $(event.target).next();
+                    const $li = $('<li>').text(word);
+                    $('.practice-list ul').append($li);
+                    const $h2 = $('<h2>').text(word);
+                    const $div = $definitions.clone().hide()
+                    $($flashcarddiv).append($h2, $div);
+
                     // =============================
                     //Event Listener on FlashCard
                     // =============================
-                    //$('.flashcard).on('click', event => {
-                    //  const $def = $(event.currentTarget).children().eq(1);
-                    //  const $word = $(event.currentTarget).children().eq(0)
-                    //  $word.toggle();
-                    //  $def.toggle();
-                    //});
+
+                    $('.flashcard').on('click', (event) => {
+                        const $def = $(event.currentTarget).children().eq(1);
+                        const $word = $(event.currentTarget).children().eq(0)
+                        $word.toggle();
+                        $def.toggle();
+                });
+                });
     
-                //})
+
                 
             })
             .catch((err) => {

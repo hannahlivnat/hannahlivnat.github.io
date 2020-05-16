@@ -1,5 +1,155 @@
+//fonts
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;800&family=Raleway:wght@200;400');
+$Raleway : 'Raleway', sans-serif;
+$OpenSans : 'Open Sans', sans-serif;
+
+
+//color scheme: 
+$darkest-blue: #4A5680;
+$medium-blue: #7689cc;
+$lighest-blue: #E0E7FF;
+$grey: #707480;
+
+
+//Mobile First Styling
+
 body {
     margin: 0;
     padding: 0; 
     background-color: whitesmoke;
+}
+
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $darkest-blue;
+    color: whitesmoke;
+    padding: 0 2vw;
+
+    h1 {
+        font-size: 6vw;
+        letter-spacing: .1vw;
+        font-family: $OpenSans;
+    }
+    button {
+        padding: 1vh 3vw;
+        border-radius: 24px;
+        background-color: $grey;
+        box-shadow: 2px 2px 4px rgba($color: #000000, $alpha: .5);
+        outline: none;
+        color: white;
+        font-size: 2vw;
+        letter-spacing: .05vw;
+        font-family: $Raleway;
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        &:active {
+            box-shadow: inset 2px 2px 4px rgba($color: #000000, $alpha: .3);
+        }
+    }
+}
+
+.main {
+    width: 90%;
+    margin: 3vh auto;
+
+    .search-section {
+        width: 100%;
+
+        input[type="text"] {
+            width: 100%;
+            padding: 1vh 0;
+            font-size: 4vw;
+            color: $darkest-blue;
+            border: .3vw solid $grey;
+            padding-left: 1vw;
+
+            &::placeholder {
+                color: $darkest-blue;
+                padding-left: 1vw;
+            }
+
+            &:hover, &:active {
+                cursor: text;
+            }
+        }
+    }
+    .dictionary-entrance {
+        #definitions {
+            .definition {
+               text-transform: uppercase;
+            }
+        }
+    }
+    .practice-list {
+        padding: 1vh 0;
+        margin: 5vh auto;
+
+        h2 {
+            text-transform: uppercase;
+            color: $darkest-blue;
+        }
+
+        ul {
+
+            li {
+
+            }
+        }
+    }
+    .flashcard-section {
+        margin: 2vh auto;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        overflow: hidden;
+
+
+        .flashcard {
+            width: 80%;
+            min-width: 200px;
+            height: 50%;
+            min-height: 150px;
+            margin: auto;
+            background-color: $lighest-blue;
+            color: $darkest-blue;
+            border: 2px solid $grey; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    left: 0; 
+    width: 100%;
+    padding: 1vh 1vw;
+    font-size: 2vw;
+    background-color: $darkest-blue;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    a {
+        padding: 0 2vw;
+        text-decoration: none;
+        color: white;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
 }

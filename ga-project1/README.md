@@ -78,9 +78,9 @@ SCHEDULE
             x HTML - complete all divs, sections, etc.
             x pseudo code out js file for mvp elements needed. 
         Afternoon: (Before 6 pm)
-            Log data and key/value pairs to make sure API works
+            x Log data and key/value pairs to make sure API works
             CSS - position elements on page for mobile site (no other styling today)
-            JS - Be able to collect id, def, and examples and display it on the page.
+            x JS - Be able to collect id, def, and examples and display it on the page.
                - When new word is search for, old values will be replaced with new word's values
                - Add limits to how many words can be added to list per day (don't overshoot api limit - 1000)
     Day 2: 
