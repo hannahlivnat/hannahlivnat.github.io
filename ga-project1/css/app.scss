@@ -93,9 +93,16 @@ header {
     .practice-list {
         padding: 1vh 0;
         margin: 5vh auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: $lighest-blue;
 
         h2 {
             text-transform: uppercase;
+            font-size: 4vw;
+            width: 100%;
+            text-align: center;
             color: $darkest-blue;
         }
 
@@ -103,12 +110,12 @@ header {
             list-style-type: none;
             padding: 0;
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
             justify-content: center;
             align-items: center;
 
             li {
-                
+                padding: 0 1vw;
             
             }
         }
