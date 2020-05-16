@@ -108,8 +108,26 @@ header button:active {
   color: #4A5680;
 }
 
+.main .practice-list ul {
+  list-style-type: none;
+  padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 .main .flashcard-section {
-  margin: 2vh auto;
+  margin: 5vh auto;
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -133,6 +151,7 @@ header button:active {
   background-color: #E0E7FF;
   color: #4A5680;
   border: 2px solid #707480;
+  padding: 1vh 1vw;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -149,10 +168,8 @@ header button:active {
 }
 
 footer {
-  position: absolute;
-  bottom: 0;
-  left: 0;
   width: 100%;
+  margin: 0;
   padding: 1vh 1vw;
   font-size: 2vw;
   background-color: #4A5680;

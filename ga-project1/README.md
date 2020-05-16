@@ -82,7 +82,6 @@ SCHEDULE
             CSS - position elements on page for mobile site (no other styling today)
             x JS - Be able to collect id, def, and examples and display it on the page.
                - When new word is search for, old values will be replaced with new word's values
-               - Add limits to how many words can be added to list per day (don't overshoot api limit - 1000)
     Day 2: 
         Flash card functionality complete
             -add event listener to word. When word is clicked on, the word will be appended under the word list section and the word and definition will be 
