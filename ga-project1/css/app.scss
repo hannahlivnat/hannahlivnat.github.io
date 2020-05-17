@@ -1,14 +1,15 @@
+@charset 'utf-8';
 // =====================================================
-//fonts
+// Font-Stacks
 // =====================================================
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;800&family=Raleway:wght@200;400");
-$Raleway: "Raleway",
-sans-serif;
-$OpenSans: "Open Sans",
-sans-serif;
+$raleway-font: ('Raleway',
+    sans-serif);
+$opensans-font: ('Open Sans',
+    sans-serif);
 
 // =====================================================
-//color scheme:
+// Color Scheme:
 // =====================================================
 
 $darkest-blue: #4a5680;
@@ -25,30 +26,23 @@ $inset-box-shadow : inset 2px 2px 4px rgba($color: #000000, $alpha: 0.3);
 $border : 0.3vw solid $grey;
 
 // ===============================================
-// Placeholder Selectors for Common Elements
+// Placeholder Selectors and Mixins for Common Elements
 // ===============================================
 
 //sections, divs, positions
-%zero-margin-padding {
+@mixin zero-margin-padding {
     margin: 0;
     padding: 0;
 }
 
-%flex-row-styling {
+@mixin flex-styling ($direction, $justify, $align) {
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
 }
 
-%flex-column-styling {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-%fill-parent-container {
+@mixin fill-parent-container {
     object-fit: fill;
     width: 100%;
     height: 100%;
@@ -57,11 +51,11 @@ $border : 0.3vw solid $grey;
 }
 
 //elements
-%button-styling {
+@mixin button-styling ($border-radius, $background-color, $color) {
     border: 1px solid $grey;
     font-size: 3vw;
     letter-spacing: 0.05vw;
-    font-family: $Raleway;
+    font-family: $raleway-font;
     box-shadow: $box-shadow;
     outline: none;
 
@@ -74,41 +68,43 @@ $border : 0.3vw solid $grey;
     }
 }
 
-%ul-styling {
+@mixin ul-styling {
     list-style-type: none;
     padding: 0;
     margin: 0;
 }
 
-%li-styling {
+@mixin li-styling {
     padding-bottom: 1vh;
     font-size: 2vw;
-    font-family: $Raleway;
+    font-family: $raleway-font;
 }
 
-%a-tag-styling {
+@mixin a-tag-styling {
     text-decoration: none;
     color: white;
     font-size: 2vw;
-    font-family: $Raleway;
+    font-family: $raleway-font;
 
     &:hover {
         cursor: pointer;
     }
 }
 
-%heading-text-font {
-    font-family: $OpenSans;
-    font-size: 7vw;
+@mixin heading-text-font ($size, $color) {
+    font-family: $opensans-font;
+    font-size: $size;
+    color: $color;
     letter-spacing: .02vw;
 }
 
-%p-text-font {
-    font-family: $Raleway;
+@mixin p-text-font($color) {
+    font-family: $raleway-font;
     font-size: 3vw;
     letter-spacing: .02vw;
     line-height: 3vh;
     text-transform: uppercase;
+    color: $color;
     margin: 1vh 0;
 }
 
@@ -122,7 +118,7 @@ body {
 }
 
 body {
-    @extend %zero-margin-padding;
+    @include zero-margin-padding;
     background-color: whitesmoke;
     width: 100%;
     overflow-x: hidden;
@@ -138,7 +134,7 @@ body {
     grid-template-rows: [head] 20% [main] auto [foot] 12%;
 
     .about {
-        @extend %flex-column-styling;
+        @include flex-styling(column, center, center);
         display: none;
         z-index: 2;
         width: 90%;
@@ -151,42 +147,35 @@ body {
         right: 3%;
 
         >h2 {
-            @extend %heading-text-font;
+            @include heading-text-font(7vw, $background-color);
         }
 
         >p {
-            @extend %p-text-font;
+            @include p-text-font$grey;
         }
 
         >button {
-            @extend %button-styling;
+            @include button-styling(24px, $grey, #fff);
             padding: 2vh 6vw;
             margin: 2vh auto;
-            border-radius: 24px;
-            background-color: $grey;
-            color: white;
-
         }
     }
 }
 
 header {
-    @extend %flex-column-styling;
+    @include flex-styling(column, center, center);
     background-color: $darkest-blue;
     color: whitesmoke;
     width: 100%;
     grid-row: head;
 
     >h1 {
-        @extend %heading-text-font;
+        @include heading-text-font(7vw, #fff);
     }
 
     >button {
-        @extend %button-styling;
+        @include button-styling(24px, whitesmoke, $darkest-blue);
         padding: 1vh 5vw;
-        border-radius: 24px;
-        background-color: whitesmoke;
-        color: $darkest-blue;
     }
 }
 
@@ -205,10 +194,9 @@ header {
     grid-row-end: dictionary;
 
     input[type="text"] {
-        @extend %p-text-font;
+        @include p-text-font($darkest-blue);
         width: 100%;
         padding: 1vh 0 1vh 1vw;
-        color: $darkest-blue;
         border: $border;
 
         &::placeholder {
@@ -227,44 +215,38 @@ header {
     grid-row-end: practice;
 
     .errorH2 {
-        @extend %heading-text-font;
-        color: $darkest-blue;
+        @include heading-text-font(7vw, $darkest-blue);
         text-align: center;
     }
 
     .wordHolder {
-        @extend %flex-row-styling;
-        justify-content: space-between;
+        @include flex-styling(row, space-between, center);
 
         .vocab {
-            @extend %heading-text-font;
-            color: $darkest-blue;
+            @include heading-text-font(6vw, $darkest-blue);
             margin: 0;
         }
 
         >button {
-            @extend %button-styling;
-            border-radius: 50%;
-            background-color: $darkest-blue;
-            color: white;
+            @include button-styling(50%, $darkest-blue, #fff);
             padding: 3vw;
             margin-right: 4vw;
         }
     }
 
     .wordType {
-        @extend %p-text-font;
+        @include p-text-font(#000);
     }
 
     .definitions {
         .definition {
-            @extend %p-text-font;
+            @include p-text-font(#000);
         }
     }
 }
 
 .practice-list {
-    @extend %flex-column-styling;
+    @include flex-styling(column, center, center);
     grid-row-start: practice;
     grid-row-end: flashcard;
     width: 100%;
@@ -273,20 +255,19 @@ header {
     background-color: $lighest-blue;
 
     h2 {
-        @extend %heading-text-font;
+        @include heading-text-font(5vw, $darkest-blue);
         width: 100%;
         text-align: center;
-        color: $darkest-blue;
     }
 
     .list-container {
         ul {
-            @extend %ul-styling;
-            @extend %flex-row-styling;
+            @include ul-styling;
+            @include flex-styling(row, center, center);
             word-wrap: break-word;
 
             li {
-                @extend %li-styling;
+                @include li-styling;
                 font-size: 3vw;
                 padding: 0 1.5vw;
             }
@@ -296,7 +277,7 @@ header {
 
 
 .flashcard-section {
-    @extend %flex-row-styling;
+    @include flex-styling(row, center, center);
     grid-row: flashcard;
     margin: 5vh auto;
     width: 100%;
@@ -312,8 +293,8 @@ header {
         border: $border;
 
         .flashcard {
-            @extend %flex-column-styling;
-            @extend %fill-parent-container;
+            @include flex-styling(column, center, center);
+            @include fill-parent-container;
             display: none;
             background-color: $lighest-blue;
             color: $darkest-blue;
@@ -328,32 +309,30 @@ header {
 }
 
 footer {
-    @extend %flex-row-styling;
-    @extend %zero-margin-padding;
-    justify-content: space-between;
+    @include flex-styling(row, space-between, center);
+    @include zero-margin-padding;
     width: 100%;
     grid-row: foot;
     background-color: $darkest-blue;
     color: white;
 
     ul {
-        @extend %ul-styling;
+        @include ul-styling;
         margin-left: 3vw;
 
         >h3 {
-            @extend %heading-text-font;
-            @extend %zero-margin-padding;
-            font-size: 3vw;
+            @include heading-text-font(3v2, #fff);
+            @include zero-margin-padding;
         }
 
         li {
-            @extend %li-styling;
+            @include li-styling;
             padding: 1vh 0;
         }
     }
 
     a {
-        @extend %a-tag-styling;
+        @include a-tag-styling;
     }
 
     .footerid {
@@ -365,4 +344,5 @@ footer {
 //==============================================
 // Resources: 
 // https://css-tricks.com/sass-style-guide/
+// https://sass-guidelin.es/
 //==============================================
