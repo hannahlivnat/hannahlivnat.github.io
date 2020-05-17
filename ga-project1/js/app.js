@@ -11,13 +11,13 @@ $(() => {
   // ===================================================================================
   // Event Listener to Hide and Display Practice List
   // ===================================================================================
-  
-  $('#toggle-instructions-button').on('click', () => {
-      $('.about').css('display', 'flex');
+
+  $("#toggle-instructions-button").on("click", () => {
+    $(".about").css("display", "flex");
   });
 
-  $('#close').on('click', () => {
-    $('.about').css('display', 'none');
+  $("#close").on("click", () => {
+    $(".about").css("display", "none");
   });
 
   // ===================================================================================
@@ -79,7 +79,7 @@ $(() => {
           $limit: 1,
         },
       })
-        .then((dictionary) => {
+          .then((dictionary) => {
           wordObject = dictionary[0];
           console.log(wordObject);
 
@@ -89,16 +89,24 @@ $(() => {
           // append created elements to div - '.dictionary-entrance'
           // ======================================================
 
-          let searchedWord = wordObject.hwi.hw.replace("*", "").toUpperCase();
+          let searchedWord = wordObject.hwi.hw.split("*").join("").toUpperCase();
           const definitions = wordObject.shortdef;
           const wordType = wordObject.fl;
 
           // create elements for dom
-          const $h2 = $("<h2>").text(searchedWord).attr("id", "vocabularyWord");
+          const $wordSection = $("<div>").addClass("wordHolder");
+          const $word = $("<h3>")
+            .text(searchedWord)
+            .attr("id", "vocabularyWord");
+          const $addButton = $("<button>")
+            .text("Add")
+            .attr("class", "addButton");
           const $wordType = $("<p>").text(wordType);
           const $defdiv = $("<div>").attr("id", "definitions");
 
-          $(".dictionary-entrance").append($h2, $wordType, $defdiv);
+          $(".dictionary-entrance").append($wordSection, $wordType, $defdiv);
+
+          $wordSection.append($word, $addButton);
 
           //loop through definition array to create paragraph for each definition
           for (definition of definitions) {
@@ -112,11 +120,14 @@ $(() => {
           // and word and sibling definition used to create flashcard
           // =========================================================
 
-          $("#vocabularyWord").on("click", (event) => {
+          $(".addButton").on("click", (event) => {
             const $flashcarddiv = $("<div>").addClass("flashcard");
             $(".flashcards").append($flashcarddiv);
-            const word = $(event.target).text();
-            const $definitions = $(event.target).next().next();
+
+            const word = $(event.target).prev().text();
+            console.log(word);
+
+            const $definitions = $(event.target).parent().next().next();
             const $li = $("<li>").text(word);
             $(".practice-list ul").append($li);
             const $h2 = $("<h2>").text(word);
@@ -142,6 +153,11 @@ $(() => {
         }) //end of .then
         .catch((err) => {
           console.log(err);
+          const $h2 = $("<h2>").text(
+            "Sorry, we don't know this word. Please try again."
+          );
+          $h2.addClass("errorH2");
+          $(".dictionary-entrance").append($h2);
         }); //end of .catch
     } //end of return if statement
   }); //Event Listener for Input Ends

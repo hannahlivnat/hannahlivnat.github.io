@@ -19,8 +19,8 @@ body {
   width: 100%;
   display: -ms-grid;
   display: grid;
-  -ms-grid-rows: [head] 7% [main] auto [foot] 10%;
-      grid-template-rows: [head] 7% [main] auto [foot] 10%;
+  -ms-grid-rows: [head] 20% [main] auto [foot] 10%;
+      grid-template-rows: [head] 20% [main] auto [foot] 10%;
 }
 
 .container .about {
@@ -58,7 +58,7 @@ body {
 }
 
 .container .about button {
-  padding: 1vh 4vw;
+  padding: 2vh 6vw;
   margin: auto;
   border-radius: 24px;
   background-color: #707480;
@@ -66,7 +66,7 @@ body {
           box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   outline: none;
   color: white;
-  font-size: 2vw;
+  font-size: 3vw;
   letter-spacing: .05vw;
   font-family: "Raleway", sans-serif;
 }
@@ -89,13 +89,13 @@ header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
+  -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -106,22 +106,21 @@ header {
 }
 
 header h1 {
-  font-size: 5vw;
+  font-size: 7vw;
   letter-spacing: .1vw;
   font-family: "Open Sans", sans-serif;
-  margin-left: 4vw;
 }
 
 header button {
-  padding: 1vh 4vw;
-  margin-right: 4vw;
+  padding: 1vh 5vw;
   border-radius: 24px;
-  background-color: #707480;
+  background-color: whitesmoke;
   -webkit-box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
           box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   outline: none;
-  color: white;
-  font-size: 2vw;
+  color: #4A5680;
+  border: 1px solid #707480;
+  font-size: 3vw;
   letter-spacing: .05vw;
   font-family: "Raleway", sans-serif;
 }
@@ -193,7 +192,64 @@ header button:active {
   grid-row-end: practice;
 }
 
+.main .dictionary-entrance .errorH2 {
+  font-family: "Raleway", sans-serif;
+  color: #4A5680;
+  text-align: center;
+}
+
+.main .dictionary-entrance .wordHolder {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.main .dictionary-entrance .wordHolder #vocabularyWord {
+  font-family: "Raleway", sans-serif;
+  color: #4A5680;
+  font-size: 6vw;
+  margin: 0;
+}
+
+.main .dictionary-entrance .wordHolder button {
+  border-radius: 50%;
+  background-color: #4A5680;
+  color: white;
+  font-family: "Open Sans", sans-serif;
+  padding: 3vw;
+  margin-right: 4vw;
+  font-size: 3vw;
+  -webkit-box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+          box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+  outline: none;
+}
+
+.main .dictionary-entrance .wordHolder button:hover {
+  cursor: pointer;
+}
+
+.main .dictionary-entrance .wordHolder button:active {
+  -webkit-box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.4);
+          box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.main .dictionary-entrance p {
+  text-transform: uppercase;
+  margin: .5vh 0;
+}
+
 .main .dictionary-entrance #definitions .definition {
+  margin: 1vh 0;
   text-transform: uppercase;
 }
 
@@ -245,6 +301,7 @@ header button:active {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  word-wrap: break-word;
 }
 
 .main .practice-list .list-container ul li {
@@ -298,9 +355,7 @@ header button:active {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-}
-
-.main .flashcard-section .flashcards .flashcard {
+  padding: 0 2vw;
   display: none;
 }
 

@@ -31,7 +31,7 @@ body {
     bottom: 0;
     width: 100%;
     display: grid;
-    grid-template-rows: [head] 7% [main] auto [foot] 10%;
+    grid-template-rows: [head] 20% [main] auto [foot] 10%;
 
     .about {
         display: none;
@@ -59,14 +59,14 @@ body {
         }
 
         button {
-            padding: 1vh 4vw;
+            padding: 2vh 6vw;
             margin: auto;
             border-radius: 24px;
             background-color: $grey;
             box-shadow: 2px 2px 4px rgba($color: #000000, $alpha: .5);
             outline: none;
             color: white;
-            font-size: 2vw;
+            font-size: 3vw;
             letter-spacing: .05vw;
             font-family: $Raleway;
 
@@ -89,8 +89,8 @@ body {
 
 header {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
     background-color: $darkest-blue;
     color: whitesmoke;
@@ -98,20 +98,19 @@ header {
     grid-row: head;
 
     h1 {
-        font-size: 5vw;
+        font-size: 7vw;
         letter-spacing: .1vw;
         font-family: $OpenSans;
-        margin-left: 4vw;
     }
     button {
-        padding: 1vh 4vw;
-        margin-right: 4vw;
+        padding: 1vh 5vw;
         border-radius: 24px;
-        background-color: $grey;
+        background-color: whitesmoke;
         box-shadow: 2px 2px 4px rgba($color: #000000, $alpha: .5);
         outline: none;
-        color: white;
-        font-size: 2vw;
+        color: $darkest-blue;
+        border: 1px solid $grey;
+        font-size: 3vw;
         letter-spacing: .05vw;
         font-family: $Raleway;
 
@@ -159,8 +158,53 @@ header {
     .dictionary-entrance {
         grid-row-start: dictionary;
         grid-row-end: practice;
+
+        .errorH2 {
+            font-family: $Raleway;
+            color: $darkest-blue;
+            text-align: center;
+        }
+
+        .wordHolder {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+
+            #vocabularyWord {
+                font-family: $Raleway;
+                color: $darkest-blue;
+                font-size: 6vw;
+                margin: 0;
+            }
+
+            button {
+                border-radius: 50%;
+                background-color: $darkest-blue;
+                color: white;
+                font-family: $OpenSans;
+                padding: 3vw;
+                margin-right: 4vw;
+                font-size: 3vw;
+                box-shadow: 2px 2px 4px rgba($color: #000000, $alpha: 0.4);
+                outline: none;
+
+                &:hover{
+                    cursor: pointer;
+                }
+
+                &:active {
+                    box-shadow: inset 2px 2px 4px rgba($color: #000000, $alpha: 0.4);
+                }
+            }
+        }
+        p {
+            text-transform: uppercase;
+            margin: .5vh 0;
+        }
         #definitions {
             .definition {
+               margin: 1vh 0;
                text-transform: uppercase;
             }
         }
@@ -200,6 +244,7 @@ header {
                 flex-direction: row;
                 justify-content: center;
                 align-items: center;
+                word-wrap: break-word;
     
                 li {
                     padding: 0 1.5vw;
@@ -239,10 +284,9 @@ header {
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
-            }
-
-            .flashcard {
+                padding: 0 2vw;
                 display: none;
+
             }
             
             .flashcard:first-of-type {
