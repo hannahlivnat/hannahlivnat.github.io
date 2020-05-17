@@ -1,164 +1,173 @@
 $(() => {
-  // ===================================================================================
-  // Event Listener to Hide and Display Practice List
-  // ===================================================================================
+    // ===================================================================================
+    // Event Listener to Hide and Display Practice List
+    // ===================================================================================
 
-  $("#display-ul").on("click", (event) => {
-    const $listDiv = $(".list-container");
-    $listDiv.toggle();
-  });
+    $("#display-ul").on("click", (event) => {
+        const $listDiv = $(".list-container");
+        $listDiv.toggle();
+    });
 
-  // ===================================================================================
-  // Event Listener to Hide and Display Practice List
-  // ===================================================================================
+    // ===================================================================================
+    // Event Listener to Hide and Display Practice List
+    // ===================================================================================
 
-  $("#toggle-instructions-button").on("click", () => {
-    $(".about").css("display", "flex");
-  });
+    $("#toggle-instructions-button").on("click", () => {
+        $(".about").css("display", "flex");
+        $(".main").css("visibility", "hidden");
+    });
 
-  $("#close").on("click", () => {
-    $(".about").css("display", "none");
-  });
+    $("#close").on("click", () => {
+        $(".about").css("display", "none");
+        $(".main").css("visibility", "visible");
 
-  // ===================================================================================
-  // Create Carousel Effect in FlashCard Section
-  // Only one flash card displays at a time. When user clicks prev or next button, first
-  // check that there is more than one card. If only one card present, do nothing.
-  // if multiple cards present, display next card.
-  // ===================================================================================
-  let currentFlashcardIndex = 0;
+    });
 
-  $(".flashcard-button").on("click", (event) => {
-    if ($(".flashcards").children().length === 0) {
-      return;
-    } else {
-      $(".flashcards")
-        .children()
-        .eq(currentFlashcardIndex)
-        .css("display", "none");
-      if (currentFlashcardIndex < $(".flashcards").children().length - 1) {
-        currentFlashcardIndex++;
-      } else {
-        currentFlashcardIndex = 0;
-      }
-      $(".flashcards")
-        .children()
-        .eq(currentFlashcardIndex)
-        .css("display", "flex");
-    }
-  });
+    // ===================================================================================
+    // Create Carousel Effect in FlashCard Section
+    // Only one flash card displays at a time. When user clicks prev or next button, first
+    // check that there is more than one card. If only one card present, do nothing.
+    // if multiple cards present, display next card.
+    // ===================================================================================
+    let currentFlashcardIndex = 0;
 
-  // =======================================
-  // Event Listener on hitting return in input Section
-  // Begins API request on Enter
-  // =======================================
+    $(".flashcard-button").on("click", (event) => {
+        if ($(".flashcards").children().length === 0) {
+            return;
+        } else {
+            $(".flashcards")
+                .children()
+                .eq(currentFlashcardIndex)
+                .css("display", "none");
+            if (currentFlashcardIndex < $(".flashcards").children().length - 1) {
+                currentFlashcardIndex++;
+            } else {
+                currentFlashcardIndex = 0;
+            }
+            $(".flashcards")
+                .children()
+                .eq(currentFlashcardIndex)
+                .css("display", "flex");
+        }
+    });
 
-  $('input[type="text"]').on("keyup", (event) => {
-    if (event.keyCode === 13) {
-      //prevent default refresh
-      event.preventDefault();
+    // =======================================
+    // Event Listener on hitting return in input Section
+    // Begins API request on Enter
+    // =======================================
 
-      //remove previous definition
-      $(".dictionary-entrance").html(" ");
+    $('input[type="text"]').on("keyup", (event) => {
+        if (event.keyCode === 13) {
+            //prevent default refresh
+            event.preventDefault();
 
-      //word that user searced for in input
-      let wordSearched = $(event.target).val();
-      $(event.target).val(" ");
+            //remove previous definition
+            $(".dictionary-entrance").html(" ");
 
-      // =======================================
-      // API Request Made to Merriam Webster API
-      // Filter Should Return - word searched for
-      // Pull data for - word searched for, definition,
-      // verbal illustration
-      // =======================================
+            //word that user searced for in input
+            let wordSearched = $(event.target).val();
+            $(event.target).val(" ");
 
-      $.ajax({
-        url: `https://dictionaryapi.com/api/v3/references/collegiate/json/${wordSearched}?key=fa575937-7cb3-4693-97d6-5e6e4a352192`,
-        type: "GET",
-        data: {
-          $limit: 1,
-        },
-      })
-          .then((dictionary) => {
-          wordObject = dictionary[0];
-          console.log(wordObject);
+            // =======================================
+            // API Request Made to Merriam Webster API
+            // Filter Should Return - word searched for
+            // Pull data for - word searched for, definition,
+            // verbal illustration
+            // =======================================
 
-          // =====================================================
-          // Return Data. Declare Variables
-          // to store data and created elements
-          // append created elements to div - '.dictionary-entrance'
-          // ======================================================
+            $.ajax({
+                    url: `https://dictionaryapi.com/api/v3/references/collegiate/json/${wordSearched}?key=fa575937-7cb3-4693-97d6-5e6e4a352192`,
+                    type: "GET",
+                    data: {
+                        $limit: 1,
+                    },
+                })
+                .then((dictionary) => {
+                    wordObject = dictionary[0];
 
-          let searchedWord = wordObject.hwi.hw.split("*").join("").toUpperCase();
-          const definitions = wordObject.shortdef;
-          const wordType = wordObject.fl;
+                    // =====================================================
+                    // Return Data. Declare Variables
+                    // to store data and created elements
+                    // append created elements to div - '.dictionary-entrance'
+                    // ======================================================
 
-          // create elements for dom
-          const $wordSection = $("<div>").addClass("wordHolder");
-          const $word = $("<h3>")
-            .text(searchedWord)
-            .attr("id", "vocabularyWord");
-          const $addButton = $("<button>")
-            .text("Add")
-            .attr("class", "addButton");
-          const $wordType = $("<p>").text(wordType);
-          const $defdiv = $("<div>").attr("id", "definitions");
+                    let searchedWord = wordObject.hwi.hw
+                        .split("*")
+                        .join("")
+                        .toUpperCase();
+                    const definitions = wordObject.shortdef;
+                    const wordType = wordObject.fl;
 
-          $(".dictionary-entrance").append($wordSection, $wordType, $defdiv);
+                    // create elements for dom
+                    const $wordSection = $("<div>").addClass("wordHolder");
+                    const $word = $("<h3>")
+                        .text(searchedWord)
+                        .addClass('vocab')
+                        .attr("id", "vocabularyWord");
+                    const $addButton = $("<button>")
+                        .text("Add")
+                        .attr("class", "addButton");
+                    const $wordType = $("<p>").text(wordType)
+                        .attr("class", "wordType");
+                    const $defdiv = $("<div>")
+                        .attr("id", "definitions")
+                        .attr('class', 'definitions');
 
-          $wordSection.append($word, $addButton);
+                    //append elements
+                    $(".dictionary-entrance").append($wordSection, $wordType, $defdiv);
+                    $wordSection.append($word, $addButton);
 
-          //loop through definition array to create paragraph for each definition
-          for (definition of definitions) {
-            const $p = $("<p>").text(definition).attr("class", "definition");
-            $defdiv.append($p);
-          }
+                    //loop through definition array to create paragraph and append each definition
+                    for (definition of definitions) {
+                        const $p = $("<p>").text(definition).attr("class", "definition");
+                        $defdiv.append($p);
+                    }
 
-          // ========================================================
-          // Event Listener on word paragraph -
-          // On click, word text used to create li in '.practice-list.'
-          // and word and sibling definition used to create flashcard
-          // =========================================================
+                    // ========================================================
+                    // Event Listener on word paragraph -
+                    // On click, word text used to create li in '.practice-list.'
+                    // and word and sibling definition used to create flashcard
+                    // =========================================================
 
-          $(".addButton").on("click", (event) => {
-            const $flashcarddiv = $("<div>").addClass("flashcard");
-            $(".flashcards").append($flashcarddiv);
+                    $(".addButton").on("click", (event) => {
+                        const $flashcarddiv = $("<div>").addClass("flashcard");
+                        $(".flashcards").append($flashcarddiv);
 
-            const word = $(event.target).prev().text();
-            console.log(word);
+                        const word = $(event.target).prev().text();
+                        console.log(word);
 
-            const $definitions = $(event.target).parent().next().next();
-            const $li = $("<li>").text(word);
-            $(".practice-list ul").append($li);
-            const $h2 = $("<h2>").text(word);
-            const $div = $definitions.clone().hide();
-            $($flashcarddiv).append($h2, $div);
+                        const $definitions = $(event.target).parent().next().next();
+                        const $li = $("<li>").text(word);
+                        $(".practice-list ul").append($li);
+                        const $h2 = $("<h2>").text(word);
+                        const $div = $definitions.clone().hide();
+                        $($flashcarddiv).append($h2, $div);
 
-            // =============================
-            // Event Listener on FlashCard
-            // Toggle Between Word and Def.
-            // =============================
+                        // =============================
+                        // Event Listener on FlashCard
+                        // Toggle Between Word and Def.
+                        // =============================
 
-            $(".flashcard").on("click", (event) => {
-              event.stopImmediatePropagation(); //https://www.sitepoint.com/event-bubbling-javascript/
-              const $flashcard = $(event.currentTarget);
-              console.log($flashcard);
-              console.log($flashcard.children().eq(0));
-              const $word = $flashcard.children().eq(0);
-              const $def = $flashcard.children().eq(1);
-              $word.toggle();
-              $def.toggle();
-            });
-          });
-        }) //end of .then
-        .catch((err) => {
-          console.log(err);
-          const $h2 = $("<h2>").text(
-            "Sorry, we don't know this word. Please try again."
-          );
-          $h2.addClass("errorH2");
-          $(".dictionary-entrance").append($h2);
-        }); //end of .catch
-    } //end of return if statement
-  }); //Event Listener for Input Ends
+                        $(".flashcard").on("click", (event) => {
+                            event.stopImmediatePropagation(); //https://www.sitepoint.com/event-bubbling-javascript/
+                            const $flashcard = $(event.currentTarget);
+                            console.log($flashcard);
+                            console.log($flashcard.children().eq(0));
+                            const $word = $flashcard.children().eq(0);
+                            const $def = $flashcard.children().eq(1);
+                            $word.toggle();
+                            $def.toggle();
+                        });
+                    });
+                }) //end of .then
+                .catch((err) => {
+                    console.log(err);
+                    const $h2 = $("<h2>").text(
+                        "Sorry, we don't know this word. Please try again."
+                    );
+                    $h2.addClass("errorH2");
+                    $(".dictionary-entrance").append($h2);
+                }); //end of .catch
+        } //end of return if statement
+    }); //Event Listener for Input Ends
 }); //BEYOND THE WALL

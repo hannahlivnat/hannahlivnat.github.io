@@ -1,24 +1,128 @@
+// =====================================================
 //fonts
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;800&family=Raleway:wght@200;400');
-$Raleway : 'Raleway', sans-serif;
-$OpenSans : 'Open Sans', sans-serif;
+// =====================================================
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;800&family=Raleway:wght@200;400");
+$Raleway: "Raleway",
+sans-serif;
+$OpenSans: "Open Sans",
+sans-serif;
 
+// =====================================================
+//color scheme:
+// =====================================================
 
-//color scheme: 
-$darkest-blue: #4A5680;
+$darkest-blue: #4a5680;
 $medium-blue: #7689cc;
-$lighest-blue: #E0E7FF;
+$lighest-blue: #e0e7ff;
 $grey: #707480;
 
+// =====================================================
+// small element variables
+// =====================================================
 
+$box-shadow : 2px 2px 5px rgba($color: #000000, $alpha: 0.5);
+$inset-box-shadow : inset 2px 2px 4px rgba($color: #000000, $alpha: 0.3);
+$border : 0.3vw solid $grey;
+
+// ===============================================
+// Placeholder Selectors for Common Elements
+// ===============================================
+
+//sections, divs, positions
+%zero-margin-padding {
+    margin: 0;
+    padding: 0;
+}
+
+%flex-row-styling {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+%flex-column-styling {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+%fill-parent-container {
+    object-fit: fill;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    box-sizing: border-box;
+}
+
+//elements
+%button-styling {
+    border: 1px solid $grey;
+    font-size: 3vw;
+    letter-spacing: 0.05vw;
+    font-family: $Raleway;
+    box-shadow: $box-shadow;
+    outline: none;
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    &:active {
+        box-shadow: $inset-box-shadow;
+    }
+}
+
+%ul-styling {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+%li-styling {
+    padding-bottom: 1vh;
+    font-size: 2vw;
+    font-family: $Raleway;
+}
+
+%a-tag-styling {
+    text-decoration: none;
+    color: white;
+    font-size: 2vw;
+    font-family: $Raleway;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+%heading-text-font {
+    font-family: $OpenSans;
+    font-size: 7vw;
+    letter-spacing: .02vw;
+}
+
+%p-text-font {
+    font-family: $Raleway;
+    font-size: 3vw;
+    letter-spacing: .02vw;
+    line-height: 3vh;
+    text-transform: uppercase;
+    margin: 1vh 0;
+}
+
+// ===================================================================================
 //Mobile First Styling
-html, body {
+// ===================================================================================
+
+html,
+body {
     height: 100%;
 }
 
 body {
-    margin: 0;
-    padding: 0; 
+    @extend %zero-margin-padding;
     background-color: whitesmoke;
     width: 100%;
     overflow-x: hidden;
@@ -31,96 +135,58 @@ body {
     bottom: 0;
     width: 100%;
     display: grid;
-    grid-template-rows: [head] 20% [main] auto [foot] 10%;
+    grid-template-rows: [head] 20% [main] auto [foot] 12%;
 
     .about {
+        @extend %flex-column-styling;
         display: none;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
         z-index: 2;
         width: 90%;
-        padding: 2vh 1vw;
+        padding: 10vh 2vw;
         background-color: whitesmoke;
-        border: 1vh solid $grey;
-        box-shadow: 2px 2px 5px rgba($color: #000000, $alpha: 0.5);
+        border: $border;
+        box-shadow: $box-shadow;
         position: absolute;
-        top: 25%; 
-        right: 2%;
+        top: 25%;
+        right: 3%;
 
-        h2 {
-            font-family: $Raleway;
+        >h2 {
+            @extend %heading-text-font;
         }
 
-        p {
-            padding: 0 1vw;
-            line-height: 3vh;
-            font-family: $OpenSans;
+        >p {
+            @extend %p-text-font;
         }
 
-        button {
+        >button {
+            @extend %button-styling;
             padding: 2vh 6vw;
-            margin: auto;
+            margin: 2vh auto;
             border-radius: 24px;
             background-color: $grey;
-            box-shadow: 2px 2px 4px rgba($color: #000000, $alpha: .5);
-            outline: none;
             color: white;
-            font-size: 3vw;
-            letter-spacing: .05vw;
-            font-family: $Raleway;
 
-            img {
-                position: relative;
-                height: 100%;
-            }
-    
-            &:hover {
-                cursor: pointer;
-            }
-    
-            &:active {
-                box-shadow: inset 2px 2px 4px rgba($color: #000000, $alpha: .3);
-            }
         }
     }
 }
 
-
 header {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    @extend %flex-column-styling;
     background-color: $darkest-blue;
     color: whitesmoke;
     width: 100%;
     grid-row: head;
 
-    h1 {
-        font-size: 7vw;
-        letter-spacing: .1vw;
-        font-family: $OpenSans;
+    >h1 {
+        @extend %heading-text-font;
     }
-    button {
+
+    >button {
+        @extend %button-styling;
         padding: 1vh 5vw;
         border-radius: 24px;
         background-color: whitesmoke;
-        box-shadow: 2px 2px 4px rgba($color: #000000, $alpha: .5);
-        outline: none;
         color: $darkest-blue;
-        border: 1px solid $grey;
-        font-size: 3vw;
-        letter-spacing: .05vw;
-        font-family: $Raleway;
-
-        &:hover {
-            cursor: pointer;
-        }
-
-        &:active {
-            box-shadow: inset 2px 2px 4px rgba($color: #000000, $alpha: .3);
-        }
     }
 }
 
@@ -131,215 +197,172 @@ header {
     margin: 3vh auto;
     display: grid;
     grid-template-rows: [search] 10vh [dictionary] auto [practice] auto [flashcard] 45vh;
+}
 
-    .search-section {
+.search-section {
+    width: 100%;
+    grid-row-start: search;
+    grid-row-end: dictionary;
+
+    input[type="text"] {
+        @extend %p-text-font;
         width: 100%;
-        grid-row-start: search;
-        grid-row-end: dictionary;
+        padding: 1vh 0 1vh 1vw;
+        color: $darkest-blue;
+        border: $border;
 
-        input[type="text"] {
-            width: 100%;
-            padding: 1vh 0;
-            font-size: 4vw;
+        &::placeholder {
             color: $darkest-blue;
-            border: .3vw solid $grey;
-            padding-left: 1vw;
+        }
 
-            &::placeholder {
-                color: $darkest-blue;
-                padding-left: 1vw;
-            }
-
-            &:hover, &:active {
-                cursor: text;
-            }
+        &:hover,
+        &:active {
+            cursor: text;
         }
     }
-    .dictionary-entrance {
-        grid-row-start: dictionary;
-        grid-row-end: practice;
+}
 
-        .errorH2 {
-            font-family: $Raleway;
+.dictionary-entrance {
+    grid-row-start: dictionary;
+    grid-row-end: practice;
+
+    .errorH2 {
+        @extend %heading-text-font;
+        color: $darkest-blue;
+        text-align: center;
+    }
+
+    .wordHolder {
+        @extend %flex-row-styling;
+        justify-content: space-between;
+
+        .vocab {
+            @extend %heading-text-font;
             color: $darkest-blue;
-            text-align: center;
+            margin: 0;
         }
 
-        .wordHolder {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: space-between;
+        >button {
+            @extend %button-styling;
+            border-radius: 50%;
+            background-color: $darkest-blue;
+            color: white;
+            padding: 3vw;
+            margin-right: 4vw;
+        }
+    }
 
-            #vocabularyWord {
-                font-family: $Raleway;
-                color: $darkest-blue;
-                font-size: 6vw;
-                margin: 0;
-            }
+    .wordType {
+        @extend %p-text-font;
+    }
 
-            button {
-                border-radius: 50%;
-                background-color: $darkest-blue;
-                color: white;
-                font-family: $OpenSans;
-                padding: 3vw;
-                margin-right: 4vw;
+    .definitions {
+        .definition {
+            @extend %p-text-font;
+        }
+    }
+}
+
+.practice-list {
+    @extend %flex-column-styling;
+    grid-row-start: practice;
+    grid-row-end: flashcard;
+    width: 100%;
+    padding: 1vh 0;
+    margin: 5vh auto;
+    background-color: $lighest-blue;
+
+    h2 {
+        @extend %heading-text-font;
+        width: 100%;
+        text-align: center;
+        color: $darkest-blue;
+    }
+
+    .list-container {
+        ul {
+            @extend %ul-styling;
+            @extend %flex-row-styling;
+            word-wrap: break-word;
+
+            li {
+                @extend %li-styling;
                 font-size: 3vw;
-                box-shadow: 2px 2px 4px rgba($color: #000000, $alpha: 0.4);
-                outline: none;
-
-                &:hover{
-                    cursor: pointer;
-                }
-
-                &:active {
-                    box-shadow: inset 2px 2px 4px rgba($color: #000000, $alpha: 0.4);
-                }
-            }
-        }
-        p {
-            text-transform: uppercase;
-            margin: .5vh 0;
-        }
-        #definitions {
-            .definition {
-               margin: 1vh 0;
-               text-transform: uppercase;
+                padding: 0 1.5vw;
             }
         }
     }
-    .practice-list {
-        grid-row-start: practice;
-        grid-row-end: flashcard;
-        width: 100%;
-        padding: 1vh 0;
-        margin: 5vh auto;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        background-color: $lighest-blue;
+}
 
-        h2 {
-            text-transform: uppercase;
-            font-size: 4vw;
-            width: 100%;
-            text-align: center;
+
+.flashcard-section {
+    @extend %flex-row-styling;
+    grid-row: flashcard;
+    margin: 5vh auto;
+    width: 100%;
+
+
+    .flashcards {
+        width: 70%;
+        min-width: 200px;
+        height: 100%;
+        min-height: 150px;
+        margin: auto;
+        overflow: hidden;
+        border: $border;
+
+        .flashcard {
+            @extend %flex-column-styling;
+            @extend %fill-parent-container;
+            display: none;
+            background-color: $lighest-blue;
             color: $darkest-blue;
+            border: $border;
+            padding: 0 2vw;
         }
 
-        button {
-
-            &:hover {
-                cursor: pointer;
-            }
-        }
-
-        .list-container {
-
-            ul {
-                list-style-type: none;
-                padding: 0;
-                display: flex;
-                flex-direction: row;
-                justify-content: center;
-                align-items: center;
-                word-wrap: break-word;
-    
-                li {
-                    padding: 0 1.5vw;
-                
-                }
-            }
-        }
-
-        
-    }
-    .flashcard-section {
-        grid-row: flashcard;
-        margin: 5vh auto;
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-
-        .flashcards {
-            width: 70%;
-            min-width: 200px;
-            height: 100%;
-            min-height: 150px;
-            margin: auto;
-            overflow: hidden;
-            border: 1px solid black;
-
-            .flashcard {
-                object-fit: fill;
-                width: 100%;
-                height: 100%;
-                position: relative;
-                box-sizing: border-box;
-                background-color: $lighest-blue;
-                color: $darkest-blue;
-                border: 2px solid $grey; 
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                padding: 0 2vw;
-                display: none;
-
-            }
-            
-            .flashcard:first-of-type {
-                display: flex;
-            }
-
-            button {
-                padding: 1vh 2vh;;
-                margin: 0 3vw;
-                background-color: transparent;
-                outline: none;
-                box-shadow: none;
-
-            }
+        .flashcard:first-of-type {
+            display: flex;
         }
     }
 }
 
 footer {
+    @extend %flex-row-styling;
+    @extend %zero-margin-padding;
+    justify-content: space-between;
     width: 100%;
     grid-row: foot;
-    margin: 0;
-    padding: 1vh 0 0 0;
-    font-size: 2vw;
     background-color: $darkest-blue;
     color: white;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-
-    .footerid {
-        margin-right: 3vw;
-    }
 
     ul {
-        list-style-type: none;
-        padding: 0;
-        margin: 0;
+        @extend %ul-styling;
         margin-left: 3vw;
 
+        >h3 {
+            @extend %heading-text-font;
+            @extend %zero-margin-padding;
+            font-size: 3vw;
+        }
+
         li {
-            padding-bottom: 1vh;
+            @extend %li-styling;
+            padding: 1vh 0;
         }
     }
 
     a {
-        
-        text-decoration: none;
-        color: white;
+        @extend %a-tag-styling;
+    }
 
-        &:hover {
-            cursor: pointer;
-        }
+    .footerid {
+        margin-right: 3vw;
     }
 }
+
+
+//==============================================
+// Resources: 
+// https://css-tricks.com/sass-style-guide/
+//==============================================

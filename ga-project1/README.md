@@ -87,7 +87,7 @@ SCHEDULE
            x -add event listener to word. When word is clicked on, the word will be appended under the word list section and the word and definition will be appended to a newly created flashcard.
            x -add event listener to flash card. When clicked, flash card will hide word and show definition. 
             x-If there is more than one flash card, display in row for now
-        Carousel Feature : 
+        x Carousel Feature : 
            x - Hide all flash cards but one in the flash card section. 
            x - When next button is clicked on flash card sections, event listener checks if there is more than one flash card. If only one flashcard, nothing happens. If multiple flashcards, next card will be displayed using carousel. 
     Day 3: 
