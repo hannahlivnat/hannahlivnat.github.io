@@ -9,6 +9,18 @@ $(() => {
   });
 
   // ===================================================================================
+  // Event Listener to Hide and Display Practice List
+  // ===================================================================================
+  
+  $('#toggle-instructions-button').on('click', () => {
+      $('.about').css('display', 'flex');
+  });
+
+  $('#close').on('click', () => {
+    $('.about').css('display', 'none');
+  });
+
+  // ===================================================================================
   // Create Carousel Effect in FlashCard Section
   // Only one flash card displays at a time. When user clicks prev or next button, first
   // check that there is more than one card. If only one card present, do nothing.
@@ -69,6 +81,8 @@ $(() => {
       })
         .then((dictionary) => {
           wordObject = dictionary[0];
+          console.log(wordObject);
+
           // =====================================================
           // Return Data. Declare Variables
           // to store data and created elements
@@ -77,14 +91,14 @@ $(() => {
 
           let searchedWord = wordObject.hwi.hw.replace("*", "").toUpperCase();
           const definitions = wordObject.shortdef;
-          // const example = wordObject.def[0].sseq[0][0][1].dt[0][1];
-          // console.log(example);
+          const wordType = wordObject.fl;
 
           // create elements for dom
           const $h2 = $("<h2>").text(searchedWord).attr("id", "vocabularyWord");
+          const $wordType = $("<p>").text(wordType);
           const $defdiv = $("<div>").attr("id", "definitions");
 
-          $(".dictionary-entrance").append($h2, $defdiv);
+          $(".dictionary-entrance").append($h2, $wordType, $defdiv);
 
           //loop through definition array to create paragraph for each definition
           for (definition of definitions) {
@@ -102,7 +116,7 @@ $(() => {
             const $flashcarddiv = $("<div>").addClass("flashcard");
             $(".flashcards").append($flashcarddiv);
             const word = $(event.target).text();
-            const $definitions = $(event.target).next();
+            const $definitions = $(event.target).next().next();
             const $li = $("<li>").text(word);
             $(".practice-list ul").append($li);
             const $h2 = $("<h2>").text(word);
@@ -115,7 +129,7 @@ $(() => {
             // =============================
 
             $(".flashcard").on("click", (event) => {
-              event.stopImmediatePropagation(); //https://www.sitepoint.com/event-bubbling-javascript/ 
+              event.stopImmediatePropagation(); //https://www.sitepoint.com/event-bubbling-javascript/
               const $flashcard = $(event.currentTarget);
               console.log($flashcard);
               console.log($flashcard.children().eq(0));

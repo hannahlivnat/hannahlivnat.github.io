@@ -81,20 +81,17 @@ SCHEDULE
             x Log data and key/value pairs to make sure API works
             CSS - position elements on page for mobile site (no other styling today)
             x JS - Be able to collect id, def, and examples and display it on the page.
-               - When new word is search for, old values will be replaced with new word's values
+              x - When new word is search for, old values will be replaced with new word's values
     Day 2: 
-        Flash card functionality complete
-           x -add event listener to word. When word is clicked on, the word will be appended under the word list section and the word and definition will be 
-            appended to a newly created flashcard. A
+        x Flash card functionality complete
+           x -add event listener to word. When word is clicked on, the word will be appended under the word list section and the word and definition will be appended to a newly created flashcard.
            x -add event listener to flash card. When clicked, flash card will hide word and show definition. 
-            -If there is more than one flash card, display in row for now
-        CSS - add positioning for responsive desktop site using media queries
-    Day 3: 
+            x-If there is more than one flash card, display in row for now
         Carousel Feature : 
-            - Hide all flash cards but one in the flash card section. 
-            - When next button is clicked on flash card sections, event listener checks if there 
-              is more than one flash card. If only one flashcard, nothing happens. If multiple flashcards, 
-              next card will be displayed using carousel. 
+           x - Hide all flash cards but one in the flash card section. 
+           x - When next button is clicked on flash card sections, event listener checks if there is more than one flash card. If only one flashcard, nothing happens. If multiple flashcards, next card will be displayed using carousel. 
+    Day 3: 
+        CSS - add positioning for responsive desktop site using media queries
         CSS - style carousel section for mobile and desktop. Finish making layout responsive for desktop.
         Add drag and drop feature :
             - when user clicks on word, they are able to drag word and drop it into word list. 

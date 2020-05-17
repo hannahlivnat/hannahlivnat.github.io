@@ -1,17 +1,83 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;800&family=Raleway:wght@200;400");
+html, body {
+  height: 100%;
+}
+
 body {
   margin: 0;
   padding: 0;
   background-color: whitesmoke;
-  height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 
 .container {
-  height: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
   display: -ms-grid;
   display: grid;
-  -ms-grid-rows: [head] 7% [main] 90% [foot] 3%;
-      grid-template-rows: [head] 7% [main] 90% [foot] 3%;
+  -ms-grid-rows: [head] 7% [main] auto [foot] 10%;
+      grid-template-rows: [head] 7% [main] auto [foot] 10%;
+}
+
+.container .about {
+  display: none;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  z-index: 2;
+  width: 90%;
+  padding: 2vh 1vw;
+  background-color: whitesmoke;
+  border: 1vh solid #707480;
+  -webkit-box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+          box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 25%;
+  right: 2%;
+}
+
+.container .about h2 {
+  font-family: "Raleway", sans-serif;
+}
+
+.container .about p {
+  padding: 0 1vw;
+  line-height: 3vh;
+  font-family: "Open Sans", sans-serif;
+}
+
+.container .about button {
+  padding: 1vh 4vw;
+  margin: auto;
+  border-radius: 24px;
+  background-color: #707480;
+  -webkit-box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+          box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  outline: none;
+  color: white;
+  font-size: 2vw;
+  letter-spacing: .05vw;
+  font-family: "Raleway", sans-serif;
+}
+
+.container .about button:hover {
+  cursor: pointer;
+}
+
+.container .about button:active {
+  -webkit-box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.3);
+          box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 header {
@@ -30,15 +96,15 @@ header {
           align-items: center;
   background-color: #4A5680;
   color: whitesmoke;
-  padding: 0 2vw;
   width: 100%;
   grid-row: head;
 }
 
 header h1 {
-  font-size: 6vw;
+  font-size: 5vw;
   letter-spacing: .1vw;
   font-family: "Open Sans", sans-serif;
+  margin-left: 4vw;
 }
 
 header button {
@@ -70,10 +136,17 @@ header button:active {
   grid-row-end: foot;
   width: 90%;
   margin: 3vh auto;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: [search] 10vh [dictionary] auto [practice] auto [flashcard] 45vh;
+      grid-template-rows: [search] 10vh [dictionary] auto [practice] auto [flashcard] 45vh;
 }
 
 .main .search-section {
   width: 100%;
+  -ms-grid-row: search;
+      grid-row-start: search;
+  grid-row-end: dictionary;
 }
 
 .main .search-section input[type="text"] {
@@ -109,11 +182,21 @@ header button:active {
   cursor: text;
 }
 
+.main .dictionary-entrance {
+  -ms-grid-row: dictionary;
+      grid-row-start: dictionary;
+  grid-row-end: practice;
+}
+
 .main .dictionary-entrance #definitions .definition {
   text-transform: uppercase;
 }
 
 .main .practice-list {
+  -ms-grid-row: practice;
+      grid-row-start: practice;
+  grid-row-end: flashcard;
+  width: 100%;
   padding: 1vh 0;
   margin: 5vh auto;
   display: -webkit-box;
@@ -164,6 +247,7 @@ header button:active {
 }
 
 .main .flashcard-section {
+  grid-row: flashcard;
   margin: 5vh auto;
   width: 100%;
   display: -webkit-box;
@@ -229,7 +313,7 @@ footer {
   width: 100%;
   grid-row: foot;
   margin: 0;
-  padding: 1vh 1vw;
+  padding: 1vh 0 0 0;
   font-size: 2vw;
   background-color: #4A5680;
   color: white;
@@ -248,8 +332,22 @@ footer {
           align-items: center;
 }
 
+footer .footerid {
+  margin-right: 3vw;
+}
+
+footer ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  margin-left: 3vw;
+}
+
+footer ul li {
+  padding-bottom: 1vh;
+}
+
 footer a {
-  padding: 0 2vw;
   text-decoration: none;
   color: white;
 }
