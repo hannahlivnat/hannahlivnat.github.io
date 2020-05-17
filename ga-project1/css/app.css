@@ -71,6 +71,11 @@ body {
   font-family: "Raleway", sans-serif;
 }
 
+.container .about button img {
+  position: relative;
+  height: 100%;
+}
+
 .container .about button:hover {
   cursor: pointer;
 }
@@ -269,6 +274,7 @@ header button:active {
   min-height: 150px;
   margin: auto;
   overflow: hidden;
+  border: 1px solid black;
 }
 
 .main .flashcard-section .flashcards .flashcard {
@@ -307,6 +313,10 @@ header button:active {
 .main .flashcard-section .flashcards button {
   padding: 0;
   margin: 0 3vw;
+  background-color: transparent;
+  outline: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 
 footer {

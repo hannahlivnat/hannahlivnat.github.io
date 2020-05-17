@@ -69,6 +69,11 @@ body {
             font-size: 2vw;
             letter-spacing: .05vw;
             font-family: $Raleway;
+
+            img {
+                position: relative;
+                height: 100%;
+            }
     
             &:hover {
                 cursor: pointer;
@@ -220,6 +225,7 @@ header {
             min-height: 150px;
             margin: auto;
             overflow: hidden;
+            border: 1px solid black;
 
             .flashcard {
                 object-fit: fill;
@@ -246,6 +252,10 @@ header {
             button {
                 padding: 0;
                 margin: 0 3vw;
+                background-color: transparent;
+                outline: none;
+                box-shadow: none;
+                
             }
         }
     }
