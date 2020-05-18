@@ -25,7 +25,7 @@ MVP TECH REQUIREMENTS-
 1) Use AJAX to make a request to external data source and insert data
 retrieved into DOM
 
-    Using Merriam Webster API and displaying id, def, examples on site
+    Using Merriam Webster API and displaying id, def on site
 
 2) Implement Responsive Design (fully functional on desktop, tablet, mobile)
 
@@ -45,10 +45,6 @@ retrieved into DOM
     page for desktop viewing by day 2 / 3. 
 
 PAST-MVP PLANS
-
--   Add a drag and drop feature - the user can drag the word over to the 'word
-    list' section in order to trigger flash card creation. Limit 
-    will be increased to ten flash cards. 
 -   Add pulling of illustrations to the site from API
 -   Try to add local storage for word list and flash cards so that 
     user can keep their previous cards on the site and load 5-10 

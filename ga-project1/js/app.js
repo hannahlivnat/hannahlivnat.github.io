@@ -22,8 +22,16 @@ $(() => {
     // ===================================================================================
 
     $("#display-ul").on("click", (event) => {
-        const $listDiv = $(".list-container");
-        $listDiv.toggle();
+        const $listDiv = $(".list-container ul");
+        if ($listDiv.css('display') == 'none') {
+            $listDiv.css('display', 'flex');
+            console.log('you clicked me and the display was set to none');
+
+        } else {
+            $listDiv.css('display', 'none');
+            console.log('you clicked me and the display was set to flex');
+
+        }
     });
 
     // ===================================================================================
@@ -124,7 +132,7 @@ $(() => {
                         .addClass('vocab')
                         .attr("id", "vocabularyWord");
                     const $addButton = $("<button>")
-                        .text("Add")
+                        .text("Add to List")
                         .attr("class", "addButton");
                     const $wordType = $("<p>").text(wordType)
                         .attr("class", "wordType");
@@ -167,6 +175,10 @@ $(() => {
                             .attr('id', 'definitiondiv')
                             .hide();
                         $($flashcarddiv).append($h2, $div);
+
+                        //make flashcard and practice list visible
+                        $('.flashcard-section').css('visibility', 'visible');
+                        $('.practice-list').css('visibility', 'visible');
 
                         // =============================
                         // Store flashcard in local storage

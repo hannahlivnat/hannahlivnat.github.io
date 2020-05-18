@@ -9,7 +9,8 @@
           box-sizing: border-box;
 }
 
-html {
+html,
+body {
   height: 100%;
   width: 100%;
 }
@@ -17,12 +18,11 @@ html {
 body {
   margin: 0;
   padding: 0;
-  min-height: 100%;
-  width: 100%;
   background-color: whitesmoke;
 }
 
 .container {
+  min-height: 100%;
   width: 100%;
   display: -ms-grid;
   display: grid;
@@ -34,10 +34,24 @@ body {
       grid-template-areas: "header header header" ". main ." "footer footer footer";
 }
 
+@media (max-width: 350px) {
+  .container {
+    -ms-grid-rows: 150px 1fr 40px;
+        grid-template-rows: 150px 1fr 40px;
+  }
+}
+
 @media (min-width: 600px) {
   .container {
     -ms-grid-rows: 250px 1fr 40px;
         grid-template-rows: 250px 1fr 40px;
+  }
+}
+
+@media (min-width: 1000px) {
+  .container {
+    -ms-grid-rows: 150px 1fr 40px;
+        grid-template-rows: 150px 1fr 40px;
   }
 }
 
@@ -75,7 +89,7 @@ body {
   letter-spacing: 0.02vw;
 }
 
-@media (min-width: 1600px) {
+@media (min-width: 1000px) {
   .container .about > h2 {
     font-size: 5vw;
   }
@@ -161,6 +175,24 @@ header {
   color: whitesmoke;
 }
 
+@media (min-width: 1000px) {
+  header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
 header > h1 {
   font-family: "Open Sans", sans-serif;
   font-size: 7vw;
@@ -168,7 +200,7 @@ header > h1 {
   letter-spacing: 0.02vw;
 }
 
-@media (min-width: 1600px) {
+@media (min-width: 1000px) {
   header > h1 {
     font-size: 4vw;
   }
@@ -203,16 +235,11 @@ header > button:active {
           box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-@media (min-width: 600px) {
-  header > button {
-    margin-bottom: 3vh;
-  }
-}
-
 @media (min-width: 1000px) {
   header > button {
     margin: 0 3vw 0 0;
     font-size: 2vw;
+    padding: 1vh 3vw;
   }
 }
 
@@ -222,17 +249,36 @@ header > button:active {
   grid-area: main;
   display: -ms-grid;
   display: grid;
-  -ms-grid-rows: [search] 10vh [dictionary] auto [practice] auto;
-      grid-template-rows: [search] 10vh [dictionary] auto [practice] auto;
+  -ms-grid-rows: 60px 1fr 1fr auto;
+      grid-template-rows: 60px 1fr 1fr auto;
+  grid-row-gap: 20px;
+  -ms-grid-columns: 100%;
+      grid-template-columns: 100%;
+      grid-template-areas: "search" "dictionary" "flashcard" "practice";
+}
+
+@media (min-width: 600px) {
+  .main {
+    -ms-grid-rows: 80px 1fr 1fr auto;
+        grid-template-rows: 80px 1fr 1fr auto;
+  }
+}
+
+@media (min-width: 1000px) {
+  .main {
+    -ms-grid-rows: 100px 1fr 1fr auto;
+        grid-template-rows: 100px 1fr 1fr auto;
+    row-gap: 20px;
+    -ms-grid-columns: 40px 1fr 40px;
+        grid-template-columns: 40px 1fr 40px;
+        grid-template-areas: "search search search" "dictionary dictionary dictionary" ". flashcard ." "practice practice practice";
+  }
 }
 
 .search-section {
-  width: 99.5%;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  -ms-grid-row: search;
-      grid-row-start: search;
-  grid-row-end: dictionary;
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: search;
 }
 
 .search-section input[type="text"] {
@@ -244,7 +290,6 @@ header > button:active {
   color: #4a5680;
   margin: 2% 0;
   width: 100%;
-  padding: 1vh 0;
   border: 0.3vw solid #707480;
 }
 
@@ -263,6 +308,12 @@ header > button:active {
 @media (min-width: 1600px) {
   .search-section input[type="text"] {
     font-size: 1.5vw;
+  }
+}
+
+@media (min-width: 1000px) {
+  .search-section input[type="text"] {
+    width: 70%;
   }
 }
 
@@ -287,10 +338,9 @@ header > button:active {
 }
 
 .dictionary-entrance {
-  -ms-grid-row: dictionary;
-      grid-row-start: dictionary;
-  grid-row-end: practice;
-  padding: 2vh 0;
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: dictionary;
 }
 
 .dictionary-entrance .errorH2 {
@@ -301,7 +351,7 @@ header > button:active {
   text-align: center;
 }
 
-@media (min-width: 1600px) {
+@media (min-width: 1000px) {
   .dictionary-entrance .errorH2 {
     font-size: 5vw;
   }
@@ -331,7 +381,7 @@ header > button:active {
   margin: 0;
 }
 
-@media (min-width: 1600px) {
+@media (min-width: 1000px) {
   .dictionary-entrance .wordHolder .vocab {
     font-size: 4vw;
   }
@@ -339,7 +389,7 @@ header > button:active {
 
 .dictionary-entrance .wordHolder > button {
   border: 1px solid #707480;
-  border-radius: 50%;
+  border-radius: 24px;
   background-color: #4a5680;
   color: #fff;
   font-size: 3vw;
@@ -417,128 +467,68 @@ header > button:active {
   }
 }
 
-.practice-list {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+.flashcard-section {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  grid-area: flashcard;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 60px 1fr 60px;
+      grid-template-columns: 60px 1fr 60px;
+  -webkit-column-gap: 20px;
+          column-gap: 20px;
+  -ms-grid-rows: 100%;
+      grid-template-rows: 100%;
+      grid-template-areas: "img1 flashcards img2";
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -ms-grid-row: practice;
-      grid-row-start: practice;
-  grid-row-end: flashcard;
-  width: 100%;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  padding: 1vh 0;
-  margin: 5vh auto;
-  background-color: #e0e7ff;
-}
-
-.practice-list h2 {
-  font-family: "Open Sans", sans-serif;
-  font-size: 5vw;
-  color: #4a5680;
-  letter-spacing: 0.02vw;
-  width: 100%;
-  text-align: center;
-}
-
-@media (min-width: 1600px) {
-  .practice-list h2 {
-    font-size: 3vw;
-  }
-}
-
-.practice-list .list-container ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  width: 95%;
-  margin: auto;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-}
-
-.practice-list .list-container ul li {
-  padding: 0.3vh 0 1vh 0;
-  font-size: 3vw;
-  font-family: "Raleway", sans-serif;
-  padding: 0.3vh 1.5vw;
+  visibility: hidden;
 }
 
 @media (min-width: 600px) {
-  .practice-list .list-container ul li {
-    font-size: 3.5vw;
+  .flashcard-section {
+    -ms-grid-columns: 90px 1fr 90px;
+        grid-template-columns: 90px 1fr 90px;
   }
 }
 
-.flashcard-section {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  grid-row: flashcard;
-  margin: 5vh auto;
-  width: 100%;
+.flashcard-section .flashcard-button {
+  margin: auto;
 }
 
 @media (max-width: 350px) {
-  .flashcard-section img {
+  .flashcard-section .flashcard-button {
     width: 40px;
     height: auto;
   }
 }
 
 @media (min-width: 600px) {
-  .flashcard-section img {
+  .flashcard-section .flashcard-button {
     width: 80px;
     height: auto;
   }
 }
 
+.flashcard-section .flashcard-button .fbutton1 {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: img1;
+}
+
+.flashcard-section .flashcard-button .fbutton2 {
+  -ms-grid-row: 1;
+  -ms-grid-column: 3;
+  grid-area: img2;
+}
+
 .flashcard-section .flashcards {
   -webkit-box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
           box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-  width: 70%;
-  min-width: 200px;
-  height: 100%;
-  min-height: 150px;
-  margin: auto;
-  overflow: hidden;
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: flashcards;
   border: 0.3vw solid #707480;
 }
 
@@ -564,21 +554,20 @@ header > button:active {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   display: none;
-  background-color: #e0e7ff;
-  color: #4a5680;
+  background-color: #4a5680;
   border: 0.3vw solid #707480;
-  padding: 2vh 2vw;
+  padding: 5vh 2vw;
   overflow-y: scroll;
 }
 
 .flashcard-section .flashcard > h2 {
   font-family: "Open Sans", sans-serif;
   font-size: 5vw;
-  color: #4a5680;
+  color: #e0e7ff;
   letter-spacing: 0.02vw;
 }
 
-@media (min-width: 1600px) {
+@media (min-width: 1000px) {
   .flashcard-section .flashcard > h2 {
     font-size: 2.5vw;
   }
@@ -590,9 +579,10 @@ header > button:active {
   letter-spacing: 0.02vw;
   line-height: 3vh;
   text-transform: uppercase;
-  color: #000000;
+  color: #ffffff;
   margin: 2% 0;
   font-size: 2vw;
+  text-align: center;
 }
 
 @media (min-width: 600px) {
@@ -617,6 +607,85 @@ header > button:active {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+.practice-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-grid-row: 4;
+  -ms-grid-column: 1;
+  grid-area: practice;
+  justify-self: center;
+  width: 50%;
+  padding-bottom: 40px;
+  visibility: hidden;
+}
+
+.practice-list h2 {
+  font-family: "Open Sans", sans-serif;
+  font-size: 4vw;
+  color: #4a5680;
+  letter-spacing: 0.02vw;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  text-align: center;
+}
+
+@media (min-width: 1000px) {
+  .practice-list h2 {
+    font-size: 2.5vw;
+  }
+}
+
+.practice-list .list-container ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 95%;
+  margin: auto;
+  display: none;
+  background-color: #4a5680;
+}
+
+.practice-list .list-container ul li {
+  padding: 0.3vh 0 1vh 0;
+  font-size: 2vw;
+  font-family: "Raleway", sans-serif;
+  padding: 0.3vh 1.5vw;
+  color: #fff;
+}
+
+@media (min-width: 600px) {
+  .practice-list .list-container ul li {
+    font-size: 1.5vw;
+  }
 }
 
 footer {

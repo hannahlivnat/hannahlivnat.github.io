@@ -85,9 +85,9 @@ $border: 0.3vw solid $grey;
 }
 
 //elements
-@mixin button-styling($border-radius, $background-color, $color) {
+@mixin button-styling($background-color, $color) {
     border: 1px solid $grey;
-    border-radius: $border-radius;
+    border-radius: 24px;
     background-color: $background-color;
     color: $color;
     font-size: 3vw;
@@ -137,9 +137,9 @@ $border: 0.3vw solid $grey;
     }
 }
 
-@mixin heading-text-font($size, $lgsize, $color) {
-    @include breakpoint(lg) {
-        font-size: $lgsize;
+@mixin heading-text-font($size, $mdsize, $color) {
+    @include breakpoint(md) {
+        font-size: $mdsize;
     }
 
     font-family: $opensans-font;
@@ -182,25 +182,31 @@ $border: 0.3vw solid $grey;
     }
 }
 
-html {
-    //height taken from viewport
+html,
+body {
     height: 100%;
     width: 100%;
 }
 
 body {
     @include zero-margin-padding;
-    //min-height allows for scrolling of content
-    min-height: 100%;
-    width: 100%;
     background-color: whitesmoke;
 }
 
 .container {
+    @include breakpoint(xs) {
+        grid-template-rows: 150px 1fr 40px;
+    }
+
     @include breakpoint(sm) {
         grid-template-rows: 250px 1fr 40px;
     }
 
+    @include breakpoint(md) {
+        grid-template-rows: 150px 1fr 40px;
+    }
+
+    min-height: 100%;
     width: 100%;
     display: grid;
     grid-template-rows: 200px 1fr 40px;
@@ -233,7 +239,7 @@ body {
         }
 
         >button {
-            @include button-styling(24px, $grey, #fff);
+            @include button-styling($grey, #fff);
 
             @include breakpoint(sm) {
                 margin-top: 5vh;
@@ -246,11 +252,14 @@ body {
 }
 
 header {
+    @include breakpoint(md) {
+        @include flex-styling(row, space-between, center);
+    }
+
     @include flex-styling(column, center, center);
     grid-area: header;
     background-color: $darkest-blue;
     color: whitesmoke;
-
 
     >h1 {
         @include heading-text-font(7vw, 4vw, #fff);
@@ -262,15 +271,12 @@ header {
     }
 
     >button {
-        @include button-styling(24px, whitesmoke, $darkest-blue);
-
-        @include breakpoint(sm) {
-            margin-bottom: 3vh;
-        }
+        @include button-styling(whitesmoke, $darkest-blue);
 
         @include breakpoint(md) {
             margin: 0 3vw 0 0;
             font-size: 2vw;
+            padding: 1vh 3vw;
         }
 
         padding: 1vh 5vw;
@@ -278,22 +284,44 @@ header {
 }
 
 .main {
+    @include breakpoint(sm) {
+        grid-template-rows: 80px 1fr 1fr auto;
+    }
+
+    @include breakpoint(md) {
+        grid-template-rows: 100px 1fr 1fr auto;
+        row-gap: 20px;
+        grid-template-columns: 40px 1fr 40px;
+        grid-template-areas: "search search search"
+            "dictionary dictionary dictionary"
+            ". flashcard ."
+            "practice practice practice";
+
+    }
+
     grid-area: main;
     display: grid;
-    grid-template-rows: [search] 10vh [dictionary] auto [practice] auto;
+    grid-template-rows: 60px 1fr 1fr auto;
+    grid-row-gap: 20px;
+    grid-template-columns: 100%;
+    grid-template-areas: "search"
+    "dictionary"
+    "flashcard"
+    "practice";
 
 }
 
 .search-section {
-    width: 99.5%;
-    box-sizing: border-box;
-    grid-row-start: search;
-    grid-row-end: dictionary;
+    grid-area: search;
 
     input[type="text"] {
         @include p-text-font($darkest-blue);
+
+        @include breakpoint(md) {
+            width: 70%;
+        }
+
         width: 100%;
-        padding: 1vh 0;
         border: $border;
 
         &::placeholder {
@@ -308,9 +336,7 @@ header {
 }
 
 .dictionary-entrance {
-    grid-row-start: dictionary;
-    grid-row-end: practice;
-    padding: 2vh 0;
+    grid-area: dictionary;
 
     .errorH2 {
         @include heading-text-font(7vw, 5vw, $darkest-blue);
@@ -326,7 +352,7 @@ header {
         }
 
         >button {
-            @include button-styling(50%, $darkest-blue, #fff);
+            @include button-styling($darkest-blue, #fff);
             padding: 3vw;
             margin-right: 4vw;
         }
@@ -343,47 +369,21 @@ header {
     }
 }
 
-.practice-list {
-    @include flex-styling(column, center, center);
-    grid-row-start: practice;
-    grid-row-end: flashcard;
-    width: 100%;
-    box-sizing: border-box;
-    padding: 1vh 0;
-    margin: 5vh auto;
-    background-color: $lighest-blue;
-
-    h2 {
-        @include heading-text-font(5vw, 3vw, $darkest-blue);
-        width: 100%;
-        text-align: center;
-    }
-
-    .list-container {
-        ul {
-            @include ul-styling;
-            @include flex-styling(row, center, center);
-            flex-wrap: wrap;
-            width: 95%;
-            margin: auto;
-            box-sizing: border-box;
-
-            li {
-                @include li-styling(3vw, 3.5vw);
-                padding: 0.3vh 1.5vw;
-            }
-        }
-    }
-}
-
 .flashcard-section {
-    @include flex-styling(row, center, center);
-    box-sizing: border-box;
-    grid-row: flashcard;
-    margin: 5vh auto;
-    width: 100%;
+    @include breakpoint(sm) {
+        grid-template-columns: 90px 1fr 90px;
+    }
 
-    img {
+    grid-area: flashcard;
+    display: grid;
+    grid-template-columns: 60px 1fr 60px;
+    column-gap: 20px;
+    grid-template-rows: 100%;
+    grid-template-areas: "img1 flashcards img2";
+    align-items: center;
+    visibility: hidden;
+
+    .flashcard-button {
         @include breakpoint(xs) {
             width: 40px;
             height: auto;
@@ -393,17 +393,21 @@ header {
             width: 80px;
             height: auto;
         }
+
+        margin: auto;
+
+        .fbutton1 {
+            grid-area: img1;
+        }
+
+        .fbutton2 {
+            grid-area: img2;
+        }
     }
 
     .flashcards {
         box-shadow: $box-shadow;
-
-        width: 70%;
-        min-width: 200px;
-        height: 100%;
-        min-height: 150px;
-        margin: auto;
-        overflow: hidden;
+        grid-area: flashcards;
         border: $border;
     }
 
@@ -411,25 +415,59 @@ header {
         @include flex-styling(column, center, center);
         @include fill-parent-container;
         display: none;
-        background-color: $lighest-blue;
-        color: $darkest-blue;
+        background-color: $darkest-blue;
         border: $border;
-        padding: 2vh 2vw;
+        padding: 5vh 2vw;
         overflow-y: scroll;
 
         >h2 {
-            @include heading-text-font(5vw, 2.5vw, $darkest-blue);
+            @include heading-text-font(5vw, 2.5vw, $lighest-blue);
         }
 
         .definitiondiv {
             .definition {
-                @include p-text-font(#000000);
+                @include p-text-font(#ffffff);
                 font-size: 2vw;
+                text-align: center;
             }
         }
 
         &:first-of-type {
             display: flex;
+        }
+    }
+}
+
+.practice-list {
+    @include flex-styling(column, center, center);
+    grid-area: practice;
+    justify-self: center;
+    width: 50%;
+    padding-bottom: 40px;
+    visibility: hidden;
+
+    h2 {
+        @include heading-text-font(4vw, 2.5vw, $darkest-blue);
+        @include zero-margin-padding();
+        width: 100%;
+        text-align: center;
+    }
+
+    .list-container {
+        ul {
+            @include ul-styling;
+            @include flex-styling(column, center, center);
+            flex-wrap: wrap;
+            width: 95%;
+            margin: auto;
+            display: none;
+            background-color: $darkest-blue;
+
+            li {
+                @include li-styling(2vw, 1.5vw);
+                padding: 0.3vh 1.5vw;
+                color: #fff;
+            }
         }
     }
 }
