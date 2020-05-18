@@ -2,14 +2,17 @@ $(() => {
     // ===================================================================================
     // Load Vocabulary and Definitions from Local Storage
     // ===================================================================================
-    if (localStorage.getItem('flashcardArr') === null) {
-        //no flashcards saved yet, do nothing
-        return;
-    } else {
-        //get flashcardArr and parse back into array with nested objects
-        const flashcards = JSON.parse(localStorage.getItem('flashcardArr'));
-        console.log(flashcards);
-    }
+    // if (localStorage.getItem('flashcardArr') === null) {
+    //     //no flashcards saved yet, do nothing
+    //     return;
+    // } else {
+    //     //get flashcardArr and parse back into array with nested objects
+    //     const flashcards = JSON.parse(localStorage.getItem('flashcardArr'));
+    //     console.log(flashcards);
+
+    //     //use a loop to go through array and create a flashcard from each nested object
+
+    // }
 
 
 

@@ -98,8 +98,8 @@ SCHEDULE
             - when user adds word to word list, it will save to local storage
             - previously created flash cards will load automatically for viewer upon opening page.
         Get started on more in-depth styling
-            - Develop color scheme and font
-            - find icons for buttons on carousel
+           x - Develop color scheme and font
+           x - find icons for buttons on carousel
             - get nit picky with margins/padding/position
     Day 5: 
         Finish Styling Page
