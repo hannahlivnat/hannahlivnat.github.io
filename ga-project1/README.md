@@ -93,14 +93,10 @@ SCHEDULE
     Day 3: 
         CSS - add positioning for responsive desktop site using media queries
         CSS - style carousel section for mobile and desktop. Finish making layout responsive for desktop.
-        Add drag and drop feature :
-            - when user clicks on word, they are able to drag word and drop it into word list. 
-            When word is dropped into word list, a flash card is made for that word. 
     Day 4: 
         Local Storage functionality added
             - when user adds word to word list, it will save to local storage
             - previously created flash cards will load automatically for viewer upon opening page.
-        Add illustrations to api pull and display on page
         Get started on more in-depth styling
             - Develop color scheme and font
             - find icons for buttons on carousel

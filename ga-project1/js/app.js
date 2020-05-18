@@ -132,16 +132,36 @@ $(() => {
                     $(".addButton").on("click", (event) => {
                         const $flashcarddiv = $("<div>").addClass("flashcard");
                         $(".flashcards").append($flashcarddiv);
-
+                        //select vocabulary word and definition
                         const word = $(event.target).prev().text();
                         console.log(word);
-
                         const $definitions = $(event.target).parent().next().next();
+
+                        //create li item for practice list and h2/div for flashcard
                         const $li = $("<li>").text(word);
                         $(".practice-list ul").append($li);
                         const $h2 = $("<h2>").text(word);
                         const $div = $definitions.clone().hide();
                         $($flashcarddiv).append($h2, $div);
+
+                        // =============================
+                        // Store flashcard in local storage
+                        // =============================
+                        let flashcardArr;
+                        //When word and def values are created, enter them in as new object
+                        if (localStorage.getItem('flashcardArr') === null) {
+                            //create flashcardArr to hold flashcard value and definition
+                            flashcardArr = [];
+                        } else {
+                            //get flashcardArr and parse back into array with nested objects
+                            flashcardArr = JSON.parse(localStorage.getItem('flashcardArr'));
+                        }
+                        //push object holding latest vocab word and definition into flashcardArr
+                        flashcardArr.push({
+                            'vocabularyWord': word,
+                            'definition': $definitions
+                        });
+                        localStorage.setItem('flashcardArr', JSON.stringify(flashcardArr));
 
                         // =============================
                         // Event Listener on FlashCard
@@ -158,8 +178,9 @@ $(() => {
                             $word.toggle();
                             $def.toggle();
                         });
-                    });
+                    }); //End of 'addbutton' event listener
                 }) //end of .then
+
                 .catch((err) => {
                     console.log(err);
                     const $h2 = $("<h2>").text(
@@ -171,3 +192,10 @@ $(() => {
         } //end of return if statement
     }); //Event Listener for Input Ends
 }); //BEYOND THE WALL
+
+
+//==================================================
+//Resources
+//==================================================
+
+// local storage - https://medium.com/better-programming/how-to-use-local-storage-with-javascript-9598834c8b72
