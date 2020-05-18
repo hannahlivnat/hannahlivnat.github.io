@@ -1,5 +1,20 @@
 $(() => {
     // ===================================================================================
+    // Load Vocabulary and Definitions from Local Storage
+    // ===================================================================================
+    if (localStorage.getItem('flashcardArr') === null) {
+        //no flashcards saved yet, do nothing
+        return;
+    } else {
+        //get flashcardArr and parse back into array with nested objects
+        const flashcards = JSON.parse(localStorage.getItem('flashcardArr'));
+        console.log(flashcards);
+    }
+
+
+
+
+    // ===================================================================================
     // Event Listener to Hide and Display Practice List
     // ===================================================================================
 
@@ -134,8 +149,9 @@ $(() => {
                         $(".flashcards").append($flashcarddiv);
                         //select vocabulary word and definition
                         const word = $(event.target).prev().text();
-                        console.log(word);
                         const $definitions = $(event.target).parent().next().next();
+                        console.log($definitions);
+
 
                         //create li item for practice list and h2/div for flashcard
                         const $li = $("<li>").text(word);
@@ -156,6 +172,7 @@ $(() => {
                             //get flashcardArr and parse back into array with nested objects
                             flashcardArr = JSON.parse(localStorage.getItem('flashcardArr'));
                         }
+
                         //push object holding latest vocab word and definition into flashcardArr
                         flashcardArr.push({
                             'vocabularyWord': word,
