@@ -33,6 +33,7 @@ $(() => {
     $("#toggle-instructions-button").on("click", () => {
         $(".about").css("display", "flex");
         $(".main").css("visibility", "hidden");
+        $('footer').css("visibility", 'hidden');
     });
 
     $("#close").on("click", () => {
@@ -160,7 +161,11 @@ $(() => {
                         const $li = $("<li>").text(word);
                         $(".practice-list ul").append($li);
                         const $h2 = $("<h2>").text(word);
-                        const $div = $definitions.clone().hide();
+                        const $div = $definitions
+                            .clone()
+                            .attr('class', 'definitiondiv')
+                            .attr('id', 'definitiondiv')
+                            .hide();
                         $($flashcarddiv).append($h2, $div);
 
                         // =============================

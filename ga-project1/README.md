@@ -110,6 +110,7 @@ SCHEDULE
             - Make code more DRY 
             - Make repeated font-sizes, colors, etc. into variables in sass
             - Test functionality of each feature
+        Do markdown properly
         Practice Presentation : 
             - 5 minute presentations planned and practiced
             - create bullet point outline to present -- features, tech details, challenges, future improvements. 

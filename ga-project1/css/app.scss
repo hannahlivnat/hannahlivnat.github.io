@@ -3,10 +3,8 @@
 // Font-Stacks
 // =====================================================
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;800&family=Raleway:wght@200;400");
-$raleway-font: ('Raleway',
-    sans-serif);
-$opensans-font: ('Open Sans',
-    sans-serif);
+$raleway-font: ("Raleway", sans-serif);
+$opensans-font: ("Open Sans", sans-serif);
 
 // =====================================================
 // Color Scheme:
@@ -21,13 +19,49 @@ $grey: #707480;
 // small element variables
 // =====================================================
 
-$box-shadow : 2px 2px 5px rgba($color: #000000, $alpha: 0.5);
-$inset-box-shadow : inset 2px 2px 4px rgba($color: #000000, $alpha: 0.3);
-$border : 0.3vw solid $grey;
+$box-shadow: 2px 2px 5px rgba($color: #000000,
+    $alpha: 0.5,
+);
+$inset-box-shadow: inset 2px 2px 4px rgba($color: #000000,
+    $alpha: 0.3,
+);
+$border: 0.3vw solid $grey;
 
 // ===============================================
 // Placeholder Selectors and Mixins for Common Elements
 // ===============================================
+
+// breakpoint for responsive design
+
+@mixin breakpoint($point) {
+    @if $point==lg {
+        @media (min-width: 1600px) {
+            @content;
+        }
+    }
+
+    @else if $point==md {
+        @media (min-width: 1000px) {
+            @content;
+        }
+    }
+
+    @else if $point==sm {
+        @media (min-width: 600px) {
+            @content;
+        }
+    }
+
+    @else if $point==xs {
+        @media (max-width: 350px) {
+            @content;
+        }
+    }
+
+    @else {
+        @warn "Breakpoint mixin should be: lg, md, or sm.";
+    }
+}
 
 //sections, divs, positions
 @mixin zero-margin-padding {
@@ -35,7 +69,7 @@ $border : 0.3vw solid $grey;
     padding: 0;
 }
 
-@mixin flex-styling ($direction, $justify, $align) {
+@mixin flex-styling($direction, $justify, $align) {
     display: flex;
     flex-direction: $direction;
     justify-content: $justify;
@@ -51,8 +85,11 @@ $border : 0.3vw solid $grey;
 }
 
 //elements
-@mixin button-styling ($border-radius, $background-color, $color) {
+@mixin button-styling($border-radius, $background-color, $color) {
     border: 1px solid $grey;
+    border-radius: $border-radius;
+    background-color: $background-color;
+    color: $color;
     font-size: 3vw;
     letter-spacing: 0.05vw;
     font-family: $raleway-font;
@@ -74,14 +111,23 @@ $border : 0.3vw solid $grey;
     margin: 0;
 }
 
-@mixin li-styling {
-    padding-bottom: 1vh;
-    font-size: 2vw;
+@mixin li-styling($fontsize, $smfontsize) {
+    @include breakpoint(sm) {
+        font-size: $smfontsize;
+    }
+
+    padding: 0.3vh 0 1vh 0;
+    font-size: $fontsize;
     font-family: $raleway-font;
 }
 
 @mixin a-tag-styling {
+    @include breakpoint(sm) {
+        font-size: 1.5vw;
+    }
+
     text-decoration: none;
+    padding: 0;
     color: white;
     font-size: 2vw;
     font-family: $raleway-font;
@@ -91,54 +137,86 @@ $border : 0.3vw solid $grey;
     }
 }
 
-@mixin heading-text-font ($size, $color) {
+@mixin heading-text-font($size, $lgsize, $color) {
+    @include breakpoint(lg) {
+        font-size: $lgsize;
+    }
+
     font-family: $opensans-font;
     font-size: $size;
     color: $color;
-    letter-spacing: .02vw;
+    letter-spacing: 0.02vw;
 }
 
 @mixin p-text-font($color) {
+    @include breakpoint(sm) {
+        line-height: 5vh;
+    }
+
+    @include breakpoint(md) {
+        line-height: 7vh;
+    }
+
+    @include breakpoint(lg) {
+        font-size: 1.5vw;
+    }
+
     font-family: $raleway-font;
     font-size: 3vw;
-    letter-spacing: .02vw;
+    letter-spacing: 0.02vw;
     line-height: 3vh;
     text-transform: uppercase;
     color: $color;
-    margin: 1vh 0;
+    margin: 2% 0;
 }
 
 // ===================================================================================
 //Mobile First Styling
 // ===================================================================================
+* {
+    box-sizing: border-box;
 
-html,
-body {
+    &:before,
+    &:after {
+        box-sizing: border-box;
+    }
+}
+
+html {
+    //height taken from viewport
     height: 100%;
+    width: 100%;
 }
 
 body {
     @include zero-margin-padding;
-    background-color: whitesmoke;
+    //min-height allows for scrolling of content
+    min-height: 100%;
     width: 100%;
-    overflow-x: hidden;
-    overflow-y: scroll;
+    background-color: whitesmoke;
 }
 
 .container {
-    position: absolute;
-    top: 0;
-    bottom: 0;
+    @include breakpoint(sm) {
+        grid-template-rows: 250px 1fr 40px;
+    }
+
     width: 100%;
     display: grid;
-    grid-template-rows: [head] 20% [main] auto [foot] 12%;
+    grid-template-rows: 200px 1fr 40px;
+    grid-row-gap: 5px;
+    grid-template-columns: 20px 1fr 20px;
+    grid-template-areas: "header header header"
+    ". main ."
+    "footer footer footer";
+
 
     .about {
         @include flex-styling(column, center, center);
         display: none;
         z-index: 2;
         width: 90%;
-        padding: 10vh 2vw;
+        padding: 200px 20px;
         background-color: whitesmoke;
         border: $border;
         box-shadow: $box-shadow;
@@ -147,15 +225,20 @@ body {
         right: 3%;
 
         >h2 {
-            @include heading-text-font(7vw, $background-color);
+            @include heading-text-font(7vw, 5vw, $darkest-blue);
         }
 
         >p {
-            @include p-text-font$grey;
+            @include p-text-font($grey);
         }
 
         >button {
             @include button-styling(24px, $grey, #fff);
+
+            @include breakpoint(sm) {
+                margin-top: 5vh;
+            }
+
             padding: 2vh 6vw;
             margin: 2vh auto;
         }
@@ -164,39 +247,53 @@ body {
 
 header {
     @include flex-styling(column, center, center);
+    grid-area: header;
     background-color: $darkest-blue;
     color: whitesmoke;
-    width: 100%;
-    grid-row: head;
+
 
     >h1 {
-        @include heading-text-font(7vw, #fff);
+        @include heading-text-font(7vw, 4vw, #fff);
+
+        @include breakpoint(md) {
+            margin-left: 3vw;
+        }
+
     }
 
     >button {
         @include button-styling(24px, whitesmoke, $darkest-blue);
+
+        @include breakpoint(sm) {
+            margin-bottom: 3vh;
+        }
+
+        @include breakpoint(md) {
+            margin: 0 3vw 0 0;
+            font-size: 2vw;
+        }
+
         padding: 1vh 5vw;
     }
 }
 
 .main {
-    grid-row-start: main;
-    grid-row-end: foot;
-    width: 90%;
-    margin: 3vh auto;
+    grid-area: main;
     display: grid;
-    grid-template-rows: [search] 10vh [dictionary] auto [practice] auto [flashcard] 45vh;
+    grid-template-rows: [search] 10vh [dictionary] auto [practice] auto;
+
 }
 
 .search-section {
-    width: 100%;
+    width: 99.5%;
+    box-sizing: border-box;
     grid-row-start: search;
     grid-row-end: dictionary;
 
     input[type="text"] {
         @include p-text-font($darkest-blue);
         width: 100%;
-        padding: 1vh 0 1vh 1vw;
+        padding: 1vh 0;
         border: $border;
 
         &::placeholder {
@@ -213,9 +310,10 @@ header {
 .dictionary-entrance {
     grid-row-start: dictionary;
     grid-row-end: practice;
+    padding: 2vh 0;
 
     .errorH2 {
-        @include heading-text-font(7vw, $darkest-blue);
+        @include heading-text-font(7vw, 5vw, $darkest-blue);
         text-align: center;
     }
 
@@ -223,7 +321,7 @@ header {
         @include flex-styling(row, space-between, center);
 
         .vocab {
-            @include heading-text-font(6vw, $darkest-blue);
+            @include heading-text-font(6vw, 4vw, $darkest-blue);
             margin: 0;
         }
 
@@ -250,12 +348,13 @@ header {
     grid-row-start: practice;
     grid-row-end: flashcard;
     width: 100%;
+    box-sizing: border-box;
     padding: 1vh 0;
     margin: 5vh auto;
     background-color: $lighest-blue;
 
     h2 {
-        @include heading-text-font(5vw, $darkest-blue);
+        @include heading-text-font(5vw, 3vw, $darkest-blue);
         width: 100%;
         text-align: center;
     }
@@ -264,26 +363,41 @@ header {
         ul {
             @include ul-styling;
             @include flex-styling(row, center, center);
-            word-wrap: break-word;
+            flex-wrap: wrap;
+            width: 95%;
+            margin: auto;
+            box-sizing: border-box;
 
             li {
-                @include li-styling;
-                font-size: 3vw;
-                padding: 0 1.5vw;
+                @include li-styling(3vw, 3.5vw);
+                padding: 0.3vh 1.5vw;
             }
         }
     }
 }
 
-
 .flashcard-section {
     @include flex-styling(row, center, center);
+    box-sizing: border-box;
     grid-row: flashcard;
     margin: 5vh auto;
     width: 100%;
 
+    img {
+        @include breakpoint(xs) {
+            width: 40px;
+            height: auto;
+        }
+
+        @include breakpoint(sm) {
+            width: 80px;
+            height: auto;
+        }
+    }
 
     .flashcards {
+        box-shadow: $box-shadow;
+
         width: 70%;
         min-width: 200px;
         height: 100%;
@@ -291,18 +405,30 @@ header {
         margin: auto;
         overflow: hidden;
         border: $border;
+    }
 
-        .flashcard {
-            @include flex-styling(column, center, center);
-            @include fill-parent-container;
-            display: none;
-            background-color: $lighest-blue;
-            color: $darkest-blue;
-            border: $border;
-            padding: 0 2vw;
+    .flashcard {
+        @include flex-styling(column, center, center);
+        @include fill-parent-container;
+        display: none;
+        background-color: $lighest-blue;
+        color: $darkest-blue;
+        border: $border;
+        padding: 2vh 2vw;
+        overflow-y: scroll;
+
+        >h2 {
+            @include heading-text-font(5vw, 2.5vw, $darkest-blue);
         }
 
-        .flashcard:first-of-type {
+        .definitiondiv {
+            .definition {
+                @include p-text-font(#000000);
+                font-size: 2vw;
+            }
+        }
+
+        &:first-of-type {
             display: flex;
         }
     }
@@ -310,39 +436,23 @@ header {
 
 footer {
     @include flex-styling(row, space-between, center);
-    @include zero-margin-padding;
-    width: 100%;
-    grid-row: foot;
+    grid-area: footer;
     background-color: $darkest-blue;
     color: white;
 
-    ul {
-        @include ul-styling;
-        margin-left: 3vw;
-
-        >h3 {
-            @include heading-text-font(3v2, #fff);
-            @include zero-margin-padding;
-        }
-
-        li {
-            @include li-styling;
-            padding: 1vh 0;
-        }
-    }
-
     a {
         @include a-tag-styling;
+        margin: 0 3vw;
     }
 
-    .footerid {
-        margin-right: 3vw;
-    }
 }
 
-
 //==============================================
-// Resources: 
+// Resources:
 // https://css-tricks.com/sass-style-guide/
 // https://sass-guidelin.es/
+// https://medium.com/@zerox/keep-that-damn-footer-at-the-bottom-c7a921cb9551
+// https://dev.to/domysee/keeping-the-footer-at-the-bottom-with-css-flexbox-5h5f?signin=true
+// https://medium.com/flexbox-and-grids/how-to-efficiently-master-the-css-grid-in-a-jiffy-585d0c213577
+//https://stackoverflow.com/questions/17555682/height-100-or-min-height-100-for-html-and-body-elements
 //==============================================
