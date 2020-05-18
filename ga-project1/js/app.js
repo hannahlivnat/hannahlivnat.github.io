@@ -25,12 +25,8 @@ $(() => {
         const $listDiv = $(".list-container ul");
         if ($listDiv.css('display') == 'none') {
             $listDiv.css('display', 'flex');
-            console.log('you clicked me and the display was set to none');
-
         } else {
             $listDiv.css('display', 'none');
-            console.log('you clicked me and the display was set to flex');
-
         }
     });
 
