@@ -37,7 +37,6 @@ $(() => {
             .attr('src', 'https://img.icons8.com/cotton/35/000000/delete-sign--v2.png')
             .attr('class', 'delete-button');
         const $p = $("<p>").text(word);
-
         $(".list-container").append($practiceListDiv);
         $practiceListDiv.append($x, $p);
     }
@@ -55,12 +54,10 @@ $(() => {
             //remove matching flashcard
             const wordToDelete = $(event.currentTarget).next().text();
             $(`#${wordToDelete}`).parent().remove();
-
             //If no flashcards left, hide flashcards and list
             if ($('.flashcard').length === 0) {
                 hideOrShowFlashAndPractice('hidden');
             }
-
             //remove word and def from local storage
             deleteFromStorage(wordToDelete);
         });
@@ -86,15 +83,27 @@ $(() => {
             //get word out of local storage
             const word = flashcards[flashcard].vocabularyWord;
             //get definitions out of their array and into paragraphs within defdiv
-            const $defdiv = $('<div>').attr('class', 'definitiondiv')
-            const definitions = flashcards[flashcard].definition.toString();
-            definitions.replace("[", "");
-            definitions.replace("]", "");
+            const $defdiv = $('<div>').attr('class', 'definitiondiv').hide();
+            let definitions = flashcards[flashcard].definition.toString();
+            definitions = definitions.replace("[", "").replace("]", "").replace(/"/g, '');
             console.log(definitions);
+            definitions = definitions.split(",").join("<br />");
+            const $p = $('<p>').html(definitions).addClass('definition');
+
+            //create new empty flashcard
+            const $flashcarddiv = $("<div>").addClass("flashcard");
+            $(".flashcards").append($flashcarddiv);
+
+            //create h2 for flashcard out of word
+            const $h2 = $("<h2>").text(word)
+                .attr('id', word);
+
+            //append to new flashcard
+            $defdiv.append($p);
+            $($flashcarddiv).append($h2, $defdiv);
 
             //Call Functions --- 
             createPracticeItem(word);
-            // createPracticeItemAndFlashCard(word, definitions);
             hideOrShowFlashAndPractice('visible');
             createDeleteEventListener('.delete-button');
             flashcardEventListener('.flashcard');
@@ -107,13 +116,11 @@ $(() => {
     const putInStorage = (wordValue, definitionValue) => {
         //get array out of storage
         flashcardArr = JSON.parse(localStorage.getItem('flashcardArr'));
-
         //push object holding latest vocab word and definition into flashcardArr
         flashcardArr.push({
             'vocabularyWord': `${wordValue}`,
             'definition': JSON.stringify(definitionValue)
         });
-
         //put array back in storage
         localStorage.setItem('flashcardArr', JSON.stringify(flashcardArr));
     }
@@ -271,8 +278,6 @@ $(() => {
                         const $p = $("<p>").text(definition).attr("class", "definition");
                         $defdiv.append($p);
                     }
-                    console.log(definitionsArray);
-
 
                     // ========================================================
                     // Event Listener on word paragraph -
