@@ -1,7 +1,10 @@
 
-#**WORD CONNOISSEUR**
+WORD CONNOISSEUR - Flashcard Site
+---------------------------------
+![](project-one.gif)
 
-##**PROJECT DESCRIPTION**
+PROJECT DESCRIPTION
+--------------------
 
 Word Connoisseur is for people who want to look up words and customize their 
 own word practice lists without going through the effort of making their
@@ -9,134 +12,44 @@ own flash cards through a site such as Quizlet.
 
 When the user gets to the site, they can look up a word and view it's definition. They can then interact with the word by adding it to their word list, which will make the word appear as a flash card at the bottom of the screen. Flash cards and practice lists are saved to local storage, so your words will still be there when you open the website again. Users can go to the practice list to delete their words. 
 
-![](project-one.gif)
-
-EXPLANATION OF TECHNOLOGY USED
-
-
-DESCRIPTION OF APPROACH TO PROJECT
-
-
-LINK TO LIVE SITE  : hannahlivnat.github.io/ga-project1
+APPROACH TAKEN
+---------------
+1) I started off by laying out the HTML and the basic css positioning for the mobile site. 
+2) Next, I worked on the mvp features from the top down: event listener on input, adding word and 
+definition to the DOM, event listener on add button, flashcard functionality, and pratice list creation. 
+3) Next, I did basic css positioning for the desktop site
+4) Moved on to local storage, revisited js features with local storage in mind to refactor where needed
+5) CSS design
 
 INSTALLATION INSTRUCTIONS
+-------------------------
 
+No install needed. 
+
+FEATURES / TECHNOLOGY USED
+--------------------------
+
+API : Merriam Webster Collegiate Dictionary API - https://dictionaryapi.com/products/index
+Languages, Libraries, and PreProcessors : CSS, Sass/SCSS, JavaScript, jQuery
+
+Main Features : 
+* UI feature - instructions modal that is opened and closed by event listener on header button and modal button
+* UI features - carousel in flashcard section that cycles through the flashcards on the practice list
+* AJAX request to API pulls in vocabulary word and definition, triggered by pressing enter within input.
+* Local Storage - If user clicks "add" button to add vocabulary word to their practice list, this also triggers a Local Storage function which stringifys the word and definition. Upon page reload, json is parsed back into flashcards and a practice list on the DOM. 
+
+VISIT LIVE SITE
+---------------
+* Link to Site: hannahlivnat.github.io/ga-project1
 
 UNSOLVED PROBLEMS
+-----------------
+* FlashCards - There is overflow within the textbox of the description side of the flashcard that needs to be fixed
+* Some of the features are vulnerable to breakage which could be made better by refactoring into one-purpose functions
+* A few of the nested for loops, particularly within local storage, seem really overnested, could be simplified with a different and more simple approach. 
 
 
 
-BEGINNING OF PROJECT PLAN
-
-API USED - MERRIAM WEBSTER COLLEGIATE DICTIONARY API
-    Data Features: Definitions, Synonym and Usage paragraphs, possibly illustrations once past mvp. 
-
-    Key Value Pairs: 
-        "id" : word searched for
-        "def" : definition
-        "examples" : example use cases of the word
-
-
-USER STORY - 
-The user is someone who wants to look up words and customize their 
-own word practice lists without going through the effort of making their
-own flash cards through a site such as Quizlet. 
-
-HOW SHOULD PEOPLE BE ABLE TO USE YOUR WEBSITE -
-When they get to the site, they should be able to look up a word and see the definition of that word as well as examples for the word. They can then interact with the word by adding it to their word list, which will make the word appear as a flash card at the bottom of the screen. There can be up to 10 flash cards at a time. 
-
-WIREFRAMES - Included in planning folder
-
-MVP TECH REQUIREMENTS- 
-
-1) Use AJAX to make a request to external data source and insert data
-retrieved into DOM
-
-    Using Merriam Webster API and displaying id, def on site
-
-2) Implement Responsive Design (fully functional on desktop, tablet, mobile)
-
-    wireframes planned out for mobile and desktop
-
-3) Have on or more complex user interface modules built from scratch using jQuery. 
-
-    For MVP, I'll be making the flash card section of the page a 
-    carousel. Initially, the user will be able to click on the word
-    they searched in order to trigger the creation of the flash card. 
-    I will insert a limit that they can only create five flash cards 
-    at a time. 
-
-4) Page is responsive. 
-
-    I'll be using mobile first design practices and use media queries to adjust
-    page for desktop viewing by day 2 / 3. 
-
-PAST-MVP PLANS
--   Add pulling of illustrations to the site from API
--   Try to add local storage for word list and flash cards so that 
-    user can keep their previous cards on the site and load 5-10 
-    new ones each day. 
--   super bonus that probably won't happen: user can input their email and 
-    have a flash card email sent to them using the words that they added
-    to their list.
--   Another super bonus : add additional api that pulls in a word of the day and 
-    display that as the default before a user searches for a word. add functionality
-    to let user add the word of the day to their practice list
-
-SCHEDULE
-
-    Project is Due - Tuesday Evening. 
-    Project Time Period - 5 Days
-
-    Daily Project Plan: 
-    Already Completed: 
-        x Pre-Project Wireframe, user stories, etc. 
-        x API selected, have key
-        x presentation approved
-        x key/value pairs to use selected
-    Day 1: 
-        Morning (before 1 pm):
-            x Finish reading API documentation
-            x Create schedule for day 1-5
-            x HTML - complete all divs, sections, etc.
-            x pseudo code out js file for mvp elements needed. 
-        Afternoon: (Before 6 pm)
-            x Log data and key/value pairs to make sure API works
-            CSS - position elements on page for mobile site (no other styling today)
-            x JS - Be able to collect id, def, and examples and display it on the page.
-              x - When new word is search for, old values will be replaced with new word's values
-    Day 2: 
-        x Flash card functionality complete
-           x -add event listener to word. When word is clicked on, the word will be appended under the word list section and the word and definition will be appended to a newly created flashcard.
-           x -add event listener to flash card. When clicked, flash card will hide word and show definition. 
-            x-If there is more than one flash card, display in row for now
-        x Carousel Feature : 
-           x - Hide all flash cards but one in the flash card section. 
-           x - When next button is clicked on flash card sections, event listener checks if there is more than one flash card. If only one flashcard, nothing happens. If multiple flashcards, next card will be displayed using carousel. 
-    Day 3: 
-        CSS - add positioning for responsive desktop site using media queries
-        CSS - style carousel section for mobile and desktop. Finish making layout responsive for desktop.
-    Day 4: 
-        Local Storage functionality added
-            - when user adds word to word list, it will save to local storage
-            - previously created flash cards will load automatically for viewer upon opening page.
-        Get started on more in-depth styling
-           x - Develop color scheme and font
-           x - find icons for buttons on carousel
-            - get nit picky with margins/padding/position
-    Day 5: 
-        Finish Styling Page
-        Add flipping feature to flash card 
-            - instead of hiding and showing on same page,
-            make flipping animation using key frames then show definition. 
-        Read Over and Edit Final Code: 
-            - Make code more DRY 
-            - Make repeated font-sizes, colors, etc. into variables in sass
-            - Test functionality of each feature
-        Do markdown properly
-        Practice Presentation : 
-            - 5 minute presentations planned and practiced
-            - create bullet point outline to present -- features, tech details, challenges, future improvements. 
 
 
 
