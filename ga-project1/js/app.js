@@ -188,8 +188,14 @@ $(() => {
                         $('.delete-button').on('click', (event) => {
                             //remove from list
                             $(event.currentTarget).parent().remove();
+                            //remove matching flashcard
                             const wordToDelete = $(event.currentTarget).next().text();
                             $(`#${wordToDelete}`).parent().remove();
+                            //check if there are any flashcards left, if not: hide list and flashcards
+                            if ($('.flashcard').length === 0) {
+                                $('.flashcard-section').css('visibility', 'hidden');
+                                $('.practice-list').css('visibility', 'hidden');
+                            }
 
                         });
 
