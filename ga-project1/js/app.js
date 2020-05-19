@@ -15,9 +15,11 @@ $(() => {
         //create h2 and div for flashcard
         const $h2 = $("<h2>").text(word)
             .attr('id', word);
-        // const $div = definitions
+        // const $div = $('<div>).attr('class', 'definitiondiv')
+
+
+        definitions
         //     .clone()
-        //     .attr('class', 'definitiondiv')
         //     .attr('id', 'definitiondiv')
         //     .hide();
         $($flashcarddiv).append($h2);
@@ -208,14 +210,12 @@ $(() => {
                     const $word = $("<h3>")
                         .text(searchedWord)
                         .addClass('vocab')
-                        .attr("id", "vocabularyWord");
                     const $addButton = $("<button>")
                         .text("Add to List")
                         .attr("class", "addButton");
                     const $wordType = $("<p>").text(wordType)
                         .attr("class", "wordType");
                     const $defdiv = $("<div>")
-                        .attr("id", "definitions")
                         .attr('class', 'definitions');
 
                     //append elements
@@ -262,7 +262,6 @@ $(() => {
                         const $div = $definitions
                             .clone()
                             .attr('class', 'definitiondiv')
-                            .attr('id', 'definitiondiv')
                             .hide();
                         $($flashcarddiv).append($h2, $div);
 
