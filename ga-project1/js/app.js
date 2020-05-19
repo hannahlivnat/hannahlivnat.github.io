@@ -54,7 +54,6 @@ $(() => {
             const definition = flashcards[i].definition;
             console.log(word, definition);
             createPracticeItemAndFlashCard(word, definition);
-
         }
     }
 
@@ -68,7 +67,7 @@ $(() => {
         //push object holding latest vocab word and definition into flashcardArr
         flashcardArr.push({
             'vocabularyWord': `${wordValue}`,
-            'definition': `${definitionValue}`
+            'definition': JSON.stringify(definitionValue)
         });
 
         //put array back in storage
@@ -224,10 +223,14 @@ $(() => {
                     $wordSection.append($word, $addButton);
 
                     //loop through definition array to create paragraph and append each definition
+                    const definitionsArray = [];
                     for (definition of definitions) {
+                        definitionsArray.push(definition);
                         const $p = $("<p>").text(definition).attr("class", "definition");
                         $defdiv.append($p);
                     }
+                    console.log(definitionsArray);
+
 
                     // ========================================================
                     // Event Listener on word paragraph -
@@ -243,7 +246,6 @@ $(() => {
                         //select vocabulary word and definition
                         const word = $(event.target).prev().text();
                         const $definitions = $(event.target).parent().next().next();
-
 
                         //create li item and icon for practice list 
                         const $practiceListDiv = $('<div>').addClass('list-div');
@@ -268,6 +270,11 @@ $(() => {
                         $('.flashcard-section').css('visibility', 'visible');
                         $('.practice-list').css('visibility', 'visible');
 
+                        // =============================
+                        // Store flashcard in local storage
+                        // =============================
+                        putInStorage(word, definitionsArray);
+
                         // ==================================================
                         // Delete word from practice list if x button clicked
                         // ==================================================
@@ -288,13 +295,6 @@ $(() => {
                         });
 
                         // =============================
-                        // Store flashcard in local storage
-                        // =============================
-                        putInStorage(word, $definitions);
-
-
-
-                        // =============================
                         // Event Listener on FlashCard
                         // Toggle Between Word and Def.
                         // =============================
@@ -308,6 +308,7 @@ $(() => {
                             $def.toggle();
 
                         });
+
                     }); //End of 'addbutton' event listener
                 }) //end of .then
 
