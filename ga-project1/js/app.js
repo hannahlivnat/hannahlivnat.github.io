@@ -159,7 +159,6 @@ $(() => {
                         //select vocabulary word and definition
                         const word = $(event.target).prev().text();
                         const $definitions = $(event.target).parent().next().next();
-                        console.log($definitions);
 
 
                         //create li item and icon for practice list 
@@ -190,7 +189,7 @@ $(() => {
                             //remove from list
                             $(event.currentTarget).parent().remove();
                             const wordToDelete = $(event.currentTarget).next().text();
-                            console.log(wordToDelete);
+                            $(`#${wordToDelete}`).parent().remove();
 
                         });
 
