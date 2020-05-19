@@ -1,30 +1,58 @@
 $(() => {
     // ===================================================================================
-    // Load Vocabulary and Definitions from Local Storage
+    // Create Local Storage Array if Not Existing On Load / If Exists Grab Stored Items
     // ===================================================================================
-    // if (localStorage.getItem('flashcardArr') === null) {
-    //     //no flashcards saved yet, do nothing
-    //     return;
-    // } else {
-    //     //get flashcardArr and parse back into array with nested objects
-    //     const flashcards = JSON.parse(localStorage.getItem('flashcardArr'));
-    //     console.log(flashcards);
+    let flashcardArr;
 
-    //     //use a loop to go through array and create a flashcard from each nested object
+    flashcardArr = localStorage.getItem(`flashcardArr`);
 
-    // }
+    if (flashcardArr === null) {
+        flashcardArr = [];
+        console.log('flashcardArr created');
+    } else if (flashcardArr.length === 0) {
+        console.log('flashcardArr has no cards');
+    } else {
+        const flashcards = JSON.parse(localStorage.getItem('flashcardArr'));
+        console.log(flashcards);
+        //use a loop to go through array and create a flashcard from each nested object
+    }
+
+    localStorage.setItem('flashcardArr', JSON.stringify(flashcardArr));
+
+    // ===================================================================================
+    // Save Objects to Local Storage
+    // ===================================================================================
+    const putInStorage = (wordValue, definitionValue) => {
+        //get array out of storage
+        flashcardArr = JSON.parse(localStorage.getItem('flashcardArr'));
+
+
+        //push object holding latest vocab word and definition into flashcardArr
+        flashcardArr.push({
+            'vocabularyWord': wordValue,
+            'definition': definitionValue
+        });
+
+        //put array back in storage
+        localStorage.setItem('flashcardArr', JSON.stringify(flashcardArr));
+    }
+
     // ===================================================================================
     // Function to Delete Objects from Local Storage
     // ===================================================================================
 
     const deleteFromStorage = (wordToDelete) => {
+        //turn json string into array
         const flashcards = JSON.parse(localStorage.getItem('flashcardArr'));
+        //loop through each object in array
         for (flashcard in flashcards) {
+            //store each object value in an array and loop to see if any of the values match wordToDelete
             const objectValues = Object.entries(flashcards[flashcard]);
             for (value in objectValues) {
                 const array = objectValues[value];
                 for (i = 0; i < array.length; i++) {
                     if (array[i] === wordToDelete) {
+                        //if a value matches word to delete, delete the whole object
                         const index = flashcards.indexOf(flashcards[flashcard]);
                         flashcards.splice(index, 1);
                     }
@@ -202,7 +230,10 @@ $(() => {
                         $('.flashcard-section').css('visibility', 'visible');
                         $('.practice-list').css('visibility', 'visible');
 
-                        //Delete word from practice list if x button clicked
+                        // ==================================================
+                        // Delete word from practice list if x button clicked
+                        // ==================================================
+
                         $('.delete-button').on('click', (event) => {
                             //remove from list
                             $(event.currentTarget).parent().remove();
@@ -221,22 +252,10 @@ $(() => {
                         // =============================
                         // Store flashcard in local storage
                         // =============================
-                        let flashcardArr;
-                        //When word and def values are created, enter them in as new object
-                        if (localStorage.getItem('flashcardArr') === null) {
-                            //create flashcardArr to hold flashcard value and definition
-                            flashcardArr = [];
-                        } else {
-                            //get flashcardArr and parse back into array with nested objects
-                            flashcardArr = JSON.parse(localStorage.getItem('flashcardArr'));
-                        }
 
-                        //push object holding latest vocab word and definition into flashcardArr
-                        flashcardArr.push({
-                            'vocabularyWord': word,
-                            'definition': $definitions
-                        });
-                        localStorage.setItem('flashcardArr', JSON.stringify(flashcardArr));
+                        putInStorage(word, $definitions);
+
+
 
                         // =============================
                         // Event Listener on FlashCard
@@ -246,17 +265,11 @@ $(() => {
                         $(".flashcard").on("click", (event) => {
                             event.stopImmediatePropagation(); //https://www.sitepoint.com/event-bubbling-javascript/
                             const $flashcard = $(event.currentTarget);
-                            console.log($flashcard);
-                            console.log($flashcard.children().eq(0));
                             const $word = $flashcard.children().eq(0);
                             const $def = $flashcard.children().eq(1);
                             $word.toggle();
                             $def.toggle();
 
-                            // =============================
-                            // Event Listener on Delete Icon
-                            // Delete Word off Practice List
-                            // =============================
                         });
                     }); //End of 'addbutton' event listener
                 }) //end of .then
