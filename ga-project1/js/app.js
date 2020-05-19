@@ -3,21 +3,18 @@ $(() => {
     // Create Local Storage Array if Not Existing On Load / If Exists Grab Stored Items
     // ===================================================================================
     let flashcardArr;
-
-    flashcardArr = localStorage.getItem(`flashcardArr`);
-
-    if (flashcardArr === null) {
+    const data = localStorage.getItem(`flashcardArr`)
+    if (data === null) {
         flashcardArr = [];
         console.log('flashcardArr created');
-    } else if (flashcardArr.length === 0) {
+        localStorage.setItem('flashcardArr', JSON.stringify(flashcardArr));
+    } else if (data.length === 0) {
         console.log('flashcardArr has no cards');
     } else {
-        const flashcards = JSON.parse(localStorage.getItem('flashcardArr'));
+        const flashcards = JSON.parse(data);
         console.log(flashcards);
-        //use a loop to go through array and create a flashcard from each nested object
     }
 
-    localStorage.setItem('flashcardArr', JSON.stringify(flashcardArr));
 
     // ===================================================================================
     // Save Objects to Local Storage
@@ -26,11 +23,10 @@ $(() => {
         //get array out of storage
         flashcardArr = JSON.parse(localStorage.getItem('flashcardArr'));
 
-
         //push object holding latest vocab word and definition into flashcardArr
         flashcardArr.push({
-            'vocabularyWord': wordValue,
-            'definition': definitionValue
+            'vocabularyWord': `${wordValue}`,
+            'definition': `${definitionValue}`
         });
 
         //put array back in storage
@@ -252,7 +248,6 @@ $(() => {
                         // =============================
                         // Store flashcard in local storage
                         // =============================
-
                         putInStorage(word, $definitions);
 
 
