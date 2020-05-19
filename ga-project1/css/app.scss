@@ -353,7 +353,7 @@ header {
 
         >button {
             @include button-styling($darkest-blue, #fff);
-            padding: 3vw;
+            padding: 2vw;
             margin-right: 4vw;
         }
     }
@@ -427,7 +427,7 @@ header {
         .definitiondiv {
             .definition {
                 @include p-text-font(#ffffff);
-                font-size: 2vw;
+                font-size: 2.5vw;
                 text-align: center;
             }
         }
@@ -446,7 +446,7 @@ header {
     padding-bottom: 40px;
     visibility: hidden;
 
-    h2 {
+    >h2 {
         @include heading-text-font(4vw, 2.5vw, $darkest-blue);
         @include zero-margin-padding();
         width: 100%;
@@ -454,23 +454,36 @@ header {
     }
 
     .list-container {
-        ul {
-            @include ul-styling;
-            @include flex-styling(column, center, center);
-            flex-wrap: wrap;
-            width: 95%;
-            margin: auto;
-            display: none;
-            background-color: $darkest-blue;
+        @include flex-styling(column, center, center);
+        flex-wrap: wrap;
+        width: 95%;
+        margin: auto;
+        display: none;
+        background-color: $darkest-blue;
 
-            li {
-                @include li-styling(2vw, 1.5vw);
-                padding: 0.3vh 1.5vw;
-                color: #fff;
+        .list-div {
+            @include flex-styling(row, space-evenly, center);
+            width: 70%;
+            margin: auto;
+            padding: 5px 10px;
+
+            >p {
+                @include p-text-font(#fff);
+                font-size: 3vw;
             }
+
+            .delete-button {
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+
         }
+
+
     }
 }
+
 
 footer {
     @include flex-styling(row, space-between, center);

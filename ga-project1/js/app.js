@@ -22,7 +22,7 @@ $(() => {
     // ===================================================================================
 
     $("#display-ul").on("click", (event) => {
-        const $listDiv = $(".list-container ul");
+        const $listDiv = $(".list-container");
         if ($listDiv.css('display') == 'none') {
             $listDiv.css('display', 'flex');
         } else {
@@ -95,7 +95,6 @@ $(() => {
             // API Request Made to Merriam Webster API
             // Filter Should Return - word searched for
             // Pull data for - word searched for, definition,
-            // verbal illustration
             // =======================================
 
             $.ajax({
@@ -153,18 +152,28 @@ $(() => {
                     // =========================================================
 
                     $(".addButton").on("click", (event) => {
+                        //create new empty flashcard
                         const $flashcarddiv = $("<div>").addClass("flashcard");
                         $(".flashcards").append($flashcarddiv);
+
                         //select vocabulary word and definition
                         const word = $(event.target).prev().text();
                         const $definitions = $(event.target).parent().next().next();
                         console.log($definitions);
 
 
-                        //create li item for practice list and h2/div for flashcard
-                        const $li = $("<li>").text(word);
-                        $(".practice-list ul").append($li);
-                        const $h2 = $("<h2>").text(word);
+                        //create li item and icon for practice list 
+                        const $practiceListDiv = $('<div>').addClass('list-div');
+                        const $p = $("<p>").text(word);
+                        const $x = $('<img>')
+                            .attr('src', 'https://img.icons8.com/cotton/35/000000/delete-sign--v2.png')
+                            .attr('class', 'delete-button');
+                        $(".list-container").append($practiceListDiv);
+                        $practiceListDiv.append($x, $p)
+
+                        //create h2 and div for flashcard
+                        const $h2 = $("<h2>").text(word)
+                            .attr('id', word);
                         const $div = $definitions
                             .clone()
                             .attr('class', 'definitiondiv')
@@ -175,6 +184,15 @@ $(() => {
                         //make flashcard and practice list visible
                         $('.flashcard-section').css('visibility', 'visible');
                         $('.practice-list').css('visibility', 'visible');
+
+                        //Delete word from practice list if x button clicked
+                        $('.delete-button').on('click', (event) => {
+                            //remove from list
+                            $(event.currentTarget).parent().remove();
+                            const wordToDelete = $(event.currentTarget).next().text();
+                            console.log(wordToDelete);
+
+                        });
 
                         // =============================
                         // Store flashcard in local storage
@@ -210,6 +228,11 @@ $(() => {
                             const $def = $flashcard.children().eq(1);
                             $word.toggle();
                             $def.toggle();
+
+                            // =============================
+                            // Event Listener on Delete Icon
+                            // Delete Word off Practice List
+                            // =============================
                         });
                     }); //End of 'addbutton' event listener
                 }) //end of .then
