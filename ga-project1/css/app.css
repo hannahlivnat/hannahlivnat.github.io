@@ -72,7 +72,7 @@ body {
   display: none;
   z-index: 2;
   width: 90%;
-  padding: 200px 20px;
+  padding: 20px 20px;
   background-color: whitesmoke;
   border: 0.3vw solid #707480;
   -webkit-box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
@@ -87,11 +87,12 @@ body {
   font-size: 7vw;
   color: #4a5680;
   letter-spacing: 0.02vw;
+  text-align: center;
 }
 
 @media (min-width: 1000px) {
   .container .about > h2 {
-    font-size: 5vw;
+    font-size: 3vw;
   }
 }
 
@@ -105,9 +106,17 @@ body {
   margin: 7px 0 0 0;
 }
 
-@media (min-width: 1600px) {
+@media (min-width: 600px) {
   .container .about > p {
-    font-size: 1.5vw;
+    font-size: 2vw;
+    line-height: 3.5vh;
+  }
+}
+
+@media (min-width: 1000px) {
+  .container .about > p {
+    font-size: 1vw;
+    line-height: 3vh;
   }
 }
 
@@ -126,6 +135,12 @@ body {
   margin: 2vh auto;
 }
 
+@media (min-width: 1000px) {
+  .container .about > button {
+    font-size: 1.5vw;
+  }
+}
+
 .container .about > button:hover {
   cursor: pointer;
 }
@@ -138,6 +153,13 @@ body {
 @media (min-width: 600px) {
   .container .about > button {
     margin-top: 5vh;
+    padding: 1vh 3vw;
+  }
+}
+
+@media (min-width: 1000px) {
+  .container .about > button {
+    padding: 1vh 2vw;
   }
 }
 
@@ -214,6 +236,12 @@ header > button {
   padding: 1vh 5vw;
 }
 
+@media (min-width: 1000px) {
+  header > button {
+    font-size: 1.5vw;
+  }
+}
+
 header > button:hover {
   cursor: pointer;
 }
@@ -256,10 +284,10 @@ header > button:active {
   .main {
     -ms-grid-rows: 100px 1fr 1fr auto;
         grid-template-rows: 100px 1fr 1fr auto;
-    row-gap: 20px;
-    -ms-grid-columns: 40px 1fr 40px;
-        grid-template-columns: 40px 1fr 40px;
-        grid-template-areas: "search search search" "dictionary dictionary dictionary" ". flashcard ." "practice practice practice";
+    row-gap: 40px;
+    -ms-grid-columns: 1fr 3fr 1fr;
+        grid-template-columns: 1fr 3fr 1fr;
+        grid-template-areas: "search search search" ". dictionary ." ". flashcard ." "practice practice practice";
   }
 }
 
@@ -283,9 +311,17 @@ header > button:active {
   border: 0.3vw solid #707480;
 }
 
-@media (min-width: 1600px) {
+@media (min-width: 600px) {
   .search-section input[type="text"] {
-    font-size: 1.5vw;
+    font-size: 2vw;
+    line-height: 3.5vh;
+  }
+}
+
+@media (min-width: 1000px) {
+  .search-section input[type="text"] {
+    font-size: 1vw;
+    line-height: 3vh;
   }
 }
 
@@ -323,7 +359,7 @@ header > button:active {
 
 .dictionary-entrance .errorH2 {
   font-family: "Open Sans", sans-serif;
-  font-size: 7vw;
+  font-size: 6vw;
   color: #4a5680;
   letter-spacing: 0.02vw;
   text-align: center;
@@ -331,7 +367,7 @@ header > button:active {
 
 @media (min-width: 1000px) {
   .dictionary-entrance .errorH2 {
-    font-size: 5vw;
+    font-size: 4vw;
   }
 }
 
@@ -377,7 +413,13 @@ header > button:active {
           box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
   outline: none;
   padding: 2vw;
-  margin-right: 4vw;
+  margin-left: 3vw;
+}
+
+@media (min-width: 1000px) {
+  .dictionary-entrance .wordHolder > button {
+    font-size: 1.5vw;
+  }
 }
 
 .dictionary-entrance .wordHolder > button:hover {
@@ -387,6 +429,12 @@ header > button:active {
 .dictionary-entrance .wordHolder > button:active {
   -webkit-box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.3);
           box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+@media (min-width: 1000px) {
+  .dictionary-entrance .wordHolder > button {
+    padding: 1vw;
+  }
 }
 
 .dictionary-entrance .wordType {
@@ -402,10 +450,22 @@ header > button:active {
   text-align: center;
 }
 
-@media (min-width: 1600px) {
+@media (min-width: 600px) {
   .dictionary-entrance .wordType {
-    font-size: 1.5vw;
+    font-size: 2vw;
+    line-height: 3.5vh;
   }
+}
+
+@media (min-width: 1000px) {
+  .dictionary-entrance .wordType {
+    font-size: 1vw;
+    line-height: 3vh;
+  }
+}
+
+.dictionary-entrance .definitions {
+  margin-top: 3vh;
 }
 
 .dictionary-entrance .definitions .definition {
@@ -418,9 +478,17 @@ header > button:active {
   margin: 7px 0 0 0;
 }
 
-@media (min-width: 1600px) {
+@media (min-width: 600px) {
   .dictionary-entrance .definitions .definition {
-    font-size: 1.5vw;
+    font-size: 2vw;
+    line-height: 3.5vh;
+  }
+}
+
+@media (min-width: 1000px) {
+  .dictionary-entrance .definitions .definition {
+    font-size: 1vw;
+    line-height: 3vh;
   }
 }
 
@@ -514,7 +582,6 @@ header > button:active {
   background-color: #4a5680;
   border: 0.3vw solid #707480;
   padding: 5vh 2vw;
-  overflow-y: scroll;
 }
 
 .flashcard-section .flashcard > h2 {
@@ -540,11 +607,20 @@ header > button:active {
   margin: 7px 0 0 0;
   font-size: 2.5vw;
   text-align: center;
+  overflow: scroll;
 }
 
-@media (min-width: 1600px) {
+@media (min-width: 600px) {
   .flashcard-section .flashcard .definitiondiv .definition {
-    font-size: 1.5vw;
+    font-size: 2vw;
+    line-height: 3.5vh;
+  }
+}
+
+@media (min-width: 1000px) {
+  .flashcard-section .flashcard .definitiondiv .definition {
+    font-size: 1vw;
+    line-height: 3vh;
   }
 }
 
@@ -552,6 +628,10 @@ header > button:active {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+.flashcard-section .flashcard:hover {
+  cursor: pointer;
 }
 
 .practice-list {
@@ -575,6 +655,18 @@ header > button:active {
   width: 50%;
   padding-bottom: 40px;
   visibility: hidden;
+}
+
+@media (min-width: 600px) {
+  .practice-list {
+    width: 30%;
+  }
+}
+
+@media (min-width: 1000px) {
+  .practice-list {
+    width: 20%;
+  }
 }
 
 .practice-list > h2 {
@@ -624,9 +716,9 @@ header > button:active {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -646,9 +738,17 @@ header > button:active {
   font-size: 3vw;
 }
 
-@media (min-width: 1600px) {
+@media (min-width: 600px) {
   .practice-list .list-container .list-div > p {
-    font-size: 1.5vw;
+    font-size: 2vw;
+    line-height: 3.5vh;
+  }
+}
+
+@media (min-width: 1000px) {
+  .practice-list .list-container .list-div > p {
+    font-size: 1vw;
+    line-height: 3vh;
   }
 }
 

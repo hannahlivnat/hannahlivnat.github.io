@@ -16,6 +16,7 @@ $(() => {
     // Function to Add Event Listener on FlashCard
     // Toggle Between Word and Def.
     //================================================
+
     const flashcardEventListener = (className) => {
         $(className).on("click", (event) => {
             event.stopImmediatePropagation(); //https://www.sitepoint.com/event-bubbling-javascript/
@@ -65,7 +66,7 @@ $(() => {
 
     //================================================
     // Create Local Storage Array if Not Existing On Load 
-    // If Exists, Grab Stored Items
+    // If Exists Already, Grab Stored Items and update DOM
     //================================================
 
     let flashcardArr;
@@ -165,7 +166,7 @@ $(() => {
     });
 
     // ===================================================================================
-    // Event Listener to Hide and Display Practice List
+    // Event Listener to Hide and Display Instructions Div
     // ===================================================================================
 
     $("#toggle-instructions-button").on("click", () => {
@@ -177,6 +178,7 @@ $(() => {
     $("#close").on("click", () => {
         $(".about").css("display", "none");
         $(".main").css("visibility", "visible");
+        $('footer').css("visibility", "visible");
 
     });
 
