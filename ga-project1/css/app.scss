@@ -149,25 +149,17 @@ $border: 0.3vw solid $grey;
 }
 
 @mixin p-text-font($color) {
-    @include breakpoint(sm) {
-        line-height: 5vh;
-    }
-
-    @include breakpoint(md) {
-        line-height: 7vh;
-    }
-
     @include breakpoint(lg) {
         font-size: 1.5vw;
     }
 
     font-family: $raleway-font;
     font-size: 3vw;
-    letter-spacing: 0.02vw;
+    letter-spacing: 0.03vw;
     line-height: 3vh;
     text-transform: uppercase;
     color: $color;
-    margin: 2% 0;
+    margin: 7px 0 0 0;
 }
 
 // ===================================================================================
@@ -321,7 +313,9 @@ header {
             width: 70%;
         }
 
+        font-size: 3vw;
         width: 100%;
+        padding: 15px 10px;
         border: $border;
 
         &::placeholder {
@@ -359,12 +353,15 @@ header {
     }
 
     .wordType {
-        @include p-text-font(#000);
+        @include p-text-font(#ffffff);
+        background-color: $grey;
+        width: 12vw;
+        text-align: center;
     }
 
     .definitions {
         .definition {
-            @include p-text-font(#000);
+            @include p-text-font($grey);
         }
     }
 }

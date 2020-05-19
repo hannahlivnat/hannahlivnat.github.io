@@ -1,47 +1,79 @@
 $(() => {
-    // ========================
-    // Functions Stored Here
-    // Local Storage
-    // DOM Creation Elements
-    // ========================
-
     // ===================================================================================
-    // Function to Create Practice Item and Flash Card
+    // ------------------------------- Functions ----------------------------------------
     // ===================================================================================
-    const createPracticeItemAndFlashCard = (word, definitions) => {
-        //create new empty flashcard
-        const $flashcarddiv = $("<div>").addClass("flashcard");
-        $(".flashcards").append($flashcarddiv);
-        //create h2 and div for flashcard
-        const $h2 = $("<h2>").text(word)
-            .attr('id', word);
-        // const $div = $('<div>).attr('class', 'definitiondiv')
 
+    //================================================
+    // Function to Toggle Flashcard/Practice Visibility
+    //================================================
 
-        definitions
-        //     .clone()
-        //     .attr('id', 'definitiondiv')
-        //     .hide();
-        $($flashcarddiv).append($h2);
-        //create li item and icon for practice list 
+    const hideOrShowFlashAndPractice = (visibleOrHidden) => {
+        $('.flashcard-section').css('visibility', visibleOrHidden);
+        $('.practice-list').css('visibility', visibleOrHidden);
+    }
+
+    //================================================
+    // Function to Add Event Listener on FlashCard
+    // Toggle Between Word and Def.
+    //================================================
+    const flashcardEventListener = (className) => {
+        $(className).on("click", (event) => {
+            event.stopImmediatePropagation(); //https://www.sitepoint.com/event-bubbling-javascript/
+            const $flashcard = $(event.currentTarget);
+            const $word = $flashcard.children().eq(0);
+            const $def = $flashcard.children().eq(1);
+            $word.toggle();
+            $def.toggle();
+        });
+    }
+
+    //================================================
+    // Function to Create Practice Item 
+    //================================================
+
+    const createPracticeItem = (word) => {
         const $practiceListDiv = $('<div>').addClass('list-div');
-        const $p = $("<p>").text(word);
         const $x = $('<img>')
             .attr('src', 'https://img.icons8.com/cotton/35/000000/delete-sign--v2.png')
             .attr('class', 'delete-button');
-        $(".list-container").append($practiceListDiv);
-        $practiceListDiv.append($x, $p)
+        const $p = $("<p>").text(word);
 
-        //make flashcard and practice list visible
-        $('.flashcard-section').css('visibility', 'visible');
-        $('.practice-list').css('visibility', 'visible');
+        $(".list-container").append($practiceListDiv);
+        $practiceListDiv.append($x, $p);
     }
 
-    // ===================================================================================
-    // Create Local Storage Array if Not Existing On Load / If Exists Grab Stored Items
-    // ===================================================================================
+    //================================================
+    // Function to Add Event Lister to Delete Button
+    // When clicked, will remove: 
+    // flashcard, list div, and local storage slot
+    //================================================
+
+    const createDeleteEventListener = (className) => {
+        $(className).on('click', (event) => {
+            //remove from practice list
+            $(event.currentTarget).parent().remove();
+            //remove matching flashcard
+            const wordToDelete = $(event.currentTarget).next().text();
+            $(`#${wordToDelete}`).parent().remove();
+
+            //If no flashcards left, hide flashcards and list
+            if ($('.flashcard').length === 0) {
+                hideOrShowFlashAndPractice('hidden');
+            }
+
+            //remove word and def from local storage
+            deleteFromStorage(wordToDelete);
+        });
+    }
+
+    //================================================
+    // Create Local Storage Array if Not Existing On Load 
+    // If Exists, Grab Stored Items
+    //================================================
+
     let flashcardArr;
     const data = localStorage.getItem(`flashcardArr`)
+
     if (data === null) {
         flashcardArr = [];
         console.log('flashcardArr created');
@@ -50,12 +82,22 @@ $(() => {
         console.log('flashcardArr has no cards');
     } else {
         const flashcards = JSON.parse(data);
-        console.log(flashcards);
-        for (i = 0; i < flashcards.length; i++) {
-            const word = flashcards[i].vocabularyWord;
-            const definition = flashcards[i].definition;
-            console.log(word, definition);
-            createPracticeItemAndFlashCard(word, definition);
+        for (flashcard in flashcards) {
+            //get word out of local storage
+            const word = flashcards[flashcard].vocabularyWord;
+            //get definitions out of their array and into paragraphs within defdiv
+            const $defdiv = $('<div>').attr('class', 'definitiondiv')
+            const definitions = flashcards[flashcard].definition.toString();
+            definitions.replace("[", "");
+            definitions.replace("]", "");
+            console.log(definitions);
+
+            //Call Functions --- 
+            createPracticeItem(word);
+            // createPracticeItemAndFlashCard(word, definitions);
+            hideOrShowFlashAndPractice('visible');
+            createDeleteEventListener('.delete-button');
+            flashcardEventListener('.flashcard');
         }
     }
 
@@ -248,13 +290,7 @@ $(() => {
                         const $definitions = $(event.target).parent().next().next();
 
                         //create li item and icon for practice list 
-                        const $practiceListDiv = $('<div>').addClass('list-div');
-                        const $p = $("<p>").text(word);
-                        const $x = $('<img>')
-                            .attr('src', 'https://img.icons8.com/cotton/35/000000/delete-sign--v2.png')
-                            .attr('class', 'delete-button');
-                        $(".list-container").append($practiceListDiv);
-                        $practiceListDiv.append($x, $p)
+                        createPracticeItem(word);
 
                         //create h2 and div for flashcard
                         const $h2 = $("<h2>").text(word)
@@ -265,48 +301,15 @@ $(() => {
                             .hide();
                         $($flashcarddiv).append($h2, $div);
 
+                        // Function Calls ---------------------------------------
                         //make flashcard and practice list visible
-                        $('.flashcard-section').css('visibility', 'visible');
-                        $('.practice-list').css('visibility', 'visible');
-
-                        // =============================
-                        // Store flashcard in local storage
-                        // =============================
+                        hideOrShowFlashAndPractice('visible');
+                        //Store Flashcard in local storage
                         putInStorage(word, definitionsArray);
-
-                        // ==================================================
-                        // Delete word from practice list if x button clicked
-                        // ==================================================
-
-                        $('.delete-button').on('click', (event) => {
-                            //remove from list
-                            $(event.currentTarget).parent().remove();
-                            //remove matching flashcard
-                            const wordToDelete = $(event.currentTarget).next().text();
-                            $(`#${wordToDelete}`).parent().remove();
-                            //check if there are any flashcards left, if not: hide list and flashcards
-                            if ($('.flashcard').length === 0) {
-                                $('.flashcard-section').css('visibility', 'hidden');
-                                $('.practice-list').css('visibility', 'hidden');
-                            }
-                            //remove word and def from local storage
-                            deleteFromStorage(wordToDelete);
-                        });
-
-                        // =============================
-                        // Event Listener on FlashCard
-                        // Toggle Between Word and Def.
-                        // =============================
-
-                        $(".flashcard").on("click", (event) => {
-                            event.stopImmediatePropagation(); //https://www.sitepoint.com/event-bubbling-javascript/
-                            const $flashcard = $(event.currentTarget);
-                            const $word = $flashcard.children().eq(0);
-                            const $def = $flashcard.children().eq(1);
-                            $word.toggle();
-                            $def.toggle();
-
-                        });
+                        //create event listener for the delete button
+                        createDeleteEventListener('.delete-button');
+                        //toggle between word and def on click
+                        flashcardEventListener('.flashcard');
 
                     }); //End of 'addbutton' event listener
                 }) //end of .then
@@ -328,5 +331,5 @@ $(() => {
 //Resources
 //==================================================
 
-// local storage - https://medium.com/better-programming/how-to-use-local-storage-with-javascript-9598834c8b72
+//https://medium.com/better-programming/how-to-use-local-storage-with-javascript-9598834c8b72
 //https://www.taniarascia.com/how-to-use-local-storage-with-javascript/

@@ -98,23 +98,11 @@ body {
 .container .about > p {
   font-family: "Raleway", sans-serif;
   font-size: 3vw;
-  letter-spacing: 0.02vw;
+  letter-spacing: 0.03vw;
   line-height: 3vh;
   text-transform: uppercase;
   color: #707480;
-  margin: 2% 0;
-}
-
-@media (min-width: 600px) {
-  .container .about > p {
-    line-height: 5vh;
-  }
-}
-
-@media (min-width: 1000px) {
-  .container .about > p {
-    line-height: 7vh;
-  }
+  margin: 7px 0 0 0;
 }
 
 @media (min-width: 1600px) {
@@ -284,25 +272,15 @@ header > button:active {
 .search-section input[type="text"] {
   font-family: "Raleway", sans-serif;
   font-size: 3vw;
-  letter-spacing: 0.02vw;
+  letter-spacing: 0.03vw;
   line-height: 3vh;
   text-transform: uppercase;
   color: #4a5680;
-  margin: 2% 0;
+  margin: 7px 0 0 0;
+  font-size: 3vw;
   width: 100%;
+  padding: 15px 10px;
   border: 0.3vw solid #707480;
-}
-
-@media (min-width: 600px) {
-  .search-section input[type="text"] {
-    line-height: 5vh;
-  }
-}
-
-@media (min-width: 1000px) {
-  .search-section input[type="text"] {
-    line-height: 7vh;
-  }
 }
 
 @media (min-width: 1600px) {
@@ -414,23 +392,14 @@ header > button:active {
 .dictionary-entrance .wordType {
   font-family: "Raleway", sans-serif;
   font-size: 3vw;
-  letter-spacing: 0.02vw;
+  letter-spacing: 0.03vw;
   line-height: 3vh;
   text-transform: uppercase;
-  color: #000;
-  margin: 2% 0;
-}
-
-@media (min-width: 600px) {
-  .dictionary-entrance .wordType {
-    line-height: 5vh;
-  }
-}
-
-@media (min-width: 1000px) {
-  .dictionary-entrance .wordType {
-    line-height: 7vh;
-  }
+  color: #ffffff;
+  margin: 7px 0 0 0;
+  background-color: #707480;
+  width: 12vw;
+  text-align: center;
 }
 
 @media (min-width: 1600px) {
@@ -442,23 +411,11 @@ header > button:active {
 .dictionary-entrance .definitions .definition {
   font-family: "Raleway", sans-serif;
   font-size: 3vw;
-  letter-spacing: 0.02vw;
+  letter-spacing: 0.03vw;
   line-height: 3vh;
   text-transform: uppercase;
-  color: #000;
-  margin: 2% 0;
-}
-
-@media (min-width: 600px) {
-  .dictionary-entrance .definitions .definition {
-    line-height: 5vh;
-  }
-}
-
-@media (min-width: 1000px) {
-  .dictionary-entrance .definitions .definition {
-    line-height: 7vh;
-  }
+  color: #707480;
+  margin: 7px 0 0 0;
 }
 
 @media (min-width: 1600px) {
@@ -576,25 +533,13 @@ header > button:active {
 .flashcard-section .flashcard .definitiondiv .definition {
   font-family: "Raleway", sans-serif;
   font-size: 3vw;
-  letter-spacing: 0.02vw;
+  letter-spacing: 0.03vw;
   line-height: 3vh;
   text-transform: uppercase;
   color: #ffffff;
-  margin: 2% 0;
+  margin: 7px 0 0 0;
   font-size: 2.5vw;
   text-align: center;
-}
-
-@media (min-width: 600px) {
-  .flashcard-section .flashcard .definitiondiv .definition {
-    line-height: 5vh;
-  }
-}
-
-@media (min-width: 1000px) {
-  .flashcard-section .flashcard .definitiondiv .definition {
-    line-height: 7vh;
-  }
 }
 
 @media (min-width: 1600px) {
@@ -693,24 +638,12 @@ header > button:active {
 .practice-list .list-container .list-div > p {
   font-family: "Raleway", sans-serif;
   font-size: 3vw;
-  letter-spacing: 0.02vw;
+  letter-spacing: 0.03vw;
   line-height: 3vh;
   text-transform: uppercase;
   color: #fff;
-  margin: 2% 0;
+  margin: 7px 0 0 0;
   font-size: 3vw;
-}
-
-@media (min-width: 600px) {
-  .practice-list .list-container .list-div > p {
-    line-height: 5vh;
-  }
-}
-
-@media (min-width: 1000px) {
-  .practice-list .list-container .list-div > p {
-    line-height: 7vh;
-  }
 }
 
 @media (min-width: 1600px) {
