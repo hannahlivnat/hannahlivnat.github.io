@@ -1,4 +1,31 @@
 
+#**WORD CONNOISSEUR**
+
+##**PROJECT DESCRIPTION**
+
+Word Connoisseur is for people who want to look up words and customize their 
+own word practice lists without going through the effort of making their
+own flash cards through a site such as Quizlet. 
+
+When the user gets to the site, they can look up a word and view it's definition. They can then interact with the word by adding it to their word list, which will make the word appear as a flash card at the bottom of the screen. Flash cards and practice lists are saved to local storage, so your words will still be there when you open the website again. Users can go to the practice list to delete their words. 
+
+![](project-one.gif)
+
+EXPLANATION OF TECHNOLOGY USED
+
+
+DESCRIPTION OF APPROACH TO PROJECT
+
+
+LINK TO LIVE SITE  : hannahlivnat.github.io/ga-project1
+
+INSTALLATION INSTRUCTIONS
+
+
+UNSOLVED PROBLEMS
+
+
+
 BEGINNING OF PROJECT PLAN
 
 API USED - MERRIAM WEBSTER COLLEGIATE DICTIONARY API
@@ -114,17 +141,3 @@ SCHEDULE
 
 
 
-FINAL PROJECT README
-
-EXPLANATION OF TECHNOLOGY USED
-
-
-DESCRIPTION OF APPROACH TO PROJECT
-
-
-LINK TO LIVE SITE  : hannahlivnat.github.io/ga-project1
-
-INSTALLATION INSTRUCTIONS
-
-
-UNSOLVED PROBLEMS

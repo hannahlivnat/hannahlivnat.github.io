@@ -14,6 +14,7 @@ $darkest-blue: #4a5680;
 $medium-blue: #7689cc;
 $lighest-blue: #e0e7ff;
 $grey: #707480;
+$light-grey: hrsl(150, 1, 77);
 
 // =====================================================
 // small element variables
@@ -264,13 +265,13 @@ header {
         @include flex-styling(row, space-between, center);
     }
 
-    @include flex-styling(column, center, center);
+    @include flex-styling(column, start, center);
     grid-area: header;
-    background-color: $darkest-blue;
+    background-color: $light-grey;
     color: whitesmoke;
 
     >h1 {
-        @include heading-text-font(7vw, 4vw, #fff);
+        @include heading-text-font(7vw, 4vw, $darkest-blue);
 
         @include breakpoint(md) {
             margin-left: 3vw;

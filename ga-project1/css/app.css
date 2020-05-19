@@ -171,9 +171,9 @@ header {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -181,7 +181,7 @@ header {
   -ms-grid-column: 1;
   -ms-grid-column-span: 3;
   grid-area: header;
-  background-color: #4a5680;
+  background-color: hrsl(150, 1, 77);
   color: whitesmoke;
 }
 
@@ -206,7 +206,7 @@ header {
 header > h1 {
   font-family: "Open Sans", sans-serif;
   font-size: 7vw;
-  color: #fff;
+  color: #4a5680;
   letter-spacing: 0.02vw;
 }
 
