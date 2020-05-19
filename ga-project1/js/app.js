@@ -1,4 +1,40 @@
 $(() => {
+    // ========================
+    // Functions Stored Here
+    // Local Storage
+    // DOM Creation Elements
+    // ========================
+
+    // ===================================================================================
+    // Function to Create Practice Item and Flash Card
+    // ===================================================================================
+    const createPracticeItemAndFlashCard = (word, definitions) => {
+        //create new empty flashcard
+        const $flashcarddiv = $("<div>").addClass("flashcard");
+        $(".flashcards").append($flashcarddiv);
+        //create h2 and div for flashcard
+        const $h2 = $("<h2>").text(word)
+            .attr('id', word);
+        // const $div = definitions
+        //     .clone()
+        //     .attr('class', 'definitiondiv')
+        //     .attr('id', 'definitiondiv')
+        //     .hide();
+        $($flashcarddiv).append($h2);
+        //create li item and icon for practice list 
+        const $practiceListDiv = $('<div>').addClass('list-div');
+        const $p = $("<p>").text(word);
+        const $x = $('<img>')
+            .attr('src', 'https://img.icons8.com/cotton/35/000000/delete-sign--v2.png')
+            .attr('class', 'delete-button');
+        $(".list-container").append($practiceListDiv);
+        $practiceListDiv.append($x, $p)
+
+        //make flashcard and practice list visible
+        $('.flashcard-section').css('visibility', 'visible');
+        $('.practice-list').css('visibility', 'visible');
+    }
+
     // ===================================================================================
     // Create Local Storage Array if Not Existing On Load / If Exists Grab Stored Items
     // ===================================================================================
@@ -13,8 +49,14 @@ $(() => {
     } else {
         const flashcards = JSON.parse(data);
         console.log(flashcards);
-    }
+        for (i = 0; i < flashcards.length; i++) {
+            const word = flashcards[i].vocabularyWord;
+            const definition = flashcards[i].definition;
+            console.log(word, definition);
+            createPracticeItemAndFlashCard(word, definition);
 
+        }
+    }
 
     // ===================================================================================
     // Save Objects to Local Storage
@@ -287,3 +329,4 @@ $(() => {
 //==================================================
 
 // local storage - https://medium.com/better-programming/how-to-use-local-storage-with-javascript-9598834c8b72
+//https://www.taniarascia.com/how-to-use-local-storage-with-javascript/
