@@ -13,9 +13,27 @@ $(() => {
     //     //use a loop to go through array and create a flashcard from each nested object
 
     // }
+    // ===================================================================================
+    // Function to Delete Objects from Local Storage
+    // ===================================================================================
 
+    const deleteFromStorage = (wordToDelete) => {
+        const flashcards = JSON.parse(localStorage.getItem('flashcardArr'));
+        for (flashcard in flashcards) {
+            const objectValues = Object.entries(flashcards[flashcard]);
+            for (value in objectValues) {
+                const array = objectValues[value];
+                for (i = 0; i < array.length; i++) {
+                    if (array[i] === wordToDelete) {
+                        const index = flashcards.indexOf(flashcards[flashcard]);
+                        flashcards.splice(index, 1);
+                    }
+                }
+            }
+        }
+        localStorage.setItem('flashcardArr', JSON.stringify(flashcards));
 
-
+    }
 
     // ===================================================================================
     // Event Listener to Hide and Display Practice List
@@ -196,7 +214,8 @@ $(() => {
                                 $('.flashcard-section').css('visibility', 'hidden');
                                 $('.practice-list').css('visibility', 'hidden');
                             }
-
+                            //remove word and def from local storage
+                            deleteFromStorage(wordToDelete);
                         });
 
                         // =============================
