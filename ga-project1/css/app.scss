@@ -423,7 +423,7 @@ header {
 
 .flashcard-section {
     @include breakpoint(sm) {
-        grid-template-columns: 90px 1fr 90px;
+        grid-template-columns: 70px 1fr 70px;
 
     }
 

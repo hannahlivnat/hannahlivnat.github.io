@@ -516,8 +516,8 @@ header > h1 {
 
 @media (min-width: 600px) {
   .flashcard-section {
-    -ms-grid-columns: 90px 1fr 90px;
-        grid-template-columns: 90px 1fr 90px;
+    -ms-grid-columns: 70px 1fr 70px;
+        grid-template-columns: 70px 1fr 70px;
   }
 }
 

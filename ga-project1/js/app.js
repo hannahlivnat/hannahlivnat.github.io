@@ -67,6 +67,20 @@ $(() => {
         });
     }
 
+    //=================================================
+    // Fix Resizing Issue from FlashCard flipper
+    //=================================================
+    const checkWidth = () => {
+        if ($(window).width() < 1000) {
+            $('.flashcard-section').css('width', '100%');
+            $('.flashcard-section').css('margin', 0);
+        } else if ($(window).width() > 1000) {
+            $('.flashcard-section').css('width', '50%');
+            $('.flashcard-section').css('margin', 'auto');
+        }
+    }
+    $(window).resize(checkWidth);
+
     //================================================
     // Function to Create Practice Item 
     //================================================
@@ -347,3 +361,5 @@ $(() => {
 //https://medium.com/better-programming/how-to-use-local-storage-with-javascript-9598834c8b72
 //https://www.taniarascia.com/how-to-use-local-storage-with-javascript/
 //https://www.tutorialrepublic.com/faq/how-to-check-if-an-element-is-hidden-using-jquery.php
+//https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onresize
+//https://www.w3schools.com/jquery/event_resize.asp
