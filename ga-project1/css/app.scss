@@ -220,8 +220,6 @@ body {
 
     @include breakpoint(md) {
         grid-template-rows: 75px 1fr 50px;
-        // background: no-repeat center/100% url('/images/background-image.jpg');
-
     }
 
     min-height: 100%;
@@ -484,6 +482,7 @@ header {
         display: none;
         background-color: $soft-white;
         border: $border;
+        border-color: $seagreen;
         padding: 5vh 2vw;
 
         >h2 {
