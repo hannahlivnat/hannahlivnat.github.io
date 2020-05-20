@@ -466,6 +466,10 @@ header {
         .fbutton2 {
             grid-area: img2;
         }
+
+        &:hover {
+            cursor: pointer;
+        }
     }
 
     .flashcards {

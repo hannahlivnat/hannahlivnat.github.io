@@ -564,6 +564,10 @@ header > h1 {
   grid-area: img2;
 }
 
+.flashcard-section .flashcard-button:hover {
+  cursor: pointer;
+}
+
 .flashcard-section .flashcards {
   -webkit-box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
           box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);

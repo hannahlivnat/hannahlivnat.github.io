@@ -45,10 +45,10 @@ VISIT LIVE SITE
 
 UNSOLVED PROBLEMS
 -----------------
-* FlashCards - There is overflow within the textbox of the description side of the flashcard that needs to be fixed
+* FlashCards - There is overflow within the textbox of the description side of the flashcard that I fixed by widening definition side, but makes flashcards look weird
 * Some of the features are vulnerable to breakage which could be made better by refactoring into one-purpose functions
 * A few of the nested for loops, particularly within local storage, seem really overnested, could be simplified with a different and more simple approach. 
-* Once the website gets under a certain pixel size (~350px, layout isn't great);
+* input stays zoomed in after return on mobile version
 
 
 
