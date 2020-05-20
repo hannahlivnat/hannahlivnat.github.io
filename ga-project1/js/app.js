@@ -252,9 +252,9 @@ $(() => {
             // Filter Should Return - word searched for
             // Pull data for - word searched for, definition,
             // =======================================
-
+            const myKey = config.key;
             $.ajax({
-                    url: `https://dictionaryapi.com/api/v3/references/collegiate/json/${wordSearched}?key=fa575937-7cb3-4693-97d6-5e6e4a352192`,
+                    url: `https://dictionaryapi.com/api/v3/references/collegiate/json/${wordSearched}?key=${myKey}`,
                     type: "GET",
                     data: {
                         $limit: 1,
