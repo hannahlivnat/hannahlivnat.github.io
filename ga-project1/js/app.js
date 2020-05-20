@@ -55,6 +55,11 @@ $(() => {
             const $def = $flashcard.children().eq(1);
             $word.toggle();
             $def.toggle();
+            if ($word.is(":hidden")) {
+                $('.flashcard-section').css('width', '100%');
+            } else if ($def.is(":hidden")) {
+                $('.flashcard-section').css('width', '50%');
+            }
         });
     }
 
@@ -340,3 +345,4 @@ $(() => {
 
 //https://medium.com/better-programming/how-to-use-local-storage-with-javascript-9598834c8b72
 //https://www.taniarascia.com/how-to-use-local-storage-with-javascript/
+//https://www.tutorialrepublic.com/faq/how-to-check-if-an-element-is-hidden-using-jquery.php

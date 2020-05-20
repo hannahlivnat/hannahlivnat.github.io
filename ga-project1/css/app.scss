@@ -328,7 +328,7 @@ header {
         grid-template-columns: 1fr 3fr 1fr;
         grid-template-areas: "search search search"
             ". dictionary ."
-            ". flashcard ."
+            "flashcard flashcard flashcard"
             "practice practice practice";
 
     }
@@ -427,6 +427,8 @@ header {
     grid-template-areas: "img1 flashcards img2";
     align-items: center;
     visibility: hidden;
+    width: 50%;
+    margin: auto;
 
     .flashcard-button {
         @include breakpoint(xs) {

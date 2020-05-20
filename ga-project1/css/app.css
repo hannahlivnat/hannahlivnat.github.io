@@ -280,7 +280,7 @@ header > h1 {
     row-gap: 40px;
     -ms-grid-columns: 1fr 3fr 1fr;
         grid-template-columns: 1fr 3fr 1fr;
-        grid-template-areas: "search search search" ". dictionary ." ". flashcard ." "practice practice practice";
+        grid-template-areas: "search search search" ". dictionary ." "flashcard flashcard flashcard" "practice practice practice";
   }
 }
 
@@ -504,6 +504,8 @@ header > h1 {
       -ms-flex-align: center;
           align-items: center;
   visibility: hidden;
+  width: 50%;
+  margin: auto;
 }
 
 @media (min-width: 600px) {
