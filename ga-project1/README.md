@@ -1,7 +1,7 @@
 
 WORD CONNOISSEUR - Flashcard Site
 ---------------------------------
-![](project-one.gif)
+![](projectone.gif)
 
 PROJECT DESCRIPTION
 --------------------
