@@ -277,7 +277,7 @@ header > h1 {
   .main {
     -ms-grid-rows: 100px 1fr 1fr auto;
         grid-template-rows: 100px 1fr 1fr auto;
-    row-gap: 40px;
+    row-gap: 100px;
     -ms-grid-columns: 1fr 3fr 1fr;
         grid-template-columns: 1fr 3fr 1fr;
         grid-template-areas: "search search search" ". dictionary ." "flashcard flashcard flashcard" "practice practice practice";
@@ -294,7 +294,7 @@ header > h1 {
   outline: none;
 }
 
-.search-section input[type="text"] {
+.search-section input {
   font-family: "Raleway", sans-serif;
   font-size: 3vw;
   letter-spacing: 0.03vw;
@@ -311,36 +311,44 @@ header > h1 {
 }
 
 @media (min-width: 600px) {
-  .search-section input[type="text"] {
+  .search-section input {
     font-size: 2vw;
     line-height: 3.5vh;
   }
 }
 
 @media (min-width: 1000px) {
-  .search-section input[type="text"] {
+  .search-section input {
     font-size: 1vw;
     line-height: 3vh;
   }
 }
 
-.search-section input[type="text"]::-webkit-input-placeholder {
+@media (min-width: 1000px) {
+  .search-section input {
+    width: 90%;
+    margin: 0 auto;
+    display: block;
+  }
+}
+
+.search-section input::-webkit-input-placeholder {
   color: #141414;
 }
 
-.search-section input[type="text"]:-ms-input-placeholder {
+.search-section input:-ms-input-placeholder {
   color: #141414;
 }
 
-.search-section input[type="text"]::-ms-input-placeholder {
+.search-section input::-ms-input-placeholder {
   color: #141414;
 }
 
-.search-section input[type="text"]::placeholder {
+.search-section input::placeholder {
   color: #141414;
 }
 
-.search-section input[type="text"]:hover, .search-section input[type="text"]:active {
+.search-section input:hover, .search-section input:active {
   cursor: text;
   outline: none;
 }
@@ -604,7 +612,6 @@ header > h1 {
   margin: 7px 0 0 0;
   font-size: 2.5vw;
   text-align: center;
-  overflow: scroll;
 }
 
 @media (min-width: 600px) {

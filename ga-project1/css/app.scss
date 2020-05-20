@@ -324,7 +324,7 @@ header {
 
     @include breakpoint(md) {
         grid-template-rows: 100px 1fr 1fr auto;
-        row-gap: 40px;
+        row-gap: 100px;
         grid-template-columns: 1fr 3fr 1fr;
         grid-template-areas: "search search search"
             ". dictionary ."
@@ -349,8 +349,15 @@ header {
     align-self: end;
     outline: none;
 
-    input[type="text"] {
+    input {
         @include p-text-font($black);
+
+        @include breakpoint(md) {
+            width: 90%;
+            margin: 0 auto;
+            display: block;
+        }
+
         font-family: $heading-font;
         letter-spacing: .04vw;
         font-size: 3vw;
@@ -475,7 +482,6 @@ header {
                 @include p-text-font($black);
                 font-size: 2.5vw;
                 text-align: center;
-                overflow: scroll;
             }
         }
 

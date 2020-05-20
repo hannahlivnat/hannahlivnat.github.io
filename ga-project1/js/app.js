@@ -106,10 +106,8 @@ $(() => {
 
     let flashcardArr;
     const data = localStorage.getItem(`flashcardArr`)
-
     if (data === null) {
         flashcardArr = [];
-        console.log('flashcardArr created');
         localStorage.setItem('flashcardArr', JSON.stringify(flashcardArr));
     } else if (data.length === 0) {
         console.log('flashcardArr has no cards');
@@ -122,7 +120,6 @@ $(() => {
             const $defdiv = $('<div>').attr('class', 'definitiondiv').hide();
             let definitions = flashcards[flashcard].definition.toString();
             definitions = definitions.replace("[", "").replace("]", "").replace(/"/g, '');
-            console.log(definitions);
             definitions = definitions.split(",").join("<br />");
             const $p = $('<p>').html(definitions).addClass('definition');
 
