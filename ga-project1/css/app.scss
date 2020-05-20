@@ -424,6 +424,12 @@ header {
 .flashcard-section {
     @include breakpoint(sm) {
         grid-template-columns: 90px 1fr 90px;
+
+    }
+
+    @include breakpoint(md) {
+        width: 50%;
+        margin: auto;
     }
 
     grid-area: flashcard;
@@ -434,8 +440,7 @@ header {
     grid-template-areas: "img1 flashcards img2";
     align-items: center;
     visibility: hidden;
-    width: 50%;
-    margin: auto;
+
 
     .flashcard-button {
         @include breakpoint(xs) {

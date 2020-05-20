@@ -55,10 +55,14 @@ $(() => {
             const $def = $flashcard.children().eq(1);
             $word.toggle();
             $def.toggle();
-            if ($word.is(":hidden")) {
-                $('.flashcard-section').css('width', '100%');
-            } else if ($def.is(":hidden")) {
-                $('.flashcard-section').css('width', '50%');
+            if ($(window).width() > 1000) {
+                if ($word.is(":hidden")) {
+                    $('.flashcard-section').css('width', '100%');
+                } else if ($def.is(":hidden")) {
+                    $('.flashcard-section').css('width', '50%');
+                    $('.flashcard-section').css('margin', 'auto');
+
+                }
             }
         });
     }
