@@ -24,7 +24,18 @@ definition to the DOM, event listener on add button, flashcard functionality, an
 INSTALLATION INSTRUCTIONS
 -------------------------
 
-No install needed. 
+Using this application requires an api key! I am using the Merriam Webster Collegiate Dictionary API, which can be accessed in the features/tech section below. 
+
+1) Register for api key from Merriam API, they have an almost immediate response. 
+2) clone this repo and, in your local repo, create a config.js file. Create a variable called "config" to hold your key: 
+
+  const config = {
+    key: 'your key goes here'
+  }
+
+3) You will now be able to use this application! I have my config.js in a .gitignore file, so if you do not make sure you change the src link in the index.html file. 
+
+More info can be found in this very helpful github article by user derzorngottes - https://gist.github.com/derzorngottes/3b57edc1f996dddcab25
 
 FEATURES / TECHNOLOGY USED
 --------------------------
