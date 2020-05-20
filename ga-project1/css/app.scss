@@ -3,8 +3,12 @@
 // Font-Stacks
 // =====================================================
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;800&family=Raleway:wght@200;400");
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300');
+@import url('https://fonts.googleapis.com/css2?family=Fredericka+the+Great');
 $raleway-font: ("Raleway", sans-serif);
 $opensans-font: ("Open Sans", sans-serif);
+$josefin-font: ("Josefin Sans", sans-serif);
+$heading-font: ('Fredericka the Great', cursive);
 
 // =====================================================
 // Color Scheme:
@@ -14,7 +18,11 @@ $darkest-blue: #4a5680;
 $medium-blue: #7689cc;
 $lighest-blue: #e0e7ff;
 $grey: #707480;
-$light-grey: hrsl(150, 1, 77);
+$light-grey: hsl(150, 1, 77);
+$soft-white: hsl(19, 15, 88);
+$black: hsl(0, 0, 8);
+$gold: hsl(37, 56, 65);
+$seagreen: hsl(159, 54, 33);
 
 // =====================================================
 // small element variables
@@ -26,7 +34,7 @@ $box-shadow: 2px 2px 5px rgba($color: #000000,
 $inset-box-shadow: inset 2px 2px 4px rgba($color: #000000,
     $alpha: 0.3,
 );
-$border: 0.3vw solid $grey;
+$border: 2px solid $black;
 
 // ===============================================
 // Placeholder Selectors and Mixins for Common Elements
@@ -91,7 +99,7 @@ $border: 0.3vw solid $grey;
         font-size: 1.5vw;
     }
 
-    border: 1px solid $grey;
+    border: $border;
     border-radius: 24px;
     background-color: $background-color;
     color: $color;
@@ -103,6 +111,7 @@ $border: 0.3vw solid $grey;
 
     &:hover {
         cursor: pointer;
+        border-color: $soft-white;
     }
 
     &:active {
@@ -131,6 +140,10 @@ $border: 0.3vw solid $grey;
         font-size: 1.5vw;
     }
 
+    @include breakpoint(md) {
+        font-size: .7vw;
+    }
+
     text-decoration: none;
     padding: 0;
     color: white;
@@ -147,7 +160,7 @@ $border: 0.3vw solid $grey;
         font-size: $mdsize;
     }
 
-    font-family: $opensans-font;
+    font-family: $josefin-font;
     font-size: $size;
     color: $color;
     letter-spacing: 0.02vw;
@@ -193,32 +206,33 @@ body {
 
 body {
     @include zero-margin-padding;
-    background-color: whitesmoke;
+    background-color: $black;
 }
 
 .container {
     @include breakpoint(xs) {
-        grid-template-rows: 150px 1fr 40px;
+        grid-template-rows: 100px 1fr 40px;
     }
 
     @include breakpoint(sm) {
-        grid-template-rows: 250px 1fr 40px;
+        grid-template-rows: 175px 1fr 40px;
     }
 
     @include breakpoint(md) {
-        grid-template-rows: 150px 1fr 40px;
+        grid-template-rows: 75px 1fr 50px;
+        // background: no-repeat center/100% url('/images/background-image.jpg');
+
     }
 
     min-height: 100%;
     width: 100%;
     display: grid;
-    grid-template-rows: 200px 1fr 40px;
+    grid-template-rows: 150px 1fr 40px;
     grid-row-gap: 5px;
     grid-template-columns: 20px 1fr 20px;
     grid-template-areas: "header header header"
     ". main ."
     "footer footer footer";
-
 
     .about {
         @include flex-styling(column, center, center);
@@ -226,7 +240,7 @@ body {
         z-index: 2;
         width: 90%;
         padding: 20px 20px;
-        background-color: whitesmoke;
+        background-color: $black;
         border: $border;
         box-shadow: $box-shadow;
         position: absolute;
@@ -234,16 +248,17 @@ body {
         right: 3%;
 
         >h2 {
-            @include heading-text-font(7vw, 3vw, $darkest-blue);
+            @include heading-text-font(7vw, 3vw, $seagreen);
+            font-family: $josefin-font;
             text-align: center;
         }
 
         >p {
-            @include p-text-font($grey);
+            @include p-text-font($soft-white);
         }
 
         >button {
-            @include button-styling($grey, #fff);
+            @include button-styling(transparent, $soft-white);
 
             @include breakpoint(sm) {
                 margin-top: 5vh;
@@ -267,28 +282,33 @@ header {
 
     @include flex-styling(column, start, center);
     grid-area: header;
-    background-color: $light-grey;
-    color: whitesmoke;
+    background-color: rgba($color: $black, $alpha: 0.99);
 
     >h1 {
-        @include heading-text-font(7vw, 4vw, $darkest-blue);
+        @include heading-text-font(5vw, 2vw, $soft-white);
+        font-family: $heading-font;
+        font-weight: 300;
+
+        @include breakpoint(xs) {
+            font-size: 6vw;
+        }
 
         @include breakpoint(md) {
-            margin-left: 3vw;
+            margin-left: 2vw;
         }
 
     }
 
-    >button {
-        @include button-styling(whitesmoke, $darkest-blue);
-
-        @include breakpoint(md) {
-            margin: 0 3vw 0 0;
-            font-size: 2vw;
-            padding: 1vh 3vw;
+    >img {
+        @include breakpoint(xs) {
+            width: 30px;
+            height: auto;
         }
 
-        padding: 1vh 5vw;
+        @include breakpoint(md) {
+            margin-right: 4vw;
+
+        }
     }
 }
 
@@ -317,17 +337,22 @@ header {
     "dictionary"
     "flashcard"
     "practice";
-
 }
 
 .search-section {
     grid-area: search;
+    align-self: end;
+    outline: none;
 
     input[type="text"] {
-        @include p-text-font($darkest-blue);
+        @include p-text-font($black);
+        font-family: $heading-font;
+        letter-spacing: .04vw;
 
         @include breakpoint(md) {
             width: 70%;
+            margin: auto;
+
         }
 
         font-size: 3vw;
@@ -336,12 +361,13 @@ header {
         border: $border;
 
         &::placeholder {
-            color: $darkest-blue;
+            color: $black;
         }
 
         &:hover,
         &:active {
             cursor: text;
+            outline: none;
         }
     }
 }
@@ -350,7 +376,7 @@ header {
     grid-area: dictionary;
 
     .errorH2 {
-        @include heading-text-font(6vw, 4vw, $darkest-blue);
+        @include heading-text-font(6vw, 4vw, $soft-white);
         text-align: center;
     }
 
@@ -358,12 +384,12 @@ header {
         @include flex-styling(row, space-between, center);
 
         .vocab {
-            @include heading-text-font(6vw, 4vw, $darkest-blue);
+            @include heading-text-font(6vw, 4vw, $soft-white);
             margin: 0;
         }
 
         >button {
-            @include button-styling($darkest-blue, #fff);
+            @include button-styling(transparent, #fff);
 
             @include breakpoint(md) {
                 padding: 1vw;
@@ -375,8 +401,8 @@ header {
     }
 
     .wordType {
-        @include p-text-font(#ffffff);
-        background-color: $grey;
+        @include p-text-font($soft-white);
+        background-color: $seagreen;
         width: 12vw;
         text-align: center;
     }
@@ -385,7 +411,7 @@ header {
         margin-top: 3vh;
 
         .definition {
-            @include p-text-font($grey);
+            @include p-text-font($soft-white);
         }
     }
 }
@@ -436,17 +462,17 @@ header {
         @include flex-styling(column, center, center);
         @include fill-parent-container;
         display: none;
-        background-color: $darkest-blue;
+        background-color: $soft-white;
         border: $border;
         padding: 5vh 2vw;
 
         >h2 {
-            @include heading-text-font(5vw, 2.5vw, $lighest-blue);
+            @include heading-text-font(5vw, 2.5vw, $seagreen);
         }
 
         .definitiondiv {
             .definition {
-                @include p-text-font(#ffffff);
+                @include p-text-font($black);
                 font-size: 2.5vw;
                 text-align: center;
                 overflow: scroll;
@@ -481,8 +507,8 @@ header {
     visibility: hidden;
 
     >h2 {
-        @include heading-text-font(4vw, 2.5vw, $darkest-blue);
-        @include zero-margin-padding();
+        @include heading-text-font(4vw, 2.5vw, $soft-white);
+        @include zero-margin-padding;
         width: 100%;
         text-align: center;
     }
@@ -493,7 +519,6 @@ header {
         width: 95%;
         margin: auto;
         display: none;
-        background-color: $darkest-blue;
 
         .list-div {
             @include flex-styling(row, space-between, center);
@@ -502,7 +527,7 @@ header {
             padding: 5px 10px;
 
             >p {
-                @include p-text-font(#fff);
+                @include p-text-font($soft-white);
                 font-size: 3vw;
             }
 
@@ -522,12 +547,23 @@ header {
 footer {
     @include flex-styling(row, space-between, center);
     grid-area: footer;
-    background-color: $darkest-blue;
+    background-color: rgba($color: $black, $alpha: 0.7);
     color: white;
+    border-top: 2px dotted $grey;
 
     a {
         @include a-tag-styling;
         margin: 0 3vw;
+    }
+
+    .myfooteritems {
+        @include flex-styling(row, space-around, center);
+
+        img {
+            @include breakpoint(xs) {
+                width: 20px;
+            }
+        }
     }
 
 }

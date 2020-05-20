@@ -10,14 +10,14 @@ Word Connoisseur is for people who want to look up words and customize their
 own word practice lists without going through the effort of making their
 own flash cards through a site such as Quizlet. 
 
-When the user gets to the site, they can look up a word and view it's definition. They can then interact with the word by adding it to their word list, which will make the word appear as a flash card at the bottom of the screen. Flash cards and practice lists are saved to local storage, so your words will still be there when you open the website again. Users can go to the practice list to delete their words. 
+When the user gets to the site, they can look up a word and view its definition. They can then interact with the word by adding it to their word list, which will make the word appear as a flash card at the bottom of the screen. Flash cards and practice lists are saved to local storage, so your words will still be there when you open the website again. Users can go to the practice list to delete their words. 
 
 APPROACH TAKEN
 ---------------
-1) I started off by laying out the HTML and the basic css positioning for the mobile site. 
+1) I started off by laying out the HTML and the basic CSS positioning for the mobile site. 
 2) Next, I worked on the mvp features from the top down: event listener on input, adding word and 
-definition to the DOM, event listener on add button, flashcard functionality, and pratice list creation. 
-3) Next, I did basic css positioning for the desktop site
+definition to the DOM, event listener on add button, flashcard functionality, and practice list creation. 
+3) Next, I did basic CSS positioning for the desktop site
 4) Moved on to local storage, revisited js features with local storage in mind to refactor where needed
 5) CSS design
 
@@ -30,7 +30,8 @@ FEATURES / TECHNOLOGY USED
 --------------------------
 
 API : Merriam Webster Collegiate Dictionary API - https://dictionaryapi.com/products/index
-Languages, Libraries, and PreProcessors : CSS, Sass/SCSS, JavaScript, jQuery
+
+Languages, Libraries, and Preprocessors : CSS, Sass/SCSS, JavaScript, jQuery
 
 Main Features : 
 * UI feature - instructions modal that is opened and closed by event listener on header button and modal button

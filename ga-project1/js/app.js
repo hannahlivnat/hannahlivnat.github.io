@@ -3,14 +3,44 @@ $(() => {
     // ------------------------------- Functions ----------------------------------------
     // ===================================================================================
 
-    //================================================
+    //=================================================
     // Function to Toggle Flashcard/Practice Visibility
-    //================================================
+    //=================================================
 
     const hideOrShowFlashAndPractice = (visibleOrHidden) => {
         $('.flashcard-section').css('visibility', visibleOrHidden);
         $('.practice-list').css('visibility', visibleOrHidden);
     }
+
+    // ===================================================================================
+    // Event Listener to Hide and Display Practice List
+    // ===================================================================================
+
+    $("#display-ul").on("click", (event) => {
+        const $listDiv = $(".list-container");
+        if ($listDiv.css('display') == 'none') {
+            $listDiv.css('display', 'flex');
+        } else {
+            $listDiv.css('display', 'none');
+        }
+    });
+
+    // ===================================================================================
+    // Event Listener to Hide and Display Instructions Div
+    // ===================================================================================
+
+    $("#toggle-instructions-button").on("click", () => {
+        $(".about").css("display", "flex");
+        $(".main").css("visibility", "hidden");
+        $('footer').css("visibility", 'hidden');
+    });
+
+    $("#close").on("click", () => {
+        $(".about").css("display", "none");
+        $(".main").css("visibility", "visible");
+        $('footer').css("visibility", "visible");
+
+    });
 
     //================================================
     // Function to Add Event Listener on FlashCard
@@ -35,7 +65,7 @@ $(() => {
     const createPracticeItem = (word) => {
         const $practiceListDiv = $('<div>').addClass('list-div');
         const $x = $('<img>')
-            .attr('src', 'https://img.icons8.com/cotton/35/000000/delete-sign--v2.png')
+            .attr('src', 'https://img.icons8.com/wired/35/ffffff/delete-sign.png')
             .attr('class', 'delete-button');
         const $p = $("<p>").text(word);
         $(".list-container").append($practiceListDiv);
@@ -151,36 +181,6 @@ $(() => {
         localStorage.setItem('flashcardArr', JSON.stringify(flashcards));
 
     }
-
-    // ===================================================================================
-    // Event Listener to Hide and Display Practice List
-    // ===================================================================================
-
-    $("#display-ul").on("click", (event) => {
-        const $listDiv = $(".list-container");
-        if ($listDiv.css('display') == 'none') {
-            $listDiv.css('display', 'flex');
-        } else {
-            $listDiv.css('display', 'none');
-        }
-    });
-
-    // ===================================================================================
-    // Event Listener to Hide and Display Instructions Div
-    // ===================================================================================
-
-    $("#toggle-instructions-button").on("click", () => {
-        $(".about").css("display", "flex");
-        $(".main").css("visibility", "hidden");
-        $('footer').css("visibility", 'hidden');
-    });
-
-    $("#close").on("click", () => {
-        $(".about").css("display", "none");
-        $(".main").css("visibility", "visible");
-        $('footer').css("visibility", "visible");
-
-    });
 
     // ===================================================================================
     // Create Carousel Effect in FlashCard Section

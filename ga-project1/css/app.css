@@ -1,4 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;800&family=Raleway:wght@200;400");
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300");
+@import url("https://fonts.googleapis.com/css2?family=Fredericka+the+Great");
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -18,7 +20,7 @@ body {
 body {
   margin: 0;
   padding: 0;
-  background-color: whitesmoke;
+  background-color: #141414;
 }
 
 .container {
@@ -26,8 +28,8 @@ body {
   width: 100%;
   display: -ms-grid;
   display: grid;
-  -ms-grid-rows: 200px 1fr 40px;
-      grid-template-rows: 200px 1fr 40px;
+  -ms-grid-rows: 150px 1fr 40px;
+      grid-template-rows: 150px 1fr 40px;
   grid-row-gap: 5px;
   -ms-grid-columns: 20px 1fr 20px;
       grid-template-columns: 20px 1fr 20px;
@@ -36,22 +38,22 @@ body {
 
 @media (max-width: 350px) {
   .container {
-    -ms-grid-rows: 150px 1fr 40px;
-        grid-template-rows: 150px 1fr 40px;
+    -ms-grid-rows: 100px 1fr 40px;
+        grid-template-rows: 100px 1fr 40px;
   }
 }
 
 @media (min-width: 600px) {
   .container {
-    -ms-grid-rows: 250px 1fr 40px;
-        grid-template-rows: 250px 1fr 40px;
+    -ms-grid-rows: 175px 1fr 40px;
+        grid-template-rows: 175px 1fr 40px;
   }
 }
 
 @media (min-width: 1000px) {
   .container {
-    -ms-grid-rows: 150px 1fr 40px;
-        grid-template-rows: 150px 1fr 40px;
+    -ms-grid-rows: 75px 1fr 50px;
+        grid-template-rows: 75px 1fr 50px;
   }
 }
 
@@ -73,8 +75,8 @@ body {
   z-index: 2;
   width: 90%;
   padding: 20px 20px;
-  background-color: whitesmoke;
-  border: 0.3vw solid #707480;
+  background-color: #141414;
+  border: 2px solid #141414;
   -webkit-box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
           box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
   position: absolute;
@@ -83,10 +85,11 @@ body {
 }
 
 .container .about > h2 {
-  font-family: "Open Sans", sans-serif;
+  font-family: "Josefin Sans", sans-serif;
   font-size: 7vw;
-  color: #4a5680;
+  color: #278262;
   letter-spacing: 0.02vw;
+  font-family: "Josefin Sans", sans-serif;
   text-align: center;
 }
 
@@ -102,7 +105,7 @@ body {
   letter-spacing: 0.03vw;
   line-height: 3vh;
   text-transform: uppercase;
-  color: #707480;
+  color: #e5dfdc;
   margin: 7px 0 0 0;
 }
 
@@ -121,10 +124,10 @@ body {
 }
 
 .container .about > button {
-  border: 1px solid #707480;
+  border: 2px solid #141414;
   border-radius: 24px;
-  background-color: #707480;
-  color: #fff;
+  background-color: transparent;
+  color: #e5dfdc;
   font-size: 3vw;
   letter-spacing: 0.05vw;
   font-family: "Raleway", sans-serif;
@@ -143,6 +146,7 @@ body {
 
 .container .about > button:hover {
   cursor: pointer;
+  border-color: #e5dfdc;
 }
 
 .container .about > button:active {
@@ -181,8 +185,7 @@ header {
   -ms-grid-column: 1;
   -ms-grid-column-span: 3;
   grid-area: header;
-  background-color: hrsl(150, 1, 77);
-  color: whitesmoke;
+  background-color: rgba(20, 20, 20, 0.99);
 }
 
 @media (min-width: 1000px) {
@@ -204,58 +207,42 @@ header {
 }
 
 header > h1 {
-  font-family: "Open Sans", sans-serif;
-  font-size: 7vw;
-  color: #4a5680;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 5vw;
+  color: #e5dfdc;
   letter-spacing: 0.02vw;
+  font-family: "Fredericka the Great", cursive;
+  font-weight: 300;
 }
 
 @media (min-width: 1000px) {
   header > h1 {
-    font-size: 4vw;
-  }
-}
-
-@media (min-width: 1000px) {
-  header > h1 {
-    margin-left: 3vw;
-  }
-}
-
-header > button {
-  border: 1px solid #707480;
-  border-radius: 24px;
-  background-color: whitesmoke;
-  color: #4a5680;
-  font-size: 3vw;
-  letter-spacing: 0.05vw;
-  font-family: "Raleway", sans-serif;
-  -webkit-box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-          box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-  outline: none;
-  padding: 1vh 5vw;
-}
-
-@media (min-width: 1000px) {
-  header > button {
-    font-size: 1.5vw;
-  }
-}
-
-header > button:hover {
-  cursor: pointer;
-}
-
-header > button:active {
-  -webkit-box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.3);
-          box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-@media (min-width: 1000px) {
-  header > button {
-    margin: 0 3vw 0 0;
     font-size: 2vw;
-    padding: 1vh 3vw;
+  }
+}
+
+@media (max-width: 350px) {
+  header > h1 {
+    font-size: 6vw;
+  }
+}
+
+@media (min-width: 1000px) {
+  header > h1 {
+    margin-left: 2vw;
+  }
+}
+
+@media (max-width: 350px) {
+  header > img {
+    width: 30px;
+    height: auto;
+  }
+}
+
+@media (min-width: 1000px) {
+  header > img {
+    margin-right: 4vw;
   }
 }
 
@@ -295,6 +282,10 @@ header > button:active {
   -ms-grid-row: 1;
   -ms-grid-column: 1;
   grid-area: search;
+  -ms-flex-item-align: end;
+      -ms-grid-row-align: end;
+      align-self: end;
+  outline: none;
 }
 
 .search-section input[type="text"] {
@@ -303,12 +294,14 @@ header > button:active {
   letter-spacing: 0.03vw;
   line-height: 3vh;
   text-transform: uppercase;
-  color: #4a5680;
+  color: #141414;
   margin: 7px 0 0 0;
+  font-family: "Fredericka the Great", cursive;
+  letter-spacing: .04vw;
   font-size: 3vw;
   width: 100%;
   padding: 15px 10px;
-  border: 0.3vw solid #707480;
+  border: 2px solid #141414;
 }
 
 @media (min-width: 600px) {
@@ -328,27 +321,29 @@ header > button:active {
 @media (min-width: 1000px) {
   .search-section input[type="text"] {
     width: 70%;
+    margin: auto;
   }
 }
 
 .search-section input[type="text"]::-webkit-input-placeholder {
-  color: #4a5680;
+  color: #141414;
 }
 
 .search-section input[type="text"]:-ms-input-placeholder {
-  color: #4a5680;
+  color: #141414;
 }
 
 .search-section input[type="text"]::-ms-input-placeholder {
-  color: #4a5680;
+  color: #141414;
 }
 
 .search-section input[type="text"]::placeholder {
-  color: #4a5680;
+  color: #141414;
 }
 
 .search-section input[type="text"]:hover, .search-section input[type="text"]:active {
   cursor: text;
+  outline: none;
 }
 
 .dictionary-entrance {
@@ -358,9 +353,9 @@ header > button:active {
 }
 
 .dictionary-entrance .errorH2 {
-  font-family: "Open Sans", sans-serif;
+  font-family: "Josefin Sans", sans-serif;
   font-size: 6vw;
-  color: #4a5680;
+  color: #e5dfdc;
   letter-spacing: 0.02vw;
   text-align: center;
 }
@@ -388,9 +383,9 @@ header > button:active {
 }
 
 .dictionary-entrance .wordHolder .vocab {
-  font-family: "Open Sans", sans-serif;
+  font-family: "Josefin Sans", sans-serif;
   font-size: 6vw;
-  color: #4a5680;
+  color: #e5dfdc;
   letter-spacing: 0.02vw;
   margin: 0;
 }
@@ -402,9 +397,9 @@ header > button:active {
 }
 
 .dictionary-entrance .wordHolder > button {
-  border: 1px solid #707480;
+  border: 2px solid #141414;
   border-radius: 24px;
-  background-color: #4a5680;
+  background-color: transparent;
   color: #fff;
   font-size: 3vw;
   letter-spacing: 0.05vw;
@@ -424,6 +419,7 @@ header > button:active {
 
 .dictionary-entrance .wordHolder > button:hover {
   cursor: pointer;
+  border-color: #e5dfdc;
 }
 
 .dictionary-entrance .wordHolder > button:active {
@@ -443,9 +439,9 @@ header > button:active {
   letter-spacing: 0.03vw;
   line-height: 3vh;
   text-transform: uppercase;
-  color: #ffffff;
+  color: #e5dfdc;
   margin: 7px 0 0 0;
-  background-color: #707480;
+  background-color: #278262;
   width: 12vw;
   text-align: center;
 }
@@ -474,7 +470,7 @@ header > button:active {
   letter-spacing: 0.03vw;
   line-height: 3vh;
   text-transform: uppercase;
-  color: #707480;
+  color: #e5dfdc;
   margin: 7px 0 0 0;
 }
 
@@ -554,7 +550,7 @@ header > button:active {
   -ms-grid-row: 1;
   -ms-grid-column: 2;
   grid-area: flashcards;
-  border: 0.3vw solid #707480;
+  border: 2px solid #141414;
 }
 
 .flashcard-section .flashcard {
@@ -579,15 +575,15 @@ header > button:active {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   display: none;
-  background-color: #4a5680;
-  border: 0.3vw solid #707480;
+  background-color: #e5dfdc;
+  border: 2px solid #141414;
   padding: 5vh 2vw;
 }
 
 .flashcard-section .flashcard > h2 {
-  font-family: "Open Sans", sans-serif;
+  font-family: "Josefin Sans", sans-serif;
   font-size: 5vw;
-  color: #e0e7ff;
+  color: #278262;
   letter-spacing: 0.02vw;
 }
 
@@ -603,7 +599,7 @@ header > button:active {
   letter-spacing: 0.03vw;
   line-height: 3vh;
   text-transform: uppercase;
-  color: #ffffff;
+  color: #141414;
   margin: 7px 0 0 0;
   font-size: 2.5vw;
   text-align: center;
@@ -670,9 +666,9 @@ header > button:active {
 }
 
 .practice-list > h2 {
-  font-family: "Open Sans", sans-serif;
+  font-family: "Josefin Sans", sans-serif;
   font-size: 4vw;
-  color: #4a5680;
+  color: #e5dfdc;
   letter-spacing: 0.02vw;
   margin: 0;
   padding: 0;
@@ -705,7 +701,6 @@ header > button:active {
   width: 95%;
   margin: auto;
   display: none;
-  background-color: #4a5680;
 }
 
 .practice-list .list-container .list-div {
@@ -733,7 +728,7 @@ header > button:active {
   letter-spacing: 0.03vw;
   line-height: 3vh;
   text-transform: uppercase;
-  color: #fff;
+  color: #e5dfdc;
   margin: 7px 0 0 0;
   font-size: 3vw;
 }
@@ -774,8 +769,9 @@ footer {
   -ms-grid-column: 1;
   -ms-grid-column-span: 3;
   grid-area: footer;
-  background-color: #4a5680;
+  background-color: rgba(20, 20, 20, 0.7);
   color: white;
+  border-top: 2px dotted #707480;
 }
 
 footer a {
@@ -793,7 +789,34 @@ footer a {
   }
 }
 
+@media (min-width: 1000px) {
+  footer a {
+    font-size: .7vw;
+  }
+}
+
 footer a:hover {
   cursor: pointer;
+}
+
+footer .myfooteritems {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media (max-width: 350px) {
+  footer .myfooteritems img {
+    width: 20px;
+  }
 }
 /*# sourceMappingURL=app.css.map */
