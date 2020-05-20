@@ -84,6 +84,12 @@ body {
   right: 3%;
 }
 
+@media (min-width: 1000px) {
+  .container .about {
+    padding: 20px 75px;
+  }
+}
+
 .container .about > h2 {
   font-family: "Josefin Sans", sans-serif;
   font-size: 7vw;
@@ -315,13 +321,6 @@ header > h1 {
   .search-section input[type="text"] {
     font-size: 1vw;
     line-height: 3vh;
-  }
-}
-
-@media (min-width: 1000px) {
-  .search-section input[type="text"] {
-    width: 70%;
-    margin: auto;
   }
 }
 
