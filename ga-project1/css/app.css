@@ -260,7 +260,7 @@ header > h1 {
   display: grid;
   -ms-grid-rows: 60px 1fr 1fr auto;
       grid-template-rows: 60px 1fr 1fr auto;
-  grid-row-gap: 20px;
+  grid-row-gap: 40px;
   -ms-grid-columns: 100%;
       grid-template-columns: 100%;
       grid-template-areas: "search" "dictionary" "flashcard" "practice";
@@ -277,7 +277,7 @@ header > h1 {
   .main {
     -ms-grid-rows: 100px 1fr 1fr auto;
         grid-template-rows: 100px 1fr 1fr auto;
-    row-gap: 100px;
+    row-gap: 50px;
     -ms-grid-columns: 1fr 3fr 1fr;
         grid-template-columns: 1fr 3fr 1fr;
         grid-template-areas: "search search search" ". dictionary ." "flashcard flashcard flashcard" "practice practice practice";
@@ -449,8 +449,14 @@ header > h1 {
   color: #e5dfdc;
   margin: 7px 0 0 0;
   background-color: #278262;
-  width: 12vw;
+  width: 16vw;
   text-align: center;
+}
+
+@media (min-width: 1000px) {
+  .dictionary-entrance .wordType {
+    width: 13vw;
+  }
 }
 
 @media (min-width: 600px) {

@@ -324,7 +324,7 @@ header {
 
     @include breakpoint(md) {
         grid-template-rows: 100px 1fr 1fr auto;
-        row-gap: 100px;
+        row-gap: 50px;
         grid-template-columns: 1fr 3fr 1fr;
         grid-template-areas: "search search search"
             ". dictionary ."
@@ -336,7 +336,7 @@ header {
     grid-area: main;
     display: grid;
     grid-template-rows: 60px 1fr 1fr auto;
-    grid-row-gap: 20px;
+    grid-row-gap: 40px;
     grid-template-columns: 100%;
     grid-template-areas: "search"
     "dictionary"
@@ -406,9 +406,13 @@ header {
     }
 
     .wordType {
+        @include breakpoint(md) {
+            width: 13vw;
+        }
+
         @include p-text-font($soft-white);
         background-color: $seagreen;
-        width: 12vw;
+        width: 16vw;
         text-align: center;
     }
 
