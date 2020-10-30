@@ -52,7 +52,7 @@ Main Features :
 
 VISIT LIVE SITE
 ---------------
-* Link to Site: hannahlivnat.github.io/ga-project1
+* Link to Site: hannahlivnat.github.io/ga-project1 (Site not connected to Webster API, download and serve locally with API key)
 
 UNSOLVED PROBLEMS
 -----------------
